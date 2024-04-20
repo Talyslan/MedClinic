@@ -1,3 +1,6 @@
+
+![Banner (1)](https://github.com/Talyslan/MedClinic/assets/78499700/50b81edf-b8d5-41e3-9130-e974e4d4d940)
+
 # MedClinic 💉
 
 ## Objetivo
