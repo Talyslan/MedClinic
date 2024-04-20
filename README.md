@@ -20,7 +20,7 @@ O objetivo deste projeto é proporcionar aos alunos oportunidade para aplicar os
 
 
 ## Programação Orientada a Objetos
--Orientador: Ricardo Rubens.
+- Orientador: Ricardo Rubens.
 
 ### 👨‍🎓 Integrantes:
 - Maria Izabel dos Santos Oliveira (tarefa desempenhada).
