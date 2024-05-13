@@ -1,0 +1,16 @@
+.lado-design {
+    gap: .6em;
+    color: var(--branco);
+}
+
+.lado-design h1 {
+    font-size: 3em;
+}
+
+.lado-design p {
+    font-size: 1.2em;
+}
+
+.lado-design img {
+    width: 100%;
+}

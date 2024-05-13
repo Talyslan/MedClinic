@@ -1,0 +1,54 @@
+/* Inputs */
+form .inputs {
+    gap: 1em;
+}
+
+form .inputs > label {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 3.5em;
+    background: var(--cinza);
+    border-radius: var(--arredondandamento);
+}
+
+form .inputs > label input {
+    border-radius: var(--arredondandamento);
+    background: none;
+    width: 100%;
+    height: 100%;
+    padding: 1em;
+    font-size: 1em;
+}
+
+/* Span e Imagem */
+form .inputs > label span,
+form .inputs > label img {
+    position: absolute;
+    top: 35%;
+}
+
+form .inputs > label span {
+    color: var(--cinza-200);
+    cursor: text;
+    left: 16px;
+    font-size: 1em;
+}
+
+form .inputs > label img {
+    cursor: pointer;
+    right: 16px;
+    width: 16px;
+}
+
+/* Input Lembrar */
+form .inputs .input-lembrar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+form .inputs .input-lembrar label span {
+    cursor: pointer;
+}

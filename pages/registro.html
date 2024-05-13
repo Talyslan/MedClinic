@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../public/favicon.ico" type="image/x-icon">
+    
+    <!-- CSS Links - Base -->
+    <link rel="stylesheet" href="../src/front-end/css/reset.css">
+    <link rel="stylesheet" href="../src/front-end/css/global.css">
+    <!-- CSS Links - Registro -->
+    <!-- CSS Links - Login -->
+    <link rel="stylesheet" href="../src/front-end/css/login-registro/geral-login-registro.css">
+    <link rel="stylesheet" href="../src/front-end/css/login-registro/lado-design.css">
+    <link rel="stylesheet" href="../src/front-end/css/login-registro/form/form-inpunts.css">
+    <link rel="stylesheet" href="../src/front-end/css/login-registro/form/form.css">
+    <link rel="stylesheet" href="../src/front-end/css/login-registro/lado-form.css">
+
+    <title>MedClinic - Registro</title>
+</head>
+<body>
+    <main>
+        <div class="lado-form">
+            <img src="../public/logos/logo-c-nome-baixo.svg" alt="Logo MedClinic">
+            
+            <form action="/" method="post">
+                <h1>crie sua conta</h1>
+
+                <div class="inputs">
+                    <label for="nome">
+                        <input type="text" name="nome" id="nome">
+                        <span>nome completo</span>
+                    </label>
+                    <label for="cpf">
+                        <input type="text" name="cpf" id="cpf">
+                        <span>cpf</span>
+                    </label>
+                    <label for="email">
+                        <input type="email" name="email" id="email">
+                        <span>email</span>
+                        <img src="../public/login-registro-page/form-icon/aroba.png" alt="Arroba do email">
+                    </label>
+                    <label for="senha">
+                        <input type="password" name="senha" id="senha">
+                        <span>senha</span>
+                        <img src="../public/login-registro-page/form-icon/cadeado-fechado.png" alt="Cadeado da Senha">
+                    </label>
+                    
+                    <label for="senha-confirmar">
+                        <input type="password" name="senha-confirmar" id="senha-confirmar">
+                        <span>confirmar senha</span>
+                        <img src="../public/login-registro-page/form-icon/cadeado-fechado.png" alt="Cadeado da Senha">
+                    </label>
+                    <label for="data-nascimento">
+                        <input type="date" name="data-nascimento" id="data-nascimento">
+                        <span>data de nascimento</span>
+                    </label>
+                </div>
+
+                <button type="submit">criar</button>
+            </form>
+
+            <p>
+                Já tem uma conta?
+                <a href="./login.html">Entre com sua conta aqui.</a>
+            </p>
+        </div>
+        <div class="lado-design">
+            <h1>Seja bem vindo ao nosso site!</h1>
+            <p>Juntos pela sua saúde, sempre na MedClinic!</p>
+            <img src="../public/login-registro-page/medica-2.png" alt="Médica Ilustração">
+        </div>
+    </main>
+</body>
+</html>

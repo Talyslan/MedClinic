@@ -1,0 +1,29 @@
+@font-face {
+    font-family: 'League Spartan';
+    src: url('../../../font/LeagueSpartan-VF.ttf');
+}
+
+:root {
+    /* Cores */
+    --azul: #5B24A6;
+    --verde: #24A68E;
+    --verde-escuro-opacity: #00392F;
+    --verde-escuro: #00392F;
+    --vermelho: #AC3C3C;
+    --text-azul: #60E2FE;
+    /* Cores Neutras */
+    --preto: #292929;
+    --branco: #EBF1F3;
+    --cinza: #E3EBED;
+    --cinza-200: #C3C3C3;
+    --cinza-400: #868686;
+    /* Borda */
+    --arredondandamento: 1.3em;
+}
+
+body, 
+button,
+input {
+    font-family: 'League Spartan';
+    font-weight: normal;
+}

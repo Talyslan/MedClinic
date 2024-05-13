@@ -1,0 +1,18 @@
+.lado-form {
+    background: var(--branco);
+    justify-content: space-between;
+}
+
+.lado-form > img {
+    width: 15%;
+}
+
+/* Links */
+.lado-form a {
+    color: var(--verde);
+    text-decoration: underline;
+}
+
+.lado-form > p a {
+    font-weight: bold;
+}

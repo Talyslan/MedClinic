@@ -1,0 +1,15 @@
+main {
+    display: flex;
+    background: var(--verde);
+    height: 100vh;
+}
+
+.lado-design,
+.lado-form {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3em;
+    text-align: center;
+}
