@@ -38,6 +38,8 @@ a {
     border-radius: 1.5em 0 1.5em 0;
     color: var(--branco);
     background: var(--verde-escuro-opacity);
+    text-transform: capitalize;
+    font-weight: bold;
     transition: 0.5s ease;
 }
 
