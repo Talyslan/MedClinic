@@ -7,7 +7,7 @@
     /* Cores */
     --azul: #5B24A6;
     --verde: #24A68E;
-    --verde-escuro-opacity: #00392F;
+    --verde-escuro-opacity: #00392fad;
     --verde-escuro: #00392F;
     --vermelho: #AC3C3C;
     --text-azul: #60E2FE;
@@ -26,4 +26,21 @@ button,
 input {
     font-family: 'League Spartan';
     font-weight: normal;
+}
+
+a {
+    color: var(--branco);
+}
+
+/* Classes Globais */
+.btn {
+    padding: .7em 1em;
+    border-radius: 1.5em 0 1.5em 0;
+    color: var(--branco);
+    background: var(--verde-escuro-opacity);
+    transition: 0.5s ease;
+}
+
+.btn:hover {
+    background: var(--verde-escuro);
 }

@@ -1,0 +1,33 @@
+#hero {
+    background: var(--branco) url('../../../../public/main-page/background-hero.jpg') no-repeat scroll center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 2em;
+    padding: 0 5em;
+    color: var(--branco);
+}
+
+/* h1 Config */
+#hero h1 {
+    font-size: 7em;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+#hero h1 strong {
+    background: var(--verde-escuro-opacity);
+    color: var(--verde);
+}
+
+/* p Config */
+#hero p {
+    width: 40%;
+    font-size: 1.2em;
+}
+
+/* button Config */
+#hero button {
+    font-size: 1.5em;
+}

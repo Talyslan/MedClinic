@@ -10,22 +10,50 @@
     <link rel="stylesheet" href="./src/front-end/css/reset.css">
     <link rel="stylesheet" href="./src/front-end/css/global.css">
 
+    <link rel="stylesheet" href="./src/front-end/css/tela-principal/main.css">
+    <!-- CSS Links - Header -->
+    <link rel="stylesheet" href="./src/front-end/css/tela-principal/header/header.css">
+    <!-- CSS Links - Sections -->
+    <link rel="stylesheet" href="./src/front-end/css/tela-principal/hero.css">
+
     <title>MedClinic</title>
 </head>
 <body>
     <header>
-        <nav></nav>
+        <nav>
+            <div class="lado-esquerdo">
+                <img src="./public/logos/logo-c-nome-lado.svg" alt="Logo MedClinic">
+                <ul>
+                    <li><a href="#hero">home</a></li>
+                    <li><a href="#prof-de-excelencia">agendamentos</a></li>
+                    <li><a href="#planos">planos</a></li>
+                    <li><a href="#sobre-nos">sobre nós</a></li>
+                </ul>
+            </div>
+
+            <button class="btn">entrar</button>
+        </nav>
     </header>
     <main>
-        <h1>oi</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sed excepturi aspernatur alias eius velit? Officiis nemo expedita officia, nisi, sunt dolorem commodi ut cumque error incidunt, fuga aliquam soluta facere!</p>
-        <section id="hero"></section>
+        <section id="hero">
+            <h1>
+                melhor <br/>
+                <strong>serviço</strong> <br/>
+                médico
+            </h1>
+
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam temporibus laborum dolorem itaque sapiente et rem esse, quasi iure sequi, architecto, possimus perferendis similique ut. Nemo, eos eveniet. Natus, fugit.
+            </p>
+
+            <button class="btn">agende agora!</button>
+        </section>
         <section id="prof-de-excelencia"></section>
         <section id="dout-especializados"></section>
         <section id="planos"></section>
         <section id="duvidas-frequentes"></section>
-        <section></section>
     </main>
+    <article id="sobre-nos"></article>
     <footer></footer>
 </body>
 </html>
