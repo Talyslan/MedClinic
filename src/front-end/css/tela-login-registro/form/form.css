@@ -19,7 +19,7 @@
 
 /* Botão */
 .lado-form form > button {
-    border-radius: var(--arredondandamento);
+    border-radius: var(--arredondamento);
     background: var(--verde);
     color: var(--branco);
     padding: 1em;

@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="./src/front-end/css/tela-principal/header/header.css">
     <!-- CSS Links - Sections -->
     <link rel="stylesheet" href="./src/front-end/css/tela-principal/hero.css">
+    <link rel="stylesheet" href="./src/front-end/css/tela-principal/departamentos.css">
+    <link rel="stylesheet" href="./src/front-end/css/tela-principal/dout-especializados.css">
 
     <title>MedClinic</title>
 </head>
@@ -25,7 +27,7 @@
                 <img src="./public/logos/logo-c-nome-lado.svg" alt="Logo MedClinic">
                 <ul>
                     <li><a href="#hero">home</a></li>
-                    <li><a href="#prof-de-excelencia">agendamentos</a></li>
+                    <li><a href="#departamentos">agendamentos</a></li>
                     <li><a href="#planos">planos</a></li>
                     <li><a href="#sobre-nos">sobre nós</a></li>
                 </ul>
@@ -35,7 +37,7 @@
         </nav>
     </header>
     <main>
-        <section id="hero">
+        <section id="hero" class="hero">
             <h1>
                 melhor <br/>
                 <strong>serviço</strong> <br/>
@@ -48,12 +50,37 @@
 
             <a href="" class="btn">agende agora!</a>
         </section>
-        <section id="prof-de-excelencia"></section>
-        <section id="dout-especializados"></section>
+        
+        <section id="departamentos" class="departamentos">
+            <span>Tratamento de serviços</span>
+
+            <h2>profissionais de excelência</h2>
+
+            <div class="boxDepartamentos" id="boxDepartamentos"></div>
+
+            <button class="btn">agende agora</button>
+        </section>
+
+        <section id="dout-especializados" class="dout-especializados">
+            <div class="boxImg" id="boxImg"></div>
+
+            <div class="info">
+                <h2>nossos doutores <br> especializados <br> em você!</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam totam commodi obcaecati magnam, perferendis vitae .</p>
+
+                <a href="">Escolha pela especialidade</a>
+
+                <div class="boxDados" id="boxDados"></div>
+
+            </div>
+        </section>
         <section id="planos"></section>
         <section id="duvidas-frequentes"></section>
     </main>
     <article id="sobre-nos"></article>
     <footer></footer>
+
+    <script src="./src/front-end/front-js/inserirHtml/departamentos.js" type="module"></script>
+    <script src="./src/front-end/front-js/inserirHtml/dout-especializados.js" type="module"></script>
 </body>
 </html>

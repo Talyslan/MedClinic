@@ -1,0 +1,76 @@
+.departamentos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3em;
+  gap: 2em;
+}
+
+.departamentos > span {
+  border-left: var(--verde) 2px solid;
+  color: var(--verde);
+  padding: 0.25em 0.5em;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+.departamentos h2 {
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.departamentos button {
+  font-size: 1.1rem;
+}
+
+/* box departamentos */
+/* box departamentos */
+.boxDepartamentos {
+  width: 90%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(200px, 1fr));
+  justify-items: center;
+  align-items: center;
+  gap: 1.5em;
+}
+
+/* @media (max-width: 1300px) {
+    .boxDepartamentos {
+        grid-template-columns: repeat(3, minmax(10%, 1fr));
+    }
+} */
+
+.boxDepartamentos .card {
+  width: 100%;
+  height: 100%;
+  background: var(--branco);
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  box-shadow: 0 0 6px var(--verde-escuro-opacity);
+  transition: 0.3s;
+}
+
+.boxDepartamentos .card:hover {
+    transform: translateY(-5px);
+}
+
+.boxDepartamentos .card img {
+  width: 60%;
+}
+
+.boxDepartamentos .card .line {
+  width: 70%;
+  height: 2px;
+  background: var(--verde-escuro);
+}
+
+.boxDepartamentos .card span {
+  color: var(--verde-escuro);
+  font-weight: 500;
+  font-size: 1.3rem;
+}

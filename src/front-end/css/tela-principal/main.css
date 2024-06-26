@@ -1,9 +1,4 @@
-section {
-    height: 100vh;
-    width: 100%;
-}
-
 header,
 button {
-    text-transform: capitalize;
+  text-transform: capitalize;
 }
