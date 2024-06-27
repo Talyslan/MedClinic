@@ -9,7 +9,7 @@
     <!-- CSS Links - Base -->
     <link rel="stylesheet" href="./src/front-end/css/reset.css">
     <link rel="stylesheet" href="./src/front-end/css/global.css">
-
+    <!--  CSS Links -  Main Geral -->
     <link rel="stylesheet" href="./src/front-end/css/tela-principal/main.css">
     <!-- CSS Links - Header -->
     <link rel="stylesheet" href="./src/front-end/css/tela-principal/header/header.css">
@@ -17,6 +17,11 @@
     <link rel="stylesheet" href="./src/front-end/css/tela-principal/hero.css">
     <link rel="stylesheet" href="./src/front-end/css/tela-principal/departamentos.css">
     <link rel="stylesheet" href="./src/front-end/css/tela-principal/dout-especializados.css">
+    <link rel="stylesheet" href="./src/front-end/css/tela-principal/planos.css">
+    <link rel="stylesheet" href="./src/front-end/css/tela-principal/duvidas-frequentes.css">
+    <link rel="stylesheet" href="./src/front-end/css/tela-principal/sobre-nos.css">
+    <!-- CSS Links - Footer -->
+    <link rel="stylesheet" href="./src/front-end/css/tela-principal/footer/footer.css">
 
     <title>MedClinic</title>
 </head>
@@ -74,13 +79,21 @@
 
             </div>
         </section>
-        <section id="planos"></section>
-        <section id="duvidas-frequentes"></section>
+
+        <section id="planos" class="planos">
+            <h2>nossos planos</h2>
+
+            <div class="boxPlanos" id="boxPlanos"></div>
+        </section>
+
+        <section id="duvidas-frequentes" class="duvidas-frequentes"></section>
     </main>
+
     <article id="sobre-nos"></article>
     <footer></footer>
 
     <script src="./src/front-end/front-js/inserirHtml/departamentos.js" type="module"></script>
     <script src="./src/front-end/front-js/inserirHtml/dout-especializados.js" type="module"></script>
+    <script src="./src/front-end/front-js/inserirHtml/planos.js" type="module"></script>
 </body>
 </html>

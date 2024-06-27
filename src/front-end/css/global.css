@@ -19,6 +19,9 @@
   --cinza-400: #868686;
   /* Borda */
   --arredondamento: 1.3em;
+  /* line manual*/
+  --borderTop: var(--verde) 3px solid;
+  --borderTop-active: var(--verde-escuro) 3px solid;
 }
 
 body,
