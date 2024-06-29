@@ -17,44 +17,52 @@
     <link rel="stylesheet" href="../src/front-end/css/tela-login-registro/form/form.css">
     <link rel="stylesheet" href="../src/front-end/css/tela-login-registro/lado-form.css">
 
+    <link rel="stylesheet" href="../src/front-end/css/tela-login-registro/media-query.css">
+
     <title>MedClinic - Registro</title>
 </head>
 <body>
     <main>
         <div class="lado-form">
-            <img src="../public/logos/logo-c-nome-baixo.svg" alt="Logo MedClinic">
+            <img src="../public/logos/logo-c-nome-baixo-colorida.svg" alt="Logo MedClinic">
             
             <form action="/" method="post">
                 <h1>crie sua conta</h1>
 
                 <div class="inputs">
                     <label for="nome">
-                        <input type="text" name="nome" id="nome">
+                        <input type="text" class="inputsVerificar" name="nome" id="nome">
                         <span>nome completo</span>
+                        <p class="erro"></p>
                     </label>
                     <label for="cpf">
-                        <input type="text" name="cpf" id="cpf">
+                        <input type="text" class="inputsVerificar" name="cpf" id="cpf">
                         <span>cpf</span>
+                        <p class="erro"></p>
                     </label>
                     <label for="email">
-                        <input type="email" name="email" id="email">
+                        <input type="email" class="inputsVerificar" name="email" id="email">
                         <span>email</span>
                         <img src="../public/login-registro-page/form-icon/aroba.png" alt="Arroba do email">
+                        <p class="erro"></p>
                     </label>
                     <label for="senha">
-                        <input type="password" name="senha" id="senha">
+                        <input type="password" class="inputsVerificar" name="senha" id="senha">
                         <span>senha</span>
                         <img src="../public/login-registro-page/form-icon/cadeado-fechado.png" alt="Cadeado da Senha">
+                        <p class="erro"></p>
                     </label>
                     
                     <label for="senha-confirmar">
-                        <input type="password" name="senha-confirmar" id="senha-confirmar">
+                        <input type="password" class="inputsVerificar" name="senha-confirmar" id="senha-confirmar">
                         <span>confirmar senha</span>
                         <img src="../public/login-registro-page/form-icon/cadeado-fechado.png" alt="Cadeado da Senha">
+                        <p class="erro"></p>
                     </label>
                     <label for="data-nascimento">
-                        <input type="date" name="data-nascimento" id="data-nascimento">
+                        <input type="date" class="inputsVerificar" name="data-nascimento" id="data-nascimento">
                         <span>data de nascimento</span>
+                        <p class="erro"></p>
                     </label>
                 </div>
 
@@ -62,7 +70,7 @@
             </form>
 
             <p>
-                Já tem uma conta?
+                Já tem uma conta? <br>
                 <a href="./login.html">Entre com sua conta aqui.</a>
             </p>
         </div>

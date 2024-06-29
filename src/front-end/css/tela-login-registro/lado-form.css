@@ -4,13 +4,20 @@
 }
 
 .lado-form > img {
-    width: 15%;
+    width: 20%;
+    min-width: 100px;
+    max-width: 300px;
 }
 
 /* Links */
 .lado-form a {
     color: var(--verde);
     text-decoration: underline;
+}
+
+.lado-form > p,
+.lado-form > p a {
+    font-size: 1rem;
 }
 
 .lado-form > p a {

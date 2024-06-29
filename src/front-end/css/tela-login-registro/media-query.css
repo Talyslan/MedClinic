@@ -1,0 +1,19 @@
+@media (max-width: 800px) {
+  .lado-design {
+    display: none;
+  }
+
+  .lado-form {
+    max-width: 100%;
+  }
+
+  .lado-form form {
+    gap: 1em;
+  }
+
+  .lado-form form .inputs .input-lembrar,
+  .lado-form form .inputs > label,
+  .lado-form form > button {
+    width: 100%;
+  }
+}
