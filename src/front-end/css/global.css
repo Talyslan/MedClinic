@@ -46,23 +46,27 @@ h2 {
   font-weight: 700;
 }
 
+p {
+  font-size: 1.5rem;
+}
+
 a,
-p,
 span {
   font-size: 1.3rem;
 }
 
 /* Classes Globais */
-.btn {
+a.btn {
   padding: 0.7em 1em;
   border-radius: 1.5em 0 1.5em 0;
   color: var(--branco);
   background: var(--verde-escuro-opacity);
   text-transform: capitalize;
   font-weight: bold;
+  font-size: 1.5rem;
   transition: 0.5s ease;
 }
 
-.btn:hover {
+a.btn:hover {
   background: var(--verde-escuro);
 }

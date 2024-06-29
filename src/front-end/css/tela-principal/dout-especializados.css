@@ -3,6 +3,7 @@
   align-items: center;
   justify-content: space-evenly;
   padding: 2em;
+  gap: 2em;
 }
 
 /* grid imagens */
@@ -72,7 +73,9 @@
 .dout-especializados .info .boxDados {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2em;
 }
 
 .dout-especializados .info .boxDados h3 {
@@ -80,6 +83,5 @@
 }
 
 .dout-especializados .info .boxDados p {
-  font-size: 1rem;
   color: var(--cinza-400);
 }

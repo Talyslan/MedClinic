@@ -8,7 +8,7 @@
   display: flex;
   justify-content: space-between;
   gap: 4em;
-  padding: 0 0 5em 0;
+  padding-bottom: 5em;
 }
 
 .duvidas-frequentes .wrapper > img {
@@ -59,7 +59,6 @@
 }
 
 .perguntaItem .resposta {
-    display: hidden;
     overflow: hidden;
     height: 0;
     transition: all 0.3s ease;

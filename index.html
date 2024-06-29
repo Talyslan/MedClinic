@@ -22,24 +22,40 @@
     <link rel="stylesheet" href="./src/front-end/css/tela-principal/sobre-nos.css">
     <!-- CSS Links - Footer -->
     <link rel="stylesheet" href="./src/front-end/css/tela-principal/footer/footer.css">
+    <!-- CSS Links - Media Query -->
+    <link rel="stylesheet" href="./src/front-end/css/tela-principal/media-query.css">
+
+    <link rel="stylesheet" href="./src/front-end/css/tela-carregamento.css">
 
     <title>MedClinic</title>
 </head>
 <body>
+    <div id="tela-carregamento" class="tela-carregamento">
+        <img src="./public/logos/logo-c-nome-baixo.svg" alt="">
+        <div class="down">
+            <div class="spinner"></div>
+            <p>Aguarde, o site está carregando...</p>
+        </div>
+    </div>
+
     <header>
-        <nav>
+        <a href="#">
+            <img src="./public/logos/logo-c-nome-lado.svg" alt="Logo MedClinic">
+        </a>
+        <nav class="">
             <div class="lado-esquerdo">
-                <img src="./public/logos/logo-c-nome-lado.svg" alt="Logo MedClinic">
                 <ul>
-                    <li><a href="#hero">home</a></li>
-                    <li><a href="#departamentos">agendamentos</a></li>
-                    <li><a href="#planos">planos</a></li>
-                    <li><a href="#sobre-nos">sobre nós</a></li>
+                    <li><a href="#hero" class="link">home</a></li>
+                    <li><a href="#departamentos" class="link">agendamentos</a></li>
+                    <li><a href="#planos" class="link">planos</a></li>
+                    <li><a href="#sobre-nos" class="link">sobre nós</a></li>
                 </ul>
             </div>
 
             <a href="./pages/login.html" class="btn">entrar</a>
         </nav>
+        <span class="close-nav">&#10005;</span>
+        <span class="open-nav">&#9776;</span>
     </header>
     <main>
         <section id="hero" class="hero">
@@ -50,7 +66,7 @@
             </h1>
 
             <p>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Totam temporibus laborum dolorem itaque sapiente et rem esse, quasi iure sequi, architecto, possimus perferendis similique ut. Nemo, eos eveniet. Natus, fugit.
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
             </p>
 
             <a href="" class="btn">agende agora!</a>
@@ -63,15 +79,15 @@
 
             <div class="boxDepartamentos" id="boxDepartamentos"></div>
 
-            <button class="btn">agende agora</button>
+            <a href="" class="btn">agende agora</a>
         </section>
 
         <section id="dout-especializados" class="dout-especializados">
             <div class="boxImg" id="boxImg"></div>
 
             <div class="info">
-                <h2>nossos doutores <br> especializados <br> em você!</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam totam commodi obcaecati magnam, perferendis vitae .</p>
+                <h2>nossos doutores especializados em você!</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
 
                 <a href="">Escolha pela especialidade</a>
 
@@ -150,6 +166,8 @@
         </div>
     </footer>
 
+    <script src="./src/front-end/front-js/tela-principal/nav.js"></script>
+    <script src="./src/front-end/front-js/tela-principal/tela-carregamento.js"></script>
     <script src="./src/front-end/front-js/inserirHtml/departamentos.js" type="module"></script>
     <script src="./src/front-end/front-js/inserirHtml/dout-especializados.js" type="module"></script>
     <script src="./src/front-end/front-js/inserirHtml/planos.js" type="module"></script>

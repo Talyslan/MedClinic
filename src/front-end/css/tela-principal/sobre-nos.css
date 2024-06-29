@@ -12,6 +12,7 @@
     background: linear-gradient(90deg, var(--verde-escuro) 0%, var(--verde) 100%);
     display: flex;
     justify-content: space-between;
+    align-items: center;
     max-width: 1200px ;
 }
 
@@ -23,8 +24,9 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: space-between  ;
-    padding: 3em;
+    justify-content: space-between;
+    gap: 2em;
+    padding: 2em;
 }
 
 .sobre-nos .content .text h2 {

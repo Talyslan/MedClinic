@@ -16,7 +16,7 @@ const insertPlano = ({ nome, preco, beneficios, classes }) => {
             <span>${beneficios[4]}</span>
         </div>
 
-        <button class="btn">Escolher Plano!</button>
+        <a href="" class="btn">Escolher Plano!</a>
     </div>`;
 };
 

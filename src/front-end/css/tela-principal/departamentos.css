@@ -11,16 +11,12 @@
   color: var(--verde);
   padding: 0.25em 0.5em;
   font-weight: 500;
-  font-size: 1.1rem;
+  font-size: 1.5rem;
 }
 
 .departamentos h2 {
   text-transform: uppercase;
   text-align: center;
-}
-
-.departamentos button {
-  font-size: 1.1rem;
 }
 
 /* box departamentos */
@@ -33,12 +29,6 @@
   align-items: center;
   gap: 1.5em;
 }
-
-/* @media (max-width: 1300px) {
-    .boxDepartamentos {
-        grid-template-columns: repeat(3, minmax(10%, 1fr));
-    }
-} */
 
 .boxDepartamentos .card {
   width: 100%;

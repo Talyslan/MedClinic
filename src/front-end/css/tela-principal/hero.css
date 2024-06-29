@@ -3,7 +3,7 @@
     url("../../../../public/main-page/background-hero.jpg") no-repeat scroll
     center/cover;
   height: 100vh;
-    display: flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: start;
@@ -26,11 +26,5 @@
 
 /* p Config */
 .hero p {
-  width: 40%;
-  font-size: 1.2em;
-}
-
-/* button Config */
-.hero a {
-  font-size: 1.5em;
+  width: 50%;
 }
