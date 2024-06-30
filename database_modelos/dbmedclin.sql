@@ -35,3 +35,5 @@ create table telefone_med(
     id int not null,
     foreign key(id) references medico(id)
 );
+
+aaaaa;
