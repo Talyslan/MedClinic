@@ -17,28 +17,28 @@ O objetivo deste projeto é proporcionar aos alunos oportunidade para aplicar os
 
 ## Como usar?
 ### Requisitos
-- MySQL WorkBench instalado na máquina e ter uma conexão sem senha no usuário root.
-- Node.js
+MySQL WorkBench instalado na máquina e ter uma conexão sem senha no usuário root.
+Node.js
 
 ### No projeto
-- Realize um clone do projeto.
+Realize um clone do projeto.
 ```javascript
 git clone https://github.com/Talyslan/MedClinic.git
 ```
 
-- Instale as dependências.
+Instale as dependências.
 ```javascript
 npm install
 or
 npm i
 ```
 
-- Instale o banco local.
+Instale o banco local.
 ```javascript
 npm run database
 ```
 
-- Rode o servidor da API.
+Rode o servidor da API.
 ```javascript
 npm run dev
 ```
@@ -48,41 +48,37 @@ npm run dev
 ### Banco de Dados
 - Orientadora: Wládia Bessa.
 
-1. Criar o modelo EER e Relacional/Lógico enviar até dia 9 de abril. ✔️
-2. Criar Banco automático MySQL Workbench. ✔️
+Informações sobre o que foi usado de Banco de Dados no projeto aqui:
+<a href="./readmes/BCDD.md">Readme - Programação Orientada a Objetos</a>
 
 ### Programação Orientada a Objetos
 - Orientador: Ricardo Rubens.
 
-#### 👨‍🎓 Integrantes:
-
-- Maria Izabel dos Santos Oliveira (tarefa desempenhada).
-- Matheus Ferreira da Silva Barros (tarefa desempenhada).
-- Rafael Silva Amorim (tarefa desempenhada).
-- Talyslan Cauan Pimentel Canabarro (tarefa desempenhada).
-
-#### ❓ Perguntas:
-
-##### 1. Tudo o que foi pedido foi realizado? Faltou Algo?
--
-
-##### 2. Há algum problema/erro identificado?
--
-
-##### 3. Descrição da experiência:
--
-
-##### 4. Dificuldades encontradas:
--
-
-#### 🔗 Referências:
--
+Informações sobre o que foi usado de POO no projeto aqui:
+<a href="./readmes/POO.md">Readme - Programação Orientada a Objetos</a>
 
 ### Programação Web
 - Orientador: Edison Gomes.
+
+Informações sobre o que foi usado de Programação Web no projeto aqui:
+<a href="./readmes/PWEB.md">Readme - Programação Orientada a Objetos</a>
 
 ## Figma
 
 Link do Figma: <a href="https://www.figma.com/file/rkpodyPJAEsVC17SN7mZ42/Web-Site---HeathTech?type=design&node-id=0-1&mode=design&t=if7RKvTVmJ4EHrg2-0">
 Clique Aqui
 </a>
+
+## Tecnologias
+- HTML
+- CSS
+- JavaScript
+- Biblioteca AOS (Animation On Scroll)
+- SQL (MySQL Workbench)
+
+## 👨‍🎓 Integrantes:
+
+- Maria Izabel dos Santos Oliveira.
+- Matheus Ferreira da Silva Barros.
+- Rafael Silva Amorim.
+- Talyslan Cauan Pimentel Canabarro.
