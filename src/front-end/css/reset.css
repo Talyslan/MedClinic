@@ -14,7 +14,8 @@ ul {
 }
 
 input,
-button {
+button,
+select {
   border: none;
 }
 

@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="../src/front-end/css/tela-login-registro/form/form-inpunts.css">
     <link rel="stylesheet" href="../src/front-end/css/tela-login-registro/form/form.css">
     <link rel="stylesheet" href="../src/front-end/css/tela-login-registro/lado-form.css">
+    
+    <!-- CSS Links - tela de carregamento -->
+    <link rel="stylesheet" href="../src/front-end/css/tela-carregamento.css">
 
     <link rel="stylesheet" href="../src/front-end/css/tela-login-registro/media-query.css">
 
@@ -22,6 +25,14 @@
     <title>MedClinic - Login</title>
 </head>
 <body>
+    <div id="tela-carregamento" class="tela-carregamento">
+        <img src="../public/logos/logo-c-nome-baixo.svg" alt="">
+        <div class="down">
+            <div class="spinner"></div>
+            <p>Aguarde, o site está carregando...</p>
+        </div>
+    </div>
+    
     <main>
         <div class="lado-design">
             <h1>Bem vindo de volta!</h1>
@@ -39,13 +50,13 @@
                         <input type="email" class="inputsVerificar" name="email" id="email" required>
                         <span>email</span>
                         <img src="../public/login-registro-page/form-icon/aroba.png" alt="Arroba do Email">
-                        <p class="erro"></p>
+                        <p class="erro">afaf</p>
                     </label>
                     <label for="senha">
                         <input type="password" class="inputsVerificar" name="senha" id="senha" required>
                         <span>senha</span>
                         <img src="../public/login-registro-page/form-icon/cadeado-fechado.png" alt="Cadeado da senha">
-                        <p class="erro"></p>
+                        <p class="erro">afaf</p>
                     </label>
 
                     <div class="input-lembrar">
@@ -67,6 +78,7 @@
         </div>
     </main>
 
+    <script src="../src/front-end/front-js/tela-carregamento.js"></script>
     <script src="../src/front-end/front-js/login-registro/inputFocus.js"></script>
     <script src="../src/front-end/front-js/login-registro/inputVisibilidadeSenha.js"></script>
 </body>

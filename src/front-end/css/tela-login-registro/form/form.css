@@ -1,25 +1,25 @@
 /* Form */
-.lado-form form,
-.lado-form form .inputs {
+form,
+form .inputs {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
 }
 
-.lado-form form {
+form {
     color: var(--verde);
     gap: 1.5em;
 }
 
-.lado-form form h1 {
+form h1 {
     text-transform: uppercase;
     font-size: 2rem;
     font-weight: 800;
 }
 
 /* Botão */
-.lado-form form > button {
+form > button {
     border-radius: var(--arredondamento);
     background: var(--verde);
     color: var(--branco);
@@ -29,9 +29,9 @@
 }
 
 /* Label, Botao e Lembre-se de mim */
-.lado-form form .inputs .input-lembrar,
-.lado-form form .inputs > label,
-.lado-form form > button {
+form .inputs .input-lembrar,
+form .inputs > label,
+form > button {
     width: 80%;
     max-width: 450px;
 }
