@@ -1,0 +1,26 @@
+{
+  "name": "medclinic",
+  "version": "1.0.0",
+  "description": "O objetivo deste projeto é proporcionar aos alunos oportunidade para aplicar os conhecimentos adquiridos nas disciplinas de Programação Orientada a Objetos, Fundamentos de Banco de Dados e Programação Web em projeto prático.",
+  "main": "src/back-end/api/server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon src/back-end/api/server.js",
+    "database": "node src/back-end/banco-de-dados/mainDatabase.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Talyslan/MedClinic.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Talyslan/MedClinic/issues"
+  },
+  "homepage": "https://github.com/Talyslan/MedClinic#readme",
+  "dependencies": {
+    "express": "^4.19.2",
+    "mysql2": "^3.10.1",
+    "nodemon": "^3.1.4"
+  }
+}
