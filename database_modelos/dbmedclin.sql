@@ -1,37 +1,31 @@
-create database dbmedclin;
+CREATE DATABASE IF NOT EXISTS dbmedclin;
 
-use dbmedclin;
+USE dbmedclin;
 
-create table paciente(
-	id int not null,
-    nome varchar(255) not null,
-    senha varchar(255) not null,
-    data_nasc date not null,
-    cpf char(11) not null,
-    email varchar(255),
-    primary key(id)
+CREATE TABLE pessoa (
+	id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+    nome VARCHAR(255) NOT NULL,
+    senha VARCHAR(255) NOT NULL,
+    data_nasc DATE NOT NULL,
+    cpf CHAR(11) NOT NULL,
+    email VARCHAR(255)
 );
 
-create table medico(
-	id int not null,
-    nome varchar(255) not null,
-    senha varchar(255) not null,
-    data_nasc date not null,
-    cpf char(11) not null,
-    email varchar(255),
-    especializacao varchar(255) not null,
-    crm varchar(255) not null,
-    primary key(id)
+CREATE TABLE paciente (
+	id INT NOT NULL PRIMARY KEY,
+    FOREIGN KEY (id) REFERENCES pessoa(id)
 );
 
-create table telefone_pac(
-	telefone varchar(255) not null,
-    id int not null,
-    foreign key(id) references paciente(id)
+CREATE TABLE medico (
+    id INT NOT NULL PRIMARY KEY,
+    especializacao VARCHAR(255) NOT NULL,
+    crm VARCHAR(255) NOT NULL,
+	FOREIGN KEY (id) REFERENCES pessoa(id)
 );
 
-create table telefone_med(
-	telefone varchar(255) not null,
-    id int not null,
-    foreign key(id) references medico(id)
+CREATE TABLE telefone (
+    id INT NOT NULL,
+    telefone VARCHAR(20) NOT NULL,
+    PRIMARY KEY (id, telefone),
+    FOREIGN KEY (id) REFERENCES pessoa(id)
 );
