@@ -27,6 +27,9 @@
 
     <link rel="stylesheet" href="./src/front-end/css/tela-carregamento.css">
 
+    <!-- CSS Links - Library AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
     <title>MedClinic</title>
 </head>
 <body>
@@ -59,17 +62,17 @@
     </header>
     <main>
         <section id="hero" class="hero">
-            <h1>
+            <h1 data-aos="fade-right" data-aos-delay="100">
                 melhor <br/>
                 <strong>serviço</strong> <br/>
                 médico
             </h1>
 
-            <p>
+            <p data-aos="fade-right" data-aos-delay="100">
                 Lorem, ipsum dolor sit amet consectetur adipisicing elit.
             </p>
 
-            <a href="" class="btn">agende agora!</a>
+            <a data-aos="fade-right" data-aos-delay="400" href="" class="btn">agende agora!</a>
         </section>
         
         <section id="departamentos" class="departamentos">
@@ -77,9 +80,9 @@
 
             <h2>profissionais de excelência</h2>
 
-            <div class="boxDepartamentos" id="boxDepartamentos"></div>
+            <div class="boxDepartamentos" id="boxDepartamentos" ></div>
 
-            <a href="" class="btn">agende agora</a>
+            <a data-aos="fade-up" data-aos-duration="600" href="" class="btn">agende agora</a>
         </section>
 
         <section id="dout-especializados" class="dout-especializados">
@@ -99,7 +102,7 @@
         <section id="planos" class="planos">
             <h2>nossos planos</h2>
 
-            <div class="boxPlanos" id="boxPlanos"></div>
+            <div  data-aos="fade-up" data-aos-duration="500" class="boxPlanos" id="boxPlanos"></div>
         </section>
 
         <section id="duvidas-frequentes" class="duvidas-frequentes">
@@ -115,7 +118,7 @@
     </main>
 
     <article id="sobre-nos" class="sobre-nos">
-        <div class="content">
+        <div  data-aos="fade-up" data-aos-duration="500" class="content">
             <div class="text">
                 <h2>estamos sempre aqui para ajudar. <br> entre em contato!</h2>
                 <p>temos um grupo especializado 24 horas por dia para tirar qualquer dúvida sobre nossas consultas.</p>
@@ -139,7 +142,7 @@
                     <p>Maria Izabel da S Oliveira.</p>
                     <p>Rafael da S Amorim.</p>
                 </div>
-                <div class="info">
+                <div data-aos-duration="3000" class="info">
                     <span>Planos</span>
                     <a href="#planos">MedIndividual</a>
                     <a href="#planos">MedFamília</a>
@@ -172,5 +175,8 @@
     <script src="./src/front-end/front-js/inserirHtml/dout-especializados.js" type="module"></script>
     <script src="./src/front-end/front-js/inserirHtml/planos.js" type="module"></script>
     <script src="./src/front-end/front-js/inserirHtml/perguntas.js" type="module"></script>
+    <!-- Script Links - Library AOS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>AOS.init();</script>
 </body>
 </html>
