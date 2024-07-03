@@ -118,5 +118,3 @@ export const cpfValidation = (cpf) => {
     }
 
 };
-
-console.log(cpfValidation("103.723.444-88"))
