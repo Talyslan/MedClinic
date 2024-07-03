@@ -36,6 +36,8 @@ export const passwordConfirmValidation = () => {
 3. pegue os dígitos do cpf e o primeiro dígito verificador e multiplicar na sequência decrescente de 11 até 12
 4. multiplique o numero encontrado por 10, divida por 11 e armazene o resto
 
+padrão de um cpf: xxx.xxx.xxx-xx
+
 */
 export const cpfValidation = (cpf) => {
 
@@ -46,48 +48,75 @@ export const cpfValidation = (cpf) => {
     // transforma todos os caracteres em números
     cpf_array = cpf_array.map(char => Number(char));
 
-    // passo 1 do algoritmo
-
+    // acumulador para a primeira verificação
     let prim_vef = 0
+    // número para multiplicação no loop - será usado nas duas verificações
     let num_mult = 10
 
-    cpf_array.forEach(element => {
+    // percorre cada número do CPF executando as multiplicações e somas sucessivas - primeira vez
+    for (let index = 0; index < cpf_array.length; index++) {
+        
+        const element = cpf_array[index];
         prim_vef = prim_vef + element * num_mult
         num_mult--
-    });
 
-    // passo 2 do algoritmo
+        if (num_mult == 2){
+            break
+        }
+    }
 
+    // multiplica o número encontrado por 10, divide por 11 e armazena seu resto
     prim_vef = (prim_vef * 10) % 11
 
+    // aplica a exceção de que, se o resto for 10, consideramos como 0. 
     if (prim_vef == 10){
         prim_vef = 0
     }
 
-    // passo 3 do algoritmo
-
+    // acumulador para a segunda verificação
     let sec_vef = 0 
+    // número para multiplicaçao no loop - sobrescreve o valor de 2 para 11
     num_mult = 11
 
-    cpf_array.forEach(element => {
+    // percorre cada número do CPF executando as multiplicações e somas sucessivas - segunda vez
+    for (let index = 0; index < cpf_array.length; index++) {
+        
+        const element = cpf_array[index];
         sec_vef = sec_vef + element * num_mult
         num_mult--
-    });
 
-    // passo 4 do algoritmo 
+        if (num_mult == 2){
+            break
+        }
+    }
 
+    // multiplica o número encontrado por 10, divide por 11 e armazena seu resto
     sec_vef = (sec_vef * 10) % 11
 
-    if (prim_vef == cpf_array[-2] && sec_vef == cpf_array[-1]){
-        return true
+    if (sec_vef == 10){
+        sec_vef = 0
+    }
+
+    console.log(`${prim_vef}    ${cpf_array[cpf_array.length - 2]}`)
+    console.log(`${sec_vef}    ${cpf_array[cpf_array.length - 1]}`)
+
+    // executa a primeira verificação de validade do CPF - dígitos verificadores
+    if (prim_vef == cpf_array.slice(-2) && sec_vef == cpf_array.slice(-1)){
+        // executa a segunda verificação de validade do CPF - digitos repeditos
+        if (cpf_array[0] == cpf_array[1] && cpf_array[1] == cpf_array[2] && cpf_array[2] == cpf_array[3] &&
+            cpf_array[3] == cpf_array[4] && cpf_array[4] == cpf_array[5] && cpf_array[5] == cpf_array[6] &&
+            cpf_array[6] == cpf_array[7] && cpf_array[7] == cpf_array[8] && cpf_array[8] == cpf_array[9] &&
+            cpf_array[9] == cpf_array[10]) { 
+                return false
+            }
+            else { 
+                return true
+            }
     }
     else { 
         return false
     }
 
-
-
-
 };
 
-cpfValidation("123.456.789-00")
+console.log(cpfValidation("103.723.444-88"))
