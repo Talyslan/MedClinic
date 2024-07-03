@@ -37,10 +37,10 @@ export const medicos = [
 ];
 
 export const telefones = [
-  { id: 1, telefone: "3455-1234" },
-  { id: 2, telefone: "5555-5678" },
-  { id: 3, telefone: "5565-8765" },
-  { id: 4, telefone: "5585-4321" },
+  { telefone: "3455-1234" },
+  { telefone: "5555-5678" },
+  { telefone: "5565-8765" },
+  { telefone: "5585-4321" },
 ];
 
 /*
