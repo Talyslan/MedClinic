@@ -1,37 +1,24 @@
-export class TelefoneDAO {
-  static sql_CreateTable = `
-    CREATE TABLE IF NOT EXISTS telefone (
+import { tableDAO } from "./superclasse/tableDAO.js";
+
+export class TelefoneDAO extends tableDAO {
+  // sql para criação da tabela
+  static sql_nomeTabela = `telefone`;
+  static sql_especificacoesTabela = `
     id INT NOT NULL,
     telefone VARCHAR(20) NOT NULL,
     PRIMARY KEY (id, telefone),
-    FOREIGN KEY (id) REFERENCES pessoa(id)
-    );`;
+    FOREIGN KEY (id) REFERENCES pessoa(id)`;
 
-  static sql_insertInto = `INSERT INTO telefone (id, telefone) VALUES (?, ?)`;
+  // variaveis sql para consultas
+  static sql_SelectAll = `SELECT * FROM pessoa;`;
+
+  static sql_SelectOne = `
+    SELECT * 
+    FROM medico, pessoa
+    WHERE medico.id = pessoa.id 
+    and medico.id = ?;`;
 
   constructor(conexaoExistente) {
-    this._conexao = conexaoExistente;
-  }
-
-  async createTable () {
-    try {
-      await this._conexao.query(TelefoneDAO.sql_CreateTable);
-      console.log("Tabela Telefone criada com sucesso!")
-    } 
-    catch (err) {
-      console.log("Erro ao criar a tabela Telefone! | " + err.stack);
-      throw err;
-    }
-  }
-
-  async insertInto ({ id, telefone }) {
-    try {
-      await this._conexao.execute(TelefoneDAO.sql_insertInto, [id, telefone]);
-      console.log("Dados inseridos na tabela Telefone!");
-    } 
-    catch (err) {
-      console.log("Erro ao inserir dados na tabela Telefone! | " + err.stack);
-      throw err;
-    }
+    super(conexaoExistente);
   }
 }

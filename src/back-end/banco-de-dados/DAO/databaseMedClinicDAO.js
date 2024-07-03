@@ -1,5 +1,7 @@
 export class MedClinicDAO {
+  // sql para criar banco
   static sql_CreateDatabase = `CREATE DATABASE IF NOT EXISTS dbmedclinic;`;
+  // sql para usar banco
   static sql_UseDatabase = `USE dbmedclinic;`;
   // drop para evitar a inserção múltiplas vezes dos TESTEinserts
   static sql_dropDatabase = `DROP DATABASE IF EXISTS dbmedclinic;`;

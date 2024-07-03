@@ -12,7 +12,7 @@ export const getAllMedicos = async (req, res) => {
 
   try {
     await databaseMedClinic.useDatabase();
-    const result = await tableMedico.getAllMedicosOnDB()
+    const result = await tableMedico.getAllOnDB()
     res.status(201).send(result);
   } 
   catch (err) {
@@ -28,9 +28,11 @@ export const getUmMedico = async (req, res) => {
   const databaseMedClinic = new MedClinicDAO(conexao);
   const tableMedico = new MedicoDAO(conexao);
 
+  const { id } = req.params;
+
   try {
     await databaseMedClinic.useDatabase();
-    const result = await tableMedico.getUmMedicoOnDB(req.params)
+    const result = await tableMedico.getOneOnDB(id)
     res.status(201).send(result);
   } 
   catch (err) {
@@ -40,7 +42,7 @@ export const getUmMedico = async (req, res) => {
   await fabricaConexoes.end();
 };
 
-// Adiciona um paciente
+// adiciona um médico
 export const adicionarMedico = async (req, res) => {
   const conexao = await fabricaConexoes.open();
   const databaseMedClinic = new MedClinicDAO(conexao);
@@ -48,7 +50,7 @@ export const adicionarMedico = async (req, res) => {
 
   try {
     await databaseMedClinic.useDatabase();
-    const idAdicionado = await tableMedico.adicionarMedicoOnDB(req.body);
+    const idAdicionado = await tableMedico.insertInto(req.body);
     res.status(201).send({ id: idAdicionado });
   } 
   catch (err) {
@@ -57,5 +59,56 @@ export const adicionarMedico = async (req, res) => {
 
   await fabricaConexoes.end();
 };
-export const atualizarMedico = (req, res) => {};
-export const deletarMedico = (req, res) => {};
+
+// atualizar um médico
+export const atualizarMedico = async (req, res) => {
+  const conexao = await fabricaConexoes.open();
+  const databaseMedClinic = new MedClinicDAO(conexao);
+  const tableMedico = new MedicoDAO(conexao);
+
+  const { id } = req.params;
+  const novosDados = req.body;
+
+  try {
+    await databaseMedClinic.useDatabase();
+    const resultado = await tableMedico.updateOneOnDB(id, novosDados);
+
+    if (resultado) {
+      res.status(200).send("Médico atualizado com sucesso!");
+    } 
+    else {
+      res.status(404).send("Médico não encontrado!");
+    }
+  } 
+  catch (err) {
+    res.status(500).send("Erro ao atualizar Médico!");
+  }
+
+  await fabricaConexoes.end();
+};
+
+// deletar um médico
+export const deletarMedico = async (req, res) => {
+  const conexao = await fabricaConexoes.open();
+  const databaseMedClinic = new MedClinicDAO(conexao);
+  const tableMedico = new MedicoDAO(conexao);
+
+  const { id } = req.params;
+
+  try {
+    await databaseMedClinic.useDatabase();
+    const resultado = await tableMedico.deleteOneFromDB(id);
+
+    if (resultado) {
+      res.status(200).send("Médico deletado com sucesso!");
+    } 
+    else {
+      res.status(404).send("Médico não encontrado!");
+    }
+  } 
+  catch (err) {
+    res.status(500).send("Erro ao deletar Médico!");
+  }
+
+  await fabricaConexoes.end();
+};

@@ -1,56 +1,84 @@
-export class PessoaDAO {
-  static sql_CreateTable = `
-    CREATE TABLE IF NOT EXISTS pessoa (
+import { tableDAO } from "./superclasse/tableDAO.js";
+
+export class PessoaDAO extends tableDAO {
+  // sql para criação da tabela
+  static sql_nomeTabela = `pessoa`;
+  static sql_especificacoesTabela = `
       id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
       nome VARCHAR(255) NOT NULL,
       senha VARCHAR(255) NOT NULL,
       data_nasc DATE NOT NULL,
       cpf CHAR(11) NOT NULL,
-      email VARCHAR(255)
-    );`;
+      email VARCHAR(255) NOT NULL`;
 
-  static sql_insertInto = `
-    INSERT INTO pessoa (nome, senha, data_nasc, cpf, email) 
-    VALUES (?, ?, ?, ?, ?)`;
+  // variaveis sql para consultas
+  static sql_SelectAll = `SELECT * FROM pessoa;`;
+
+  static sql_SelectOne = `
+      SELECT * 
+      FROM medico, pessoa
+      WHERE medico.id = pessoa.id 
+      and medico.id = ?;`;
 
   constructor(conexaoExistente) {
-    this._conexao = conexaoExistente;
+    super(conexaoExistente);
   }
 
-  async createTable () {
+  // cria tabela pessoa se ela nao existir
+  async _inicializePessoa() {
+    const sql_CreateTable = `
+    CREATE TABLE IF NOT EXISTS ${PessoaDAO.sql_nomeTabela}
+    (${PessoaDAO.sql_especificacoesTabela});`
+
+    await this._conexao.query(sql_CreateTable);
+  }
+
+  // funçao auxiliar para inserir na tabela medico
+  async _inserirMedico(pessoaId, especializacao, crm) {
+    const sql_insertMedico = `INSERT INTO medico (id, especializacao, crm) VALUES (?, ?, ?)`;
+    await this._conexao.execute(sql_insertMedico, [pessoaId, especializacao, crm]);
+    console.log(`Médico adicionado na tabela com sucesso com ID: ${pessoaId}!`);
+  }
+
+  // funçao auxiliar para inserir na tabela paciente
+  async _inserirPaciente(pessoaId) {
+    const sql_insertPaciente = `INSERT INTO paciente (id) VALUES (?)`;
+    await this._conexao.execute(sql_insertPaciente, [pessoaId]);
+    console.log(`Paciente adicionado na tabela com sucesso com ID: ${pessoaId}!`);
+  }
+
+// inserir uma pessoa e, dependendo dos dados recebidos, inserir em medico ou paciente
+  async insertInto(obj) {
+    // cria tabela pessoa se ela nao existir
+    this._inicializePessoa();
+    
+    // desestruturo o obj para pegar apenas os valores de pessoa
+    const { especializacao, crm, ...pessoaDados } = obj;
+    
+    // pega o obj e estrutura sua string para o InsertInto
+    const propriedades = Object.keys(pessoaDados).join(", ");
+    const valores = Object.keys(pessoaDados).map(chave => pessoaDados[chave]);
+    const qntdDeInterrogacao = Array(valores.length).fill('?').join(", ");
+
+    const sql_insertInto = `
+    INSERT INTO ${PessoaDAO.sql_nomeTabela} (${propriedades}) 
+    VALUES (${qntdDeInterrogacao});`;
+
     try {
-      await this._conexao.query(PessoaDAO.sql_CreateTable);
-      console.log("Tabela Pessoa criada com sucesso!");
+      // Inserindo dados na tabela pessoa
+      const [resultPessoa] = await this._conexao.execute(sql_insertInto, valores);
+      const pessoaId = resultPessoa.insertId;
+
+      // verifica se tem crm e especializacao
+      if (obj.crm && obj.especializacao) {
+        await this._inserirMedico(pessoaId, especializacao, crm);
+      } 
+      else {
+        await this._inserirPaciente(pessoaId);
+      }
     } 
     catch (err) {
-      console.error("Erro ao criar a tabela Pessoa! | " + err.stack);
-      throw err;
-    }
-  }
-
-  async insertInto ({ nome, senha, data_nasc, cpf, email }) {
-    const values = [nome, senha, data_nasc, cpf, email];
-
-    try {
-      await this._conexao.execute(PessoaDAO.sql_insertInto, values);
-      // const result = await this._conexao.query(PessoaDAO.sql_insertInto, values);
-      // return result.insertId;
-      console.log("Dados inseridos na tabela Pessoa!");
-    } 
-    catch (err) {
-      console.error("Erro ao inserir dados na tabela Pessoa! | " + err.stack);
-      throw err;
-    }
-  }
-
-  async adicionarPessoaOnDB({ nome, senha, data_nasc, cpf, email }) {
-    const values = [nome, senha, data_nasc, cpf, email];
-
-    try {
-      const result = await this._conexao.query(PessoaDAO.sql_insertInto, values);
-      return result
-    } catch (err) {
-      console.error(`Erro ao adicionar pessoa no banco de dados: ${err.stack}`);
+      console.error(`Erro ao inserir dados! | ${err.stack}`);
       throw err;
     }
   }
