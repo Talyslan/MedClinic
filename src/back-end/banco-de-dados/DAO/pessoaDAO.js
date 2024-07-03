@@ -70,7 +70,7 @@ export class PessoaDAO extends tableDAO {
       const pessoaId = resultPessoa.insertId;
 
       // verifica se tem crm e especializacao
-      if (obj.crm && obj.especializacao) {
+      if (crm && especializacao) {
         await this._inserirMedico(pessoaId, especializacao, crm);
       } 
       else {
