@@ -55,14 +55,14 @@ export const cpfValidation = (cpf) => {
 
     // percorre cada número do CPF executando as multiplicações e somas sucessivas - primeira vez
     for (let index = 0; index < cpf_array.length; index++) {
-        
+        if (num_mult == 1){
+            break
+        }
         const element = cpf_array[index];
         prim_vef = prim_vef + element * num_mult
         num_mult--
 
-        if (num_mult == 2){
-            break
-        }
+        
     }
 
     // multiplica o número encontrado por 10, divide por 11 e armazena seu resto
@@ -81,13 +81,14 @@ export const cpfValidation = (cpf) => {
     // percorre cada número do CPF executando as multiplicações e somas sucessivas - segunda vez
     for (let index = 0; index < cpf_array.length; index++) {
         
+        if (num_mult == 1){
+            break
+        }
         const element = cpf_array[index];
         sec_vef = sec_vef + element * num_mult
         num_mult--
 
-        if (num_mult == 2){
-            break
-        }
+        
     }
 
     // multiplica o número encontrado por 10, divide por 11 e armazena seu resto
@@ -97,11 +98,8 @@ export const cpfValidation = (cpf) => {
         sec_vef = 0
     }
 
-    console.log(`${prim_vef}    ${cpf_array[cpf_array.length - 2]}`)
-    console.log(`${sec_vef}    ${cpf_array[cpf_array.length - 1]}`)
-
     // executa a primeira verificação de validade do CPF - dígitos verificadores
-    if (prim_vef == cpf_array.slice(-2) && sec_vef == cpf_array.slice(-1)){
+    if (prim_vef == cpf_array[cpf_array.length - 2] && sec_vef == cpf_array[cpf_array.length - 1]){
         // executa a segunda verificação de validade do CPF - digitos repeditos
         if (cpf_array[0] == cpf_array[1] && cpf_array[1] == cpf_array[2] && cpf_array[2] == cpf_array[3] &&
             cpf_array[3] == cpf_array[4] && cpf_array[4] == cpf_array[5] && cpf_array[5] == cpf_array[6] &&
@@ -118,3 +116,5 @@ export const cpfValidation = (cpf) => {
     }
 
 };
+
+console.log(cpfValidation("696.822.910-20"))
