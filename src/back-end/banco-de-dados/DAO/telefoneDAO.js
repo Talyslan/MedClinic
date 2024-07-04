@@ -4,7 +4,7 @@ export class TelefoneDAO extends tableDAO {
   // sql para criação da tabela
   static sql_nomeTabela = `telefone`;
   static sql_especificacoesTabela = `
-    id INT NOT NULL,
+    id INT AUTO_INCREMENT NOT NULL,
     telefone VARCHAR(20) NOT NULL,
     PRIMARY KEY (id, telefone),
     FOREIGN KEY (id) REFERENCES pessoa(id)`;
