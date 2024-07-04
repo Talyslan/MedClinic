@@ -26,7 +26,7 @@
 }
 
 .planoItem h3 {
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .planoItem span {
@@ -47,7 +47,6 @@
     width: 100%;
     text-align: center;
     padding: 1em 0;
-    font-size: 1.2rem;
 }
 
 .planoItem .beneficios span:not(:first-of-type) {

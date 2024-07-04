@@ -28,8 +28,8 @@ header > a {
 
 header > a img {
   width: 100%;
-  max-width: 350px;
-  min-width: 200px;
+  max-width: 250px;
+  min-width: 150px;
 }
 
 /* Nav Config */

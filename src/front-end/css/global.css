@@ -41,18 +41,18 @@ a {
 }
 
 h2 {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   text-transform: capitalize;
   font-weight: 700;
 }
 
 p {
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 a,
 span {
-  font-size: 1.3rem;
+  font-size: 1rem;
 }
 
 /* Classes Globais */
@@ -63,7 +63,7 @@ span {
   background: var(--verde-escuro-opacity);
   text-transform: capitalize;
   font-weight: bold;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   transition: 0.5s ease;
 }
 

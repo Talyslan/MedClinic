@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 3em;
+  padding: 5em 3em;
   gap: 2em;
 }
 
@@ -11,7 +11,7 @@
   color: var(--verde);
   padding: 0.25em 0.5em;
   font-weight: 500;
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 .departamentos h2 {
@@ -21,10 +21,10 @@
 
 /* box departamentos */
 .boxDepartamentos {
-  width: 90%;
+  width: 70%;
   height: 100%;
   display: grid;
-  grid-template-columns: repeat(5, minmax(200px, 1fr));
+  grid-template-columns: repeat(5, minmax(150px, 1fr));
   justify-items: center;
   align-items: center;
   gap: 1.5em;
