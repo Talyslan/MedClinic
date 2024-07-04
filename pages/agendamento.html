@@ -12,8 +12,10 @@
     <!-- CSS Links - Header -->
     <link rel="stylesheet" href="../src/front-end/css/header/header.css">
 
-    <!-- CSS Links - Agendamento Geral -->
+    <!-- CSS Links - Agendamento -->
     <link rel="stylesheet" href="../src/front-end/css/tela-agendamento/agendamento.css">
+    <link rel="stylesheet" href="../src/front-end/css/tela-agendamento/lado-esquerdo.css">
+    <link rel="stylesheet" href="../src/front-end/css/tela-agendamento/lado-direito.css">
 
     <!-- CSS Links - tela de carregamento -->
     <link rel="stylesheet" href="../src/front-end/css/tela-carregamento.css">
@@ -58,18 +60,53 @@
                     <h2>Selecione o departamento</h2>
                 </div>
                 
-                <div class="inputs"></div>
+                <div class="inputs">
+                    <div class="bolinhas">
+                        <div class="line"></div>
+                        <span>1</span>
+                        <span>2</span>
+                    </div>
+                    <form>
+                        <label for="especializacao">
+                            <span>Selecionar departamento</span>
+                            <select name="especializacao" id="especializacao">
+                                <option value="" selected>Escolha sua especialização</option>
+                            </select>
+                        </label>
+                        <label for="profissional">
+                            <span>Selecionar profissional</span>
+                            <input type="text" disabled id="profissional" name="profissional" placeholder="Selecione o profissional"></input>
+                        </label>
+                    </form>
+                </div>
 
-                <button class="btn">Continuar</button>
+                <button class="btn" disabled>Continuar</button>
             </section>
 
 
-            <section class="lado-direito"></section>
+            <section class="lado-direito">
+                <div class="boxProfissionais" id="boxProfissionais">
+                    <div class="itemProfissional">
+                        <img src="../public/main-page/background-hero.jpg" alt="">
+                        <div class="content">
+                            <div class="up">
+                                <h3>Dr. Emanuel Costa</h3>
+                                <span>Dematologista</span>
+                            </div>
+                            <div class="down">
+                                <span>Valor da consulta:</span>
+                                <span>R$<strong>250,00</strong></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     </main>
 
     <script src="../src/front-end/front-js/tela-principal/nav.js"></script>
     <script src="../src/front-end/front-js/tela-carregamento.js"></script>
+    <script src="../src/front-end/front-js/inserirHtml/form/especializacao.js" type="module"></script>
     <!-- <script src="../src/front-end/front-js/login-registro/inputFocus.js"></script>
     <script src="../src/front-end/front-js/login-registro/inputVisibilidadeSenha.js"></script>
     <script src="../src/front-end/front-js/inserirHtml/login-registro-inserirHtml/especializacao.js" type="module"></script> -->

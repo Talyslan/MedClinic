@@ -16,3 +16,24 @@ h1 {
     margin: 1em 0 .5em 0;
     text-transform: uppercase;
 }
+
+.wrapper {
+    border-top: var(--cinza-200) 1px solid;
+    display: flex;
+    width: 100%;
+    height: 70vh;
+}
+
+.lado-esquerdo,
+.lado-direito {
+    width: 50%;
+}
+
+.lado-esquerdo {
+    border-right: 1px solid var(--cinza-200);
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    justify-content: space-between;
+    align-items: center;
+}

@@ -1,0 +1,12 @@
+.lado-direito {
+    padding: 2em;
+}
+
+.lado-direito .boxProfissionais {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.lado-direito .itemProfissional > img {
+    width: 20%;
+}

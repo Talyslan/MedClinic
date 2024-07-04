@@ -6,6 +6,7 @@
 .inputs > label {
   position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
   width: 100%;
   height: 3em;
@@ -22,6 +23,7 @@
 }
 
 .inputs > label input,
+.inputs > label div,
 select {
   border-radius: var(--arredondamento);
   background: none;
