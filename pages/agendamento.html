@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../public/favicon.ico" type="image/x-icon">
+    
+    <!-- CSS Links - Base -->
+    <link rel="stylesheet" href="../src/front-end/css/reset.css">
+    <link rel="stylesheet" href="../src/front-end/css/global.css">
+    <!-- CSS Links - Header -->
+    <link rel="stylesheet" href="../src/front-end/css/header/header.css">
+
+    <!-- CSS Links - Agendamento Geral -->
+    <link rel="stylesheet" href="../src/front-end/css/tela-agendamento/agendamento.css">
+
+    <!-- CSS Links - tela de carregamento -->
+    <link rel="stylesheet" href="../src/front-end/css/tela-carregamento.css">
+
+    <title>MedClinic - Agendamento</title>
+</head>
+<body>
+    <div id="tela-carregamento" class="tela-carregamento">
+        <img src="../public/logos/logo-c-nome-baixo.svg" alt="">
+        <div class="down">
+            <div class="spinner"></div>
+            <p>Aguarde, o site está carregando...</p>
+        </div>
+    </div>
+
+    <header>
+        <a href="../index.html">
+            <img src="../public/logos/logo-c-nome-lado.svg" alt="Logo MedClinic">
+        </a>
+        <nav class="">
+            <div class="lado-esquerdo">
+                <ul>
+                    <li><a href="../index.html#hero" class="link">home</a></li>
+                    <li><a href="../index.html#planos" class="link">planos</a></li>
+                    <li><a href="../index.html#sobre-nos" class="link">sobre nós</a></li>
+                    <li><a href="#" class="link">agendamentos</a></li>
+                </ul>
+            </div>
+
+            <img src="../public/agendamento/user-illustration.png" alt="">
+        </nav>
+        <span class="close-nav">&#10005;</span>
+        <span class="open-nav">&#9776;</span>
+    </header>
+
+    <main>
+        <h1>agendamento de consulta</h1>
+
+        <div class="wrapper">
+            <section class="lado-esquerdo">
+                <div class="title">
+                    <h2>Selecione o departamento</h2>
+                </div>
+                
+                <div class="inputs"></div>
+
+                <button class="btn">Continuar</button>
+            </section>
+
+
+            <section class="lado-direito"></section>
+        </div>
+    </main>
+
+    <script src="../src/front-end/front-js/tela-principal/nav.js"></script>
+    <script src="../src/front-end/front-js/tela-carregamento.js"></script>
+    <!-- <script src="../src/front-end/front-js/login-registro/inputFocus.js"></script>
+    <script src="../src/front-end/front-js/login-registro/inputVisibilidadeSenha.js"></script>
+    <script src="../src/front-end/front-js/inserirHtml/login-registro-inserirHtml/especializacao.js" type="module"></script> -->
+    <!-- validações dos dados (inputs) -->
+    <!-- <script type="module" src="../src/front-end/front-js/login-registro/validacao/registroValidacao.js"></script> -->
+</body>
+</html>

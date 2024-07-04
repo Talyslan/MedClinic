@@ -1,0 +1,18 @@
+header {
+    background: var(--verde-escuro);
+    position: relative;
+}
+
+header nav > img {
+    width: 2.5em;
+    cursor: pointer;
+}
+
+h1 {
+    font-size: 3rem;
+    color: var(--preto);
+    border: 80%;
+    text-align: center;
+    margin: 1em 0 .5em 0;
+    text-transform: uppercase;
+}
