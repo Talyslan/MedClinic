@@ -1,8 +1,7 @@
-import Pessoa from './pessoa';
+import { Pessoa } from './pessoa.js';
 
-class Paciente extends Pessoa{
-    constructor(){};
-    super(){};
+export class Paciente extends Pessoa{
+    constructor(nome, senha, senha_confirm, data_nasc, cpf, email) {
+        super(nome, senha, senha_confirm, data_nasc, cpf, email);
+    };
 };
-
-export default Paciente;

@@ -16,3 +16,4 @@ pacienteRotas.get("/pacientes/:id", getUmPaciente);
 pacienteRotas.post("/adicionarPaciente", adicionarPaciente);
 pacienteRotas.put("/atualizarPaciente/:id", atualizarPaciente);
 pacienteRotas.delete("/deletarPaciente/:id", deletarPaciente);
+
