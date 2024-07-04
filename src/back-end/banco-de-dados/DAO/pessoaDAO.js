@@ -29,7 +29,6 @@ export class PessoaDAO extends tableDAO {
     const sql_CreateTable = `
     CREATE TABLE IF NOT EXISTS ${PessoaDAO.sql_nomeTabela}
     (${PessoaDAO.sql_especificacoesTabela});`
-
     await this._conexao.query(sql_CreateTable);
   }
 
@@ -47,11 +46,15 @@ export class PessoaDAO extends tableDAO {
     console.log(`Paciente adicionado na tabela com sucesso com ID: ${pessoaId}!`);
   }
 
-// inserir uma pessoa e, dependendo dos dados recebidos, inserir em medico ou paciente
-  async insertInto(obj) {
+  async createTable() {
     // cria tabela pessoa se ela nao existir
     this._inicializePessoa();
-    
+
+    super.createTable()
+  }
+
+// inserir uma pessoa e, dependendo dos dados recebidos, inserir em medico ou paciente
+  async insertInto(obj) {
     // desestruturo o obj para pegar apenas os valores de pessoa
     const { especializacao, crm, ...pessoaDados } = obj;
     
@@ -66,6 +69,7 @@ export class PessoaDAO extends tableDAO {
 
     try {
       // Inserindo dados na tabela pessoa
+      console.log('to no try')
       const [resultPessoa] = await this._conexao.execute(sql_insertInto, valores);
       const pessoaId = resultPessoa.insertId;
 

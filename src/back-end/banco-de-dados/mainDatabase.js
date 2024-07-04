@@ -28,7 +28,7 @@ export const mainDatabase = async () => {
       await table.createTable();
     }
 
-    // TESTE: inserindo dados nas tabelas
+    // // TESTE: inserindo dados nas tabelas
     for (const obj of medicos) {
       await tableMedico.insertInto(obj);
     }
@@ -37,9 +37,9 @@ export const mainDatabase = async () => {
       await tablePaciente.insertInto(obj);
     }
 
-    // for (const obj of telefones) {
-    //   await tableTelefone.insertInto(obj);
-    // }
+    for (const obj of telefones) {
+      await tableTelefone.insertInto(obj);
+    }
   } 
   catch (err) {
     console.error("Erro ao inicializar o banco de dados | " + err.stack);
