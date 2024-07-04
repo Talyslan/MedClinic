@@ -24,6 +24,9 @@
 
     <link rel="stylesheet" href="../src/front-end/css/tela-login-registro/media-query.css">
 
+    <!-- CSS Links - Library AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
     <title>MedClinic - Registro</title>
 </head>
 <body>
@@ -94,9 +97,9 @@
         </div>
 
         <div class="lado-design">
-            <h1>Seja bem vindo ao nosso site!</h1>
-            <p>Juntos pela sua saúde, sempre na MedClinic!</p>
-            <img src="../public/login-registro-page/medica-2.png" alt="Médica Ilustração">
+            <h1 data-aos="fade-up" data-aos-delay="100">Seja bem vindo ao nosso site!</h1>
+            <p data-aos="fade-up" data-aos-delay="100">Juntos pela sua saúde, sempre na MedClinic!</p>
+            <img src="../public/login-registro-page/medica-2.png" alt="Médica Ilustração" data-aos="fade-up" data-aos-delay="100">
         </div>
 
        <!-- Após ter clicado para entrar -->
@@ -157,5 +160,8 @@
     <script src="../src/front-end/front-js/inserirHtml/login-registro-inserirHtml/especializacao.js" type="module"></script>
     <!-- validações dos dados (inputs) -->
     <script type="module" src="../src/front-end/front-js/login-registro/validacao/registroValidacao.js"></script>
+    <!-- Script Links - Library AOS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>AOS.init();</script>
 </body>
 </html>
