@@ -29,5 +29,3 @@ CREATE TABLE telefone (
     PRIMARY KEY (id, telefone),
     FOREIGN KEY (id) REFERENCES pessoa(id)
 );
-
-aaaa
