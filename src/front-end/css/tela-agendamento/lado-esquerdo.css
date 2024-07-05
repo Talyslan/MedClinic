@@ -1,56 +1,78 @@
-.lado-esquerdo .title {
+/* title */
+.wrapper .lado-esquerdo .title {
     background: var(--verde);
+    position: relative;
     padding: 2em;
     width: 100%;
 }
 
-.lado-esquerdo .inputs {
+.wrapper .lado-esquerdo .title h2 {
+    font-size: 2rem;
+    text-transform: none;
+}
+
+/* inputs */
+.wrapper .lado-esquerdo .inputs {
     width: 70%;
     position: relative;
-}
-
-.lado-esquerdo form {
     display: flex;
     flex-direction: column;
-    gap: 4em;
+    justify-content: center;
+    align-items: center;
 }
 
-.lado-esquerdo .inputs form > label {
+/* form dos inputs */
+.wrapper .lado-esquerdo form {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.wrapper .lado-esquerdo .inputs form > label {
     display: flex;
     flex-direction: column;
     gap: 1em;
     position: relative;
 }
 
+.wrapper .lado-esquerdo .inputs form > label span {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
 /* bolinhas */
-.lado-esquerdo .inputs .bolinhas {
+.wrapper .lado-esquerdo .inputs .bolinhas {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     position: absolute;
-    left: -4em;
+    left: -2em;
     top: -.5em;
-    gap: 7em;
+    gap: 5em;
 }
 
-.lado-esquerdo .inputs .line {
+.wrapper .lado-esquerdo .inputs .line {
     width: 3px;
     background: var(--cinza-400);
     position: absolute;
     height: 5em;
+    z-index: -1;
 }
 
-.lado-esquerdo .inputs .bolinhas span {
+.wrapper .lado-esquerdo .inputs .bolinhas span {
     background: var(--verde);
+    color: var(--branco);
+    font-weight: 500;
     border-radius: 5em;
     padding: .5em .7em;
 }
 
 
-.lado-esquerdo .inputs form  > label > input,
-.lado-esquerdo .inputs form  > label > select,
-.lado-esquerdo .inputs form  > label > div {
+
+.wrapper .lado-esquerdo .inputs form  > label > input,
+.wrapper .lado-esquerdo .inputs form  > label > select,
+.wrapper .lado-esquerdo .inputs form  > label > div {
     background: var(--cinza-200);
     border-radius: .3em;
     width: 100%;
@@ -59,11 +81,11 @@
     font-size: 1em;
 }
 
-.lado-esquerdo .btn {
+.wrapper .lado-esquerdo .btn {
     background: var(--verde-escuro);
     border-radius: 1em;
 }
 
-.lado-esquerdo .btn:disabled {
+.wrapper .lado-esquerdo .btn:disabled {
     background: var(--cinza-200);
 }

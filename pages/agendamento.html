@@ -17,6 +17,13 @@
     <link rel="stylesheet" href="../src/front-end/css/tela-agendamento/lado-esquerdo.css">
     <link rel="stylesheet" href="../src/front-end/css/tela-agendamento/lado-direito.css">
 
+    <link rel="stylesheet" href="../src/front-end/css/tela-agendamento/selecione-datahora.css">
+    <link rel="stylesheet" href="../src/front-end/css/tela-agendamento/confirmar-dados.css">
+
+    <link rel="stylesheet" href="../src/front-end/css/tela-agendamento/media-query.css">
+    <!-- mediaquery da tela principal so pra pegar o menu hamburguer -->
+    <link rel="stylesheet" href="../src/front-end/css/tela-principal/media-query.css">
+
     <!-- CSS Links - tela de carregamento -->
     <link rel="stylesheet" href="../src/front-end/css/tela-carregamento.css">
 
@@ -54,7 +61,8 @@
     <main>
         <h1>agendamento de consulta</h1>
 
-        <div class="wrapper">
+         <!-- Selecione departamento -->
+        <div class="wrapper" id="selecione-departamento">
             <section class="lado-esquerdo">
                 <div class="title">
                     <h2>Selecione o departamento</h2>
@@ -69,48 +77,148 @@
                     <form>
                         <label for="especializacao">
                             <span>Selecionar departamento</span>
-                            <select name="especializacao" id="especializacao">
+                            <select autofocus name="especializacao" id="especializacao" class="inputVerify">
                                 <option value="" selected>Escolha sua especialização</option>
                             </select>
                         </label>
                         <label for="profissional">
                             <span>Selecionar profissional</span>
-                            <input type="text" disabled id="profissional" name="profissional" placeholder="Selecione o profissional"></input>
+                            <input type="text" id="profissional" name="profissional" disabled placeholder="Selecione o profissional" class="inputVerify"></input>
                         </label>
+                        
+                        <button class="btn" disabled>Continuar</button>
                     </form>
                 </div>
-
-                <button class="btn" disabled>Continuar</button>
             </section>
 
 
             <section class="lado-direito">
-                <div class="boxProfissionais" id="boxProfissionais">
-                    <div class="itemProfissional">
-                        <img src="../public/main-page/background-hero.jpg" alt="">
-                        <div class="content">
-                            <div class="up">
-                                <h3>Dr. Emanuel Costa</h3>
-                                <span>Dematologista</span>
-                            </div>
-                            <div class="down">
-                                <span>Valor da consulta:</span>
-                                <span>R$<strong>250,00</strong></span>
-                            </div>
+                <div class="boxProfissionais" id="boxProfissionais"></div>
+            </section>
+        </div>
+        
+        
+        <!-- Selecione a data e hora 
+        <div class="wrapper" id="selecione-datahora">
+            <section class="lado-esquerdo">
+                <div class="title">
+                    <button class="voltar">voltar</button>
+                    <h2>Informe a data e a hora</h2>
+                </div>
+                
+                <div class="inputs">
+                    <div class="bolinhas">
+                        <div class="line"></div>
+                        <span>1</span>
+                        <span>2</span>
+                        <span>3</span>
+                    </div>
+                    <form>
+                        <label for="data">
+                            <span>Selecione a data disponível</span>
+                            <input autofocus type="date" id="data" name="data" placeholder="Selecione a data" class="inputVerify"></input>
+                        </label>
+                        <label for="hora">
+                            <span>Selecione a hora disponível</span>
+                            <input type="text" disabled id="hora" name="hora" placeholder="Selecione a hora" class="inputVerify"></input>
+                        </label>
+                        <label for="pagamento">
+                            <span>Selecione a forma de pagamento</span>
+                            <select name="pagamento" id="pagamento" class="inputVerify">
+                                <option value="" selected>Selecionar a forma de pagamento</option>
+                                <option value="Dinheiro">Dinheiro</option>
+                                <option value="PIX">PIX</option>
+                            </select>
+                        </label>
+
+                        <button class="btn" disabled>Continuar</button>
+                    </form>
+                </div>
+            </section>
+
+            <section class="lado-direito">
+                <div class="itemProfissional active" id="0">
+                    <img src="../public/main-page/background-hero.jpg" alt="">
+                    <div class="content">
+                        <div class="up">
+                            <h3>Dr. Emanuel Costa</h3>
+                            <span>Dermatologista</span>
                         </div>
+                        <div class="down">
+                            <span>Valor da consulta:</span>
+                            <span>R$<strong> R$ 250,00</strong></span>
+                        </div>
+                    </div>
+                </div> 
+
+                <div class="horarios">
+                    <h3>Horários disponíveis</h3>
+                    <div class="boxHorarios" id="boxHorarios">
+                        <button class="horaItem">12:00</button>
+                        <button class="horaItem active">14:00</button>
+                        <button class="horaItem">16:00</button>
                     </div>
                 </div>
             </section>
         </div>
+         -->
+         
+
+         
+        <!-- confirme os dados 
+        <div class="wrapper" id="confirmar-dados">
+            <section class="lado-esquerdo">
+                <div class="title">
+                    <button class="voltar">voltar</button>
+                    <h2>Confirme seus dados</h2>
+                </div>
+                
+                <div class="inputs">
+                    <div class="boxInformacoes">
+                        <div class="infoItem">
+                            <span>Departamento:</span>
+                            <span>Dermatologista</span>
+                        </div>
+                        <div class="infoItem">
+                            <span>Data e hora:</span>
+                            <span>12/06/2024 às 12:00</span>
+                        </div>
+                        <div class="infoItem">
+                            <span>Especialista:</span>
+                            <span>Dr. Emanuel Costa</span>
+                        </div>
+                        <div class="infoItem">
+                            <span>Pagamento:</span>
+                            <span>Dinheiro: R$250,00</span>
+                        </div>
+                    </div>
+
+                    <div class="botoes">
+                        <button class="btn">Confirmar</button>
+                        <button class="btn">Cancelar</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="lado-direito">
+                
+            </section>
+        </div>
+        -->
+
     </main>
 
     <script src="../src/front-end/front-js/tela-principal/nav.js"></script>
     <script src="../src/front-end/front-js/tela-carregamento.js"></script>
     <script src="../src/front-end/front-js/inserirHtml/form/especializacao.js" type="module"></script>
-    <!-- <script src="../src/front-end/front-js/login-registro/inputFocus.js"></script>
-    <script src="../src/front-end/front-js/login-registro/inputVisibilidadeSenha.js"></script>
-    <script src="../src/front-end/front-js/inserirHtml/login-registro-inserirHtml/especializacao.js" type="module"></script> -->
-    <!-- validações dos dados (inputs) -->
-    <!-- <script type="module" src="../src/front-end/front-js/login-registro/validacao/registroValidacao.js"></script> -->
+    <script type="module" src="../src/front-end/front-js/inserirHtml/agendamento.js"></script>
+    <script type="module" src="../src/front-end/front-js/agendamento/validacao/selecioneProfissionais.js"></script>
+    <script type="module" src="../src/front-end/front-js/agendamento/validacao/selecioneDepartamento.js"></script>
+    <script type="module" src="../src/front-end/front-js/funções-auxiliares/btnActive&classActive.js"></script>
+    <script type="module" src="../src/front-end/front-js/agendamento/validacao/selecioneData.js"></script>
+    <script type="module" src="../src/front-end/front-js/agendamento/validacao/selecionePagamento.js"></script>
+    <script type="module" src="../src/front-end/front-js/agendamento/validacao/selecionaHora.js"></script>
+
+    <script type="module" src="../src/front-end/front-js/agendamento/dadosForms/dadosForms.js"></script>
 </body>
 </html>

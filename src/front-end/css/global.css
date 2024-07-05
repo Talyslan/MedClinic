@@ -27,7 +27,8 @@
 body,
 button,
 input,
-span {
+span,
+select {
   font-family: "League Spartan";
   font-weight: normal;
 }

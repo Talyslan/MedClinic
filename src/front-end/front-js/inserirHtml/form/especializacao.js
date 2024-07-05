@@ -10,6 +10,8 @@ const insertOpt = ({ department }) => {
 const selectEspecializacao = document.querySelector("#especializacao");
 
 // event
-listaDepartamentos.forEach((departamento) => {
-  selectEspecializacao.innerHTML += insertOpt(departamento);
-});
+if (selectEspecializacao) {
+  listaDepartamentos.forEach((departamento) => {
+    selectEspecializacao.innerHTML += insertOpt(departamento);
+  });
+}

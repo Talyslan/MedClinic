@@ -1,39 +1,85 @@
 header {
-    background: var(--verde-escuro);
-    position: relative;
+  background: var(--verde-escuro);
+  position: relative;
 }
 
 header nav > img {
-    width: 2.5em;
-    cursor: pointer;
+  width: 2.5em;
+  cursor: pointer;
 }
 
 h1 {
-    font-size: 3rem;
-    color: var(--preto);
-    border: 80%;
-    text-align: center;
-    margin: 1em 0 .5em 0;
-    text-transform: uppercase;
+  font-size: 2.5rem;
+  color: var(--preto);
+  border: 80%;
+  text-align: center;
+  margin: 1em 0 0.5em 0;
+  text-transform: uppercase;
 }
 
 .wrapper {
-    border-top: var(--cinza-200) 1px solid;
-    display: flex;
-    width: 100%;
-    height: 70vh;
+  border-top: var(--cinza-200) 1px solid;
+  display: flex;
+  width: 100%;
+  height: 70vh;
 }
 
-.lado-esquerdo,
-.lado-direito {
-    width: 50%;
+.wrapper .lado-esquerdo {
+  width: 40%;
 }
 
-.lado-esquerdo {
-    border-right: 1px solid var(--cinza-200);
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-    justify-content: space-between;
-    align-items: center;
+.wrapper .lado-direito {
+  width: 60%;
+  height: 100%;
+}
+
+.wrapper .lado-esquerdo {
+  border-right: 1px solid var(--cinza-200);
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  align-items: center;
+  padding-bottom: 2em;
+}
+
+/* bnt voltar */
+button.voltar {
+  background: none;
+  position: absolute;
+  top: .5em;
+  left: 1em;
+}
+
+button.voltar::before {
+  content: url("../../../../public/agendamento/seta.png");
+  color: var(--branco);
+  display: inline-block;
+  transform: scale(0.55) translate(0, 3px);
+  transition: 0.3s;
+}
+
+button.voltar:hover::before {
+  transform: scale(0.55) translate(-5px, 3px);
+}
+
+/* active */
+/* selecionado */
+.wrapper .lado-esquerdo .inputs form > label > input.active::placeholder {
+  color: var(--branco);
+}
+
+.wrapper .lado-esquerdo .inputs form > label > input.active,
+.wrapper .lado-esquerdo .inputs form > label > select.active,
+.itemProfissional.active {
+  background: var(--verde);
+}
+
+.lado-direito .itemProfissional.active .down span:last-child strong {
+  color: var(--branco);
+}
+
+/* selecione-datahora */
+#selecione-datahora .boxHorarios .horaItem.active {
+    background: var(--verde);
+    color: var(--branco);
 }

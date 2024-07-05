@@ -1,0 +1,41 @@
+#confirmar-dados .lado-esquerdo,
+#confirmar-dados .lado-direito {
+    width: 50%;
+} 
+
+#confirmar-dados .lado-esquerdo .inputs {
+    gap: 5em;
+    width: 100%;
+}
+
+#confirmar-dados .boxInformacoes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3em;
+    width: 80%;
+}
+
+#confirmar-dados .boxInformacoes .infoItem {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 100%;
+}
+
+#confirmar-dados .boxInformacoes .infoItem span {
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+#confirmar-dados .boxInformacoes .infoItem span:last-child {
+    padding: 1em;
+    background: var(--verde);
+    border-radius: .5em;
+    color: var(--branco);
+}
+
+#confirmar-dados .botoes {
+    display: flex;
+    gap: 2em;
+
+}

@@ -1,12 +1,66 @@
 .lado-direito {
-    padding: 2em;
+    padding: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: start
 }
 
 .lado-direito .boxProfissionais {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
+    gap: 2em;
 }
 
+.lado-direito .itemProfissional {
+    display: flex;
+    gap: .5em;
+    border-radius: .2em;
+    max-width: 350px;
+    box-shadow: 0 0 4px var(--verde-escuro);
+    transition: .3s;
+}
+
+.lado-direito .itemProfissional:hover {
+    box-shadow: 4px 4px 0 var(--verde-escuro);
+    cursor: pointer ;
+}
+
+
 .lado-direito .itemProfissional > img {
-    width: 20%;
+    object-fit: cover;
+    width: 40%;
+    height: 150px;
+    border-radius: .1em;
+}
+
+.lado-direito .itemProfissional .content {
+    padding: .5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.lado-direito .itemProfissional .content .up,
+.lado-direito .itemProfissional .content .down {
+    display: flex;
+    flex-direction: column;
+    gap: .6em;
+}
+
+.lado-direito span {
+    font-weight: 500;
+}
+
+.lado-direito .itemProfissional .content .down span:first-child {
+    font-size: .9rem;
+}
+
+.lado-direito .itemProfissional .content .down span:last-child {
+    font-size: .7rem;
+}
+
+.itemProfissional .content .down span:last-child strong {
+    font-size: 1.1rem;
+    color: var(--verde);
 }
