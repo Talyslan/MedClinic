@@ -1,11 +1,9 @@
-import Pessoa from './pessoa';
+import { Pessoa } from './pessoa.js';
 
-class Medico extends Pessoa{
-    constructor(){};
-    super(especializacao, crm){
+export class Medico extends Pessoa {
+    constructor(nome, senha, senha_confirm, data_nasc, cpf, email, especializacao, crm) {
+        super(nome, senha, senha_confirm, data_nasc, cpf, email);
         this._especializacao = especializacao;
         this._crm = crm;
-    }
+    };
 };
-
-export default Paciente;
