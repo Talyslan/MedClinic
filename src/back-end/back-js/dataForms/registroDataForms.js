@@ -24,31 +24,31 @@ function medClicado(obj) {
     let formDataObject;
 
     const formMed = document.getElementById('formMed');
-    formMed.addEventListener('submit', submitMed);
+    formMed.addEventListener('submit', function(event) { 
+        event.preventDefault();
 
-    // MedicoCriado._crm = formDataObject.crm;
-    // MedicoCriado._especializacao = formDataObject.especializacao;
+        const formData = new FormData(event.target);
 
-    // formMed.addEventListener('submit', () => {
-    //     const finalizarContaMed = document.getElementById('finalizar-conta-med');
-    //     finalizarContaMed.style.display = 'none';
-    // });
+        const formDataObject = {};
 
-    // console.log(MedicoCriado)
-};
+        formData.forEach((value, key) => formDataObject[key] = value);
+
+        console.log(formDataObject);
+
+        MedicoCriado._crm = formDataObject.crm;
+        MedicoCriado._especializacao = formDataObject.especializacao;
+
+        formMed.addEventListener('submit', () => {
+            const finalizarContaMed = document.getElementById('finalizar-conta-med');
+            finalizarContaMed.style.display = 'none';
+        });
+
+        console.log(MedicoCriado)
+        });
+    };
 
 function submitMed(event) {
-    event.preventDefault();
-
-    const formData = new FormData(event.target);
-
-    const formDataObject = {};
-
-    formData.forEach((value, key) => formDataObject[key] = value);
-
-    console.log(formDataObject);
-
-    return formDataObject;
+    
 };
 
 //Essa função salva os dados do primeiro fomulário 
