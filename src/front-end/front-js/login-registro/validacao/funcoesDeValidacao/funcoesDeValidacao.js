@@ -38,18 +38,6 @@ export const passwordConfirmValidation = (password_1, password_2) => {
     }
 };
 
-// EXISTE UM ALGORITMO PRA VALIDAR CPF! 
-
-/*
-
-1. pegue os digitos do cpf e multiplique de 10 a 2 em ordem decrescente
-2. multiplique o numero encontrado por 10, divida por 11 e armazene o resto da divisão (se ele for 10, transforme em 0)
-3. pegue os dígitos do cpf e o primeiro dígito verificador e multiplicar na sequência decrescente de 11 até 12
-4. multiplique o numero encontrado por 10, divida por 11 e armazene o resto
-
-padrão de um cpf: xxx.xxx.xxx-xx
-
-*/
 export const cpfValidation = (cpf) => {
 
     // recebe o array em texto e quebra num array explícito para tratamento
@@ -127,3 +115,36 @@ export const cpfValidation = (cpf) => {
     }
 
 };
+
+export const telValidation = (tel) => { 
+    let padrao = /^\d{11}$/
+
+    return padrao.test(tel)
+};
+
+export const dateValidation = (date) => {
+    // transforma a data recebida num objeto data
+    const date_obj = new Date(date);
+    // pega o date() de hoje
+    const hoje = new Date();
+    
+    // calcula o date de 18 anos no passado
+    const past18Years = new Date();
+    past18Years.setFullYear(today.getFullYear() - 18);
+    
+    // returna true se a data é no mínimo 18 anos no passado
+    if (inputDate >= past18Years){
+        return true
+    }
+    else { 
+        return false 
+    }
+
+}
+
+export const nameValidation = (nome) => {
+    let padrao = /^[A-Z][a-zA-Z'`-]+(?: [A-Z][a-zA-Z'`-]+)*$/
+
+    return padrao.test(nome)
+
+}
