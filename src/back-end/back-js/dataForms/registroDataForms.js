@@ -15,14 +15,20 @@ class SubmissaoInForm {
 
         const urlAPI_paciente = 'http://localhost:3000/adicionarPaciente'
 
+        let PacienteCriadoJSON = undefined;
+        delete PacienteCriado._senha_confirm
+        PacienteCriadoJSON = PacienteCriado
+
         try {
             const response = await fetch(urlAPI_paciente, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(PacienteCriado.getData())
+                body: PacienteCriadoJSON
             });
+
+            console.log(PacienteCriadoJSON)
 
             // console.log(JSON.stringify(PacienteCriado.getData()))
         
