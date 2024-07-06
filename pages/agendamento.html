@@ -74,7 +74,7 @@
                         <span>1</span>
                         <span>2</span>
                     </div>
-                    <form>
+                    <form id="selecione-departamento-form">
                         <label for="especializacao">
                             <span>Selecionar departamento</span>
                             <select autofocus name="especializacao" id="especializacao" class="inputVerify">
@@ -83,23 +83,27 @@
                         </label>
                         <label for="profissional">
                             <span>Selecionar profissional</span>
-                            <input type="text" id="profissional" name="profissional" disabled placeholder="Selecione o profissional" class="inputVerify"></input>
+                            <select name="profissional" id="profissional" class="inputVerify" disabled >
+                                <option value="" selected>Selecione o profissional</option>
+                            </select>
+                            
                         </label>
                         
-                        <button class="btn" disabled>Continuar</button>
+                        <button class="btn selecionarDep" disabled>Continuar</button>
                     </form>
                 </div>
             </section>
 
 
             <section class="lado-direito">
-                <div class="boxProfissionais" id="boxProfissionais"></div>
+                <div class="boxProfissionais" id="boxProfissionais">
+                    Aguardando a seleção do departamento...
+                </div>
             </section>
-        </div>
+        </div> 
         
-        
-        <!-- Selecione a data e hora 
-        <div class="wrapper" id="selecione-datahora">
+        <!-- Selecione a data e hora  
+        <div class="wrapper" id="selecione-datahora"> 
             <section class="lado-esquerdo">
                 <div class="title">
                     <button class="voltar">voltar</button>
@@ -120,11 +124,13 @@
                         </label>
                         <label for="hora">
                             <span>Selecione a hora disponível</span>
-                            <input type="text" disabled id="hora" name="hora" placeholder="Selecione a hora" class="inputVerify"></input>
+                            <select name="hora" id="hora" class="inputVerify" disabled >
+                                <option value="" selected>Selecione a hora</option>
+                            </select>
                         </label>
                         <label for="pagamento">
                             <span>Selecione a forma de pagamento</span>
-                            <select name="pagamento" id="pagamento" class="inputVerify">
+                            <select name="pagamento" id="pagamento" class="inputVerify" disabled>
                                 <option value="" selected>Selecionar a forma de pagamento</option>
                                 <option value="Dinheiro">Dinheiro</option>
                                 <option value="PIX">PIX</option>
@@ -161,10 +167,7 @@
                 </div>
             </section>
         </div>
-         -->
-         
-
-         
+        -->
         <!-- confirme os dados 
         <div class="wrapper" id="confirmar-dados">
             <section class="lado-esquerdo">
@@ -214,7 +217,6 @@
     <script type="module" src="../src/front-end/front-js/inserirHtml/agendamento.js"></script>
     <script type="module" src="../src/front-end/front-js/agendamento/validacao/selecioneProfissionais.js"></script>
     <script type="module" src="../src/front-end/front-js/agendamento/validacao/selecioneDepartamento.js"></script>
-    <script type="module" src="../src/front-end/front-js/funções-auxiliares/btnActive&classActive.js"></script>
     <script type="module" src="../src/front-end/front-js/agendamento/validacao/selecioneData.js"></script>
     <script type="module" src="../src/front-end/front-js/agendamento/validacao/selecionePagamento.js"></script>
     <script type="module" src="../src/front-end/front-js/agendamento/validacao/selecionaHora.js"></script>

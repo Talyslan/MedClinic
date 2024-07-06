@@ -2,7 +2,7 @@ import {
   addActive,
   handleActiveBtn,
   removeActive,
-} from "../../funções-auxiliares/btnActive&classActive.js";
+} from "../../funções-auxiliares/funcoesAuxiliares.js";
 
 // handle
 // verifica se esta selecionado e adiciona o active (background verde)
@@ -25,10 +25,18 @@ const isSelected = ({ target }) => {
   handleActiveBtn();
 };
 
+const mainClick = ({ target }) => {
+  const pagamento = document.querySelector("#pagamento");
+  
+  if (target.id === 'pagamento') {
+    pagamento.addEventListener("change", isSelected);
+  }
+};
+
 // select
-const pagamento = document.querySelector("#pagamento");
+const main = document.querySelector("main");
 
 // event
-if (pagamento) {
-  pagamento.addEventListener("change", isSelected);
-}
+// colocando evento no main pois é o unico um elemento que nao altera dentro do html
+// delegaçao de eventos
+main.addEventListener("click", mainClick);

@@ -1,148 +1,98 @@
-import { alterarElementos } from "../../funções-auxiliares/display.js";
+import { alterarElementos } from "../../funções-auxiliares/funcoesAuxiliares.js";
+import { sections } from "./codigoPaginas.js";
 
-// handle
-const form1Submit = (event) => {
-    event.preventDefault()
+// Pegando os dados e passando para um objeto
+let DATAformSelecionaDep = {};
 
-    console.log(event)
+// Handle para o formulário de seleção de data, hora e pagamento
+const formSelecionaDataHoraPagamento = (event) => {
 
-    const formData1 = new FormData(event.target);
+  const cancelarClicked = () => window.location.href = '../index.html';
 
-    console.log(formData1)
+  const confirmarClicked = () => {
+    // taca na api
+  }
 
-    const formDataObject = {};
+  event.preventDefault();
 
-    formData1.forEach((value, key) => formDataObject[key] = value);
+  const formSelecionaDataHora = new FormData(event.target);
 
-    console.log(formDataObject);
+  // Adicionando os dados ao objeto
+  formSelecionaDataHora.forEach((value, key) => (DATAformSelecionaDep[key] = value));
 
-    const selecione_departamento = document.querySelector("#selecione-departamento");
-    const main = document.querySelector("main")
+  console.log('dois: ', DATAformSelecionaDep);
+  
+  const selecione_datahora = document.querySelector("#selecione-datahora");
+  const main = document.querySelector("main");
 
-    alterarElementos(selecione_departamento, main, sections.selecione_datahora)
+  alterarElementos(
+    selecione_datahora,
+    main,
+    sections["confirmar_dados"](DATAformSelecionaDep)
+  );
 
-}
+  // selector
+  const btnConfirmar = document.querySelector("#confirmar");
+  const btnCancelar = document.querySelector("#cancelar");
 
+  // event
+  btnConfirmar.addEventListener("click", confirmarClicked)
+  btnCancelar.addEventListener("click", cancelarClicked)
+};
 
-// selector
-const form1 = document.querySelector("form")
-const btnForm1 = document.querySelector(".btn")
+// Handle para o formulário de seleção de departamento
+const formSelecionaDep = (event) => {
+  // Previne o evento de submissão padrão
+  event.preventDefault();
 
-// evemt
-if (form1) {
-    form1.addEventListener("submit", form1Submit)
-}
+  // Coloca os dados do formulário em um objeto
+  const formSelecionaDep = new FormData(event.target);
 
+  // Adicionando os dados ao objeto
+  formSelecionaDep.forEach((value, key) => (DATAformSelecionaDep[key] = value));
+  
+  console.log('um: ', DATAformSelecionaDep);
 
-/* Pagina selecione datahora */
-const sections = {
-    selecione_departamento:`
-    <div class="wrapper" id="selecione-departamento">
-        <section class="lado-esquerdo">
-            <div class="title">
-                <h2>Selecione o departamento</h2>
-            </div>
-            
-            <div class="inputs">
-                <div class="bolinhas">
-                    <div class="line"></div>
-                    <span>1</span>
-                    <span>2</span>
-                </div>
-                <form>
-                    <label for="especializacao">
-                        <span>Selecionar departamento</span>
-                        <select autofocus name="especializacao" id="especializacao" class="inputVerify">
-                            <option value="" selected>Escolha sua especialização</option>
-                        </select>
-                    </label>
-                    <label for="profissional">
-                        <span>Selecionar profissional</span>
-                        <input type="text" id="profissional" name="profissional" disabled placeholder="Selecione o profissional" class="inputVerify"></input>
-                    </label>
-                    
-                    <button class="btn" disabled>Continuar</button>
-                </form>
-            </div>
-        </section>
+  // Section selecione-departamento
+  const selecione_departamento = document.querySelector("#selecione-departamento");
+  const main = document.querySelector("main");
+  
+  // Pegar o médico selecionado no banco
+  const medicoSelecionado = {
+    nome: "Dra. Maria Silva",
+    especialidade: "Cardiologia",
+    imagem: "../public/main-page/background-hero.jpg",
+    valorConsulta: "300,00",
+    horasDisponiveis: ["10:00", "13:00", "15:00"],
+  };
 
+  DATAformSelecionaDep.valorConsulta = medicoSelecionado.valorConsulta;
 
-        <section class="lado-direito">
-            <div class="boxProfissionais" id="boxProfissionais"></div>
-        </section>
-    </div>`,
-    selecione_datahora: `
-    <div class="wrapper" id="selecione-datahora">
-        <section class="lado-esquerdo">
-            <div class="title">
-                <button class="voltar">voltar</button>
-                <h2>Informe a data e a hora</h2>
-            </div>
-            
-            <div class="inputs">
-                <div class="bolinhas">
-                    <div class="line"></div>
-                    <span>1</span>
-                    <span>2</span>
-                    <span>3</span>
-                </div>
-                <form>
-                    <label for="data">
-                        <span>Selecione a data disponível</span>
-                        <input autofocus type="date" id="data" name="data" placeholder="Selecione a data" class="inputVerify"></input>
-                    </label>
-                    <label for="hora">
-                        <span>Selecione a hora disponível</span>
-                        <input type="text" disabled id="hora" name="hora" placeholder="Selecione a hora" class="inputVerify"></input>
-                    </label>
-                    <label for="pagamento">
-                        <span>Selecione a forma de pagamento</span>
-                        <select name="pagamento" id="pagamento" class="inputVerify">
-                            <option value="" selected>Selecionar a forma de pagamento</option>
-                            <option value="Dinheiro">Dinheiro</option>
-                            <option value="PIX">PIX</option>
-                        </select>
-                    </label>
+  // selecione_departamento desaparece e no main coloco a nova section
+  alterarElementos(
+    selecione_departamento,
+    main,
+    sections["selecione_datahora"](medicoSelecionado)
+  );
 
-                    <button class="btn" disabled>Continuar</button>
-                </form>
-            </div>
-        </section>
+  // Adiciona o evento de submissão para o próximo formulário
+  const formSelecionaDataHoraHTML = document.querySelector("form");
+  formSelecionaDataHoraHTML.addEventListener("submit", formSelecionaDataHoraPagamento);
+};
 
-        <section class="lado-direito"></section>
-    </div>`,
-    confirme_dados: `
-    <div class="wrapper" id="confirme-dados">
-        <section class="lado-esquerdo">
-            <div class="title">
-                <h2>Selecione o departamento</h2>
-            </div>
-            
-            <div class="inputs">
-                <div class="bolinhas">
-                    <div class="line"></div>
-                    <span>1</span>
-                    <span>2</span>
-                </div>
-                <form>
-                    <label for="especializacao">
-                        <span>Selecionar departamento</span>
-                        <select name="especializacao" id="especializacao" class="inputVerify">
-                            <option value="" selected>Escolha sua especialização</option>
-                        </select>
-                    </label>
-                    <label for="profissional">
-                        <span>Selecionar profissional</span>
-                        <input type="text" disabled id="profissional" name="profissional" placeholder="Selecione o profissional" class="inputVerify"></input>
-                    </label>
-                    <button class="btn" disabled>Continuar</button>
-                </form>
-            </div>
-        </section>
+// Handle para clique no main
+const mainClick = ({ target }) => {
+  const formSelecionaDepHTML = document.querySelector("form");
+  
+  if (target.closest(".btn.selecionarDep")) {
+    formSelecionaDepHTML.addEventListener("submit", formSelecionaDep);
+  }
+};
 
+// Select
+const main = document.querySelector("main");
 
-        <section class="lado-direito">
-            <div class="boxProfissionais" id="boxProfissionais"></div>
-        </section>
-    </div>`
-}
+// Event
+// Colocando evento no main pois é o único elemento que não altera dentro do HTML
+// Delegação de eventos
+main.addEventListener("click", mainClick);

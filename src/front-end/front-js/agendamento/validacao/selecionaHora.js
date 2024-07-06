@@ -1,42 +1,71 @@
 import {
   addActive,
+  addDisabled,
   removeActive,
-  handleActiveBtn,
-} from "../../funções-auxiliares/btnActive&classActive.js";
+  removeDisabled,
+} from "../../funções-auxiliares/funcoesAuxiliares.js";
 
 // handle
-const itemProfissionalActive = ({ target }) => {
-  // pega card de profissional que foi clicado
-  const btnHora = target.closest(".horaItem");
-  console.log(btnHora)
+const horaActive = ({ target }) => {
+  const selectHora = document.querySelector("#hora");
+  const btnHoraSelecionado = target.closest(".horaItem");
+  const horaItens = document.querySelectorAll(".horaItem");
 
-  // pega todos os profissionais e recebe um array
-  const horaItem = document.querySelectorAll(".horaItem");
-
-  // pega input do lado esquerdo
-  const inputHora = document.querySelector("#hora");
-
+  const pagamento = document.querySelector("#pagamento");
+  
   // remove a classe active de todos para nao ter mais de um selecionado
-  horaItem.forEach((item) => removeActive(item));
-  removeActive(inputHora);
-  // atualiza btn se necessario
-  handleActiveBtn();
+  horaItens.forEach((item) => removeActive(item));
 
-  if (!target || !btnHora) return;
-
+  addDisabled(pagamento);
+  removeActive(selectHora);
+  
+  if (!btnHoraSelecionado) return;
+  
   // profissional selecionado, input active.
-  addActive(btnHora);
-  addActive(inputHora);
-  inputHora.value = btnHora.id;
-
-  // atualiza btn se necessario
-  handleActiveBtn();
+  addActive(btnHoraSelecionado);
+  addActive(selectHora);
+  selectHora.value = btnHoraSelecionado.innerHTML;
+  removeDisabled(pagamento);
 };
 
-// selector
-const boxHorarios = document.querySelector("#boxHorarios");
+const mudancaSelectHora = ({ target }) => {
+  // select, lista dos btn de hora, valor selecionado no select
+  const selectHora = document.querySelector("#hora");
+  const horaItens = document.querySelectorAll(".horaItem");
+  const horaSelecionada = target.value;
+  
+  const pagamento = document.querySelector("#pagamento");
+  
+  removeActive(selectHora);
+  addDisabled(pagamento);
+  
+  horaItens.forEach((hora) => {
+    hora.innerHTML === horaSelecionada ? addActive(hora) : removeActive(hora);
+  });
+  
+  if (!target.value) return;
+  
+  addActive(selectHora);
+  removeDisabled(pagamento);
+};
+
+const mainClick = ({ target }) => {
+  const boxHorarios = document.querySelector("#boxHorarios");
+  const selectHora = document.querySelector("#hora");
+
+  if (target.closest(".horaItem")) {
+    boxHorarios.addEventListener("click", horaActive);
+  }
+
+  if (target.id === "hora") {
+    selectHora.addEventListener("change", mudancaSelectHora);
+  }
+};
+
+// select
+const main = document.querySelector("main");
 
 // event
-if (boxHorarios) {
-    boxHorarios.addEventListener("click", itemProfissionalActive);
-}
+// colocando evento no main pois é o unico um elemento que nao altera dentro do html
+// delegaçao de eventos
+main.addEventListener("click", mainClick);

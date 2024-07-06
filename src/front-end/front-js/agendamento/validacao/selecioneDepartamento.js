@@ -1,34 +1,43 @@
 import {
   addActive,
-  handleActiveBtn,
   removeActive,
-} from "../../funções-auxiliares/btnActive&classActive.js";
+} from "../../funções-auxiliares/funcoesAuxiliares.js";
+
+import { mostreProfissionaisDisponiveis } from "../../inserirHtml/agendamento.js";
 
 // handle
-// verifica se departamento esta selecionado e adiciona o active (background verde)
-const isSelected = ({ target }) => {
+const mudancaEspecializacao = ({ target }) => {
   const especializacaoSelect = document.querySelector("#especializacao");
 
   // remove active de especializacao se ele tiver
   removeActive(especializacaoSelect);
 
-  // atualiza btn se necessario
-  handleActiveBtn();
+  // verifica se mostra ou n mostra e se habilita ou n habilita o campo de selecionar profissionais
+  mostreProfissionaisDisponiveis(target.value);
 
   // se nao tiver departamento selecionado, ele para aqui
   if (!target.value) return;
 
+  // verifica se mostra ou n mostra e se habilita ou n habilita o campo de selecionar profissionais
+  mostreProfissionaisDisponiveis(target.value);
+
   // departamento selecionado: background verde
   addActive(especializacaoSelect);
+};
 
-  // atualiza btn se necessario
-  handleActiveBtn();
+const mainClick = ({ target }) => {
+  // Verifica se o clique foi no elemento de especialização
+  if (target.id === "especializacao") {
+    // Adiciona o evento de mudança ao seletor de especialização
+    const especializacaoSelect = document.querySelector("#especializacao");
+    especializacaoSelect.addEventListener("change", mudancaEspecializacao);
+  }
 };
 
 // select
-const especializacaoSelect = document.querySelector("#especializacao");
+const main = document.querySelector("main");
 
 // event
-if (especializacaoSelect) {
-  especializacaoSelect.addEventListener("change", isSelected);
-}
+// colocando evento no main pois é o unico um elemento que nao altera dentro do html
+// delegaçao de eventos
+main.addEventListener("click", mainClick);
