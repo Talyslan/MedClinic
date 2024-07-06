@@ -99,11 +99,11 @@ function msg_erro_validade_password_confirm() {
 // Função para mostrar mensagem de erro da data de nascimento
 function msg_erro_validade_data() {
   if (!dateValidation(inputDate.valueAsNumber)) {
-    inputPassword.parentElement.children[2].innerHTML =
+    inputDate.parentElement.children[2].innerHTML =
       "Necessita ter no mínimo 18 anos para criar uma conta!";
   }
   else {
-    inputPassword.parentElement.children[2].innerHTML = " ";
+    inputDate.parentElement.children[2].innerHTML = " ";
   }
 }
 
@@ -133,7 +133,7 @@ function msg_erro_validade_crm() {
 // Função para mostrar mensagem de erro da senha do Admin
 
 function msg_erro_validade_password_admin() {
-  if (passwordConfirmValidation(inputPasswordAdmin.value, passwordAdmin)) { 
+  if (!passwordConfirmValidation(inputPasswordAdmin.value, passwordAdmin)) { 
     inputPasswordAdmin.parentElement.children[3].innerHTML = 
       "Digite a senha do administrador correta!";
   }
