@@ -16,6 +16,7 @@ function msg_erro_validade_email() {
 
   if (!emailValidation(inputEmail.value)){
     inputEmail.parentElement.children[3].innerHTML = "Email inválido!"
+    return false; 
   }
   else {
     inputEmail.parentElement.children[3].innerHTML = ""
@@ -27,6 +28,7 @@ function msg_erro_validade_email() {
 function msg_erro_validade_password() {
   if (!passwordValidation(inputPassword.value)){
     inputPassword.parentElement.children[3].innerHTML = "12+ caracteres, 1 maiúscula, 1 especial, 1 número"
+    return false;
   }
   else {
     inputPassword.parentElement.children[3].innerHTML = ""
