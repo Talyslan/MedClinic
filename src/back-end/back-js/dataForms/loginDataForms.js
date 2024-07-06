@@ -1,51 +1,51 @@
-function submitLogin(event) {
-  const formData = new FormData(event.target);
-  const formDataObject = {};
-  // Inserindo dados que vieram para formDataObject
-  formData.forEach((value, key) => (formDataObject[key] = value));
+class SubmissaoInFormLogin {
+    submitLogin(event) {
+        event.preventDefault(); // É boa prática evitar o comportamento padrão do formulário
 
-  console.log(formDataObject);
+        const formData = new FormData(event.target);
+        const formDataObject = {};
 
-  return formDataObject;
-}
+        for (let [key, value] of formData.entries()) {
+            formDataObject[key] = value;
+        }
 
-async function getSenhaByEmail(event) {
-  event.preventDefault();
+        console.log(formDataObject);
 
-  try {
-    const formDataObject = submitLogin(event);
-    // const { email, senha } = formDataObject;
-    console.log(formDataObject)
-
-    const urlLogin = `http://localhost:3000/login`;
-
-    const response = await fetch(urlLogin, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formDataObject)
-    });
-
-    if (!response.ok) {
-      throw new Error(`Erro ao acessar a rota: ${response.statusText}`);
+        return formDataObject;
     }
 
-    const data = await response.json();
-    console.log("Resposta do servidor:", data);
+    async getSenhaByEmail(event) {
+        event.preventDefault();
 
-    // Descomente as linhas abaixo se precisar acessar `senha` na resposta
-    // const { senha } = data;
-    // console.log("Senha:", senha);
-    // return senha;
-    window.location.href = "../index.html"
+        try {
+            const formDataObject = this.submitLogin(event);
+            console.log(formDataObject);
 
+            const urlLogin = `http://localhost:3000/login`;
 
-  } 
-  catch (error) {
-    console.error("Erro ao buscar senha: ", error);
-    throw error;
-  }
+            const response = await fetch(urlLogin, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(formDataObject)
+            });
+
+            if (!response.ok) {
+                throw new Error(`Erro ao acessar a rota: ${response.statusText}`);
+            }
+
+            const data = await response.json();
+            console.log("Resposta do servidor:", data);
+
+            window.location.href = "../index.html";
+        }
+        catch (error) {
+            console.error("Erro ao buscar senha: ", error);
+            throw error;
+        }
+    }
 }
 
-// Escuta o botão de login
+let SubmissaoInFormLoginObject = new SubmissaoInFormLogin();
+
 const formLogin = document.getElementById("formLogin");
-formLogin.addEventListener("submit", getSenhaByEmail);
+formLogin.addEventListener("submit", (event) => SubmissaoInFormLoginObject.getSenhaByEmail(event));
