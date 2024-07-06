@@ -5,7 +5,7 @@ export class FabricaConexoes {
     this._config = {
       host: "localhost",
       user: "root",
-      password: "root",
+      password: "",
       database: "",
     };
     this._conexao = undefined;

@@ -11,18 +11,20 @@ class SubmissaoInForm {
         const PacienteCriado = new Paciente(
             obj.nome, obj.senha, obj['senha-confirmar'], obj['data-nascimento'], obj.cpf, obj.email
         );
-        console.log(PacienteCriado);
+        // console.log(PacienteCriado);
+
+        const urlAPI_paciente = 'http://localhost:3000/adicionarPaciente'
 
         try {
-            const response = await fetch('/adicionarPaciente', {
+            const response = await fetch(urlAPI_paciente, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify(PacienteCriado)
+                body: JSON.stringify(PacienteCriado.getData())
             });
 
-            console.log(JSON.stringify(PacienteCriado))
+            // console.log(JSON.stringify(PacienteCriado.getData()))
         
             if (!response.ok) {
                 throw new Error('Erro ao adicionar paciente');
@@ -43,7 +45,7 @@ class SubmissaoInForm {
         const MedicoCriado = new Medico(
             obj.nome, obj.senha, obj['senha-confirmar'], obj['data-nascimento'], obj.cpf, obj.email
         );
-        console.log(MedicoCriado);
+        // console.log(MedicoCriado);
 
         // Abre-se o formulário Med
         const abrirFormMed = function () {
@@ -61,7 +63,7 @@ class SubmissaoInForm {
 
             formData.forEach((value, key) => this.formDataObject[key] = value);
 
-            console.log(this.formDataObject);
+            // console.log(this.formDataObject);
 
             // Adiciona-se o crm e a especialização do obj formDataObject dentro de Médico
             MedicoCriado._crm = this.formDataObject.crm;
@@ -70,10 +72,11 @@ class SubmissaoInForm {
             const finalizarContaMed = document.getElementById('finalizar-conta-med');
             finalizarContaMed.style.display = 'none';
 
-            console.log(MedicoCriado)
+            // console.log(MedicoCriado)
+            const urlAPI_medico = 'http://localhost:3000/adicionarMedico'
 
             try {
-                const response = await fetch('/adicionarMedico', {
+                const response = await fetch(urlAPI_medico, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
@@ -99,7 +102,7 @@ class SubmissaoInForm {
     // Esse Método salva os dados do primeiro formulário 
     submitPrimario(event) {
         event.preventDefault();
-        console.log(event);
+        // console.log(event);
 
         const fecharAba = function () {
             const qualUser = document.getElementById('qual-user');
@@ -112,7 +115,7 @@ class SubmissaoInForm {
 
         formData.forEach((value, key) => formDataObject[key] = value);
 
-        console.log(formDataObject);
+        // console.log(formDataObject);
 
         const qualUser = document.getElementById('qual-user');
         qualUser.style.display = 'block';
