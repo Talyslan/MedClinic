@@ -70,6 +70,8 @@ export class PessoaDAO extends tableDAO {
     try {
       // Inserindo dados na tabela pessoa
       console.log('to no try')
+      console.log(sql_insertInto)
+      console.log(valores)
       const [resultPessoa] = await this._conexao.execute(sql_insertInto, valores);
       const pessoaId = resultPessoa.insertId;
 
