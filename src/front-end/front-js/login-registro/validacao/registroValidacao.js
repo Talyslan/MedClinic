@@ -7,6 +7,7 @@ import {
   passwordConfirmValidation,
   dateValidation,
   telValidation,
+  crmValidation,
 } from "./funcoesDeValidacao/funcoesDeValidacao.js";
 
 const [
@@ -19,6 +20,11 @@ const [
   inputTel,
 ] = document.querySelectorAll(".inputsVerificar");
 
+const [ 
+  inputCRM,
+  inputPasswordAdmin
+] = document.querySelectorAll(".inputsVerificarMed")
+
 // Adiciona eventos de input para validação de email e senha
 inputNome.addEventListener("input", msg_erro_validade_nome);
 inputCPF.addEventListener("input", msg_erro_validade_cpf);
@@ -28,8 +34,15 @@ inputPasswordConfirm.addEventListener(
   "input",
   msg_erro_validade_password_confirm
 );
+
 inputDate.addEventListener("input", msg_erro_validade_data);
 inputTel.addEventListener("input", msg_erro_validade_tel);
+
+inputCRM.addEventListener("input", msg_erro_validade_crm)
+inputPasswordAdmin.addEventListener("input", msg_erro_validade_password_admin)
+
+// apenas para testes
+passwordAdmin = "ABC1234"
 
 // Função para mostrar mensagem de erro de nome
 function msg_erro_validade_nome() {
@@ -102,5 +115,29 @@ function msg_erro_validade_tel() {
   }
   else{
     inputTel.parentElement.children[3].innerHTML = " ";
+  }
+}
+
+// Função para mostrar mensagem de erro do CRM 
+
+function msg_erro_validade_crm() { 
+  if (!crmValidation(inputCRM.value)) { 
+    inputCRM.parentElement.children[3].innerHTML = 
+      "Digite um número CRM válido!";
+  }
+  else { 
+    inputCRM.parentElement.children[3].innerHTML = " "; 
+  }
+}
+
+// Função para mostrar mensagem de erro da senha do Admin
+
+function msg_erro_validade_password_admin() {
+  if (passwordConfirmValidation(inputPasswordAdmin, passwordAdmin)) { 
+    inputPasswordAdmin.parentElement.children[3].innerHTML = 
+      "Digite a senha do administrador correta!";
+  }
+  else { 
+    inputPasswordAdmin.parentElement.children[3].innerHTML = " "; 
   }
 }

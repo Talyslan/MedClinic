@@ -126,15 +126,13 @@ export const telValidation = (tel) => {
 export const dateValidation = (date) => {
     // transforma a data recebida num objeto data
     const date_obj = new Date(date);
-    // pega o date() de hoje
-    const hoje = new Date();
     
     // calcula o date de 18 anos no passado
     const past18Years = new Date();
     past18Years.setFullYear(today.getFullYear() - 18);
     
     // returna true se a data é no mínimo 18 anos no passado
-    if (inputDate >= past18Years){
+    if (date_obj >= past18Years){
         return true
     }
     else { 
@@ -148,4 +146,10 @@ export const nameValidation = (nome) => {
 
     return padrao.test(nome)
 
+}
+
+export const crmValidation = (crm) => {
+    let padrao = /^CRM\/(AC|AL|AP|AM|BA|CE|ES|GO|MA|MT|MS|MG|PA|PB|PR|PE|PI|RJ|RN|RS|RO|RR|SC|SP|SE|TO|DF) \d{6}$/
+
+    return padrao.test(crm)
 }

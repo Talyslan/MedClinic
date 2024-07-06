@@ -26,7 +26,7 @@ function msg_erro_validade_email() {
 // Função para mostrar mensagem de erro de senha
 function msg_erro_validade_password() {
   if (!passwordValidation(inputPassword.value)){
-    inputPassword.parentElement.children[3].innerHTML = '12+ caracteres, 1 maiúscula, 1 especial, 1 número'
+    inputPassword.parentElement.children[3].innerHTML = "12+ caracteres, 1 maiúscula, 1 especial, 1 número"
   }
   else {
     inputPassword.parentElement.children[3].innerHTML = ""
