@@ -14,6 +14,9 @@ export class PessoaDAO extends tableDAO {
   // variaveis sql para consultas
   static sql_SelectAll = `SELECT * FROM pessoa;`;
 
+  static sql_SelectSenha = `SELECT senha FROM pessoa WHERE email = ?`;
+
+
   static sql_SelectOne = `
       SELECT * 
       FROM medico, pessoa
@@ -88,4 +91,20 @@ export class PessoaDAO extends tableDAO {
       throw err;
     }
   }
+
+  async getEmailBySenha(email) {
+    try {
+      const [rows] = await this._conexao.execute(PessoaDAO.sql_SelectSenha, [email]);
+      if (rows.length > 0) {
+        return rows[0].senha; // Retorna a senha como uma string
+      } else {
+        throw new Error(`Nenhuma senha encontrada para o email: ${email}`);
+      }
+    } catch (err) {
+      console.error(`Erro ao buscar a senha! | ${err.stack}`);
+      throw err;
+    }
+  }  
+  
 }
+

@@ -11,13 +11,6 @@ class SubmissaoInForm {
     // pega apenas as propriedades necessarias que vem do obj e insere em paciente (removi senhaconfirm, isso vai ser verificado no front)
     const PacienteCriado = new Paciente(obj.nome, obj.senha, obj["data-nascimento"], obj.cpf, obj.email);
 
-    // let PacienteCriadoJSON = undefined;
-    // delete PacienteCriado._senha_confirm
-    // PacienteCriadoJSON = PacienteCriado
-    
-    //pacienteCriadoJSON pode pegar todos os dados de paciente (método la na classe paciente: getData()) e converte para JSON com o JSON.stringify
-    // PacienteCriadoJSON = JSON.stringify(PacienteCriado.getData())
-
     const urlAPI_paciente = "http://localhost:3000/adicionarPaciente";
 
     try {
@@ -30,9 +23,6 @@ class SubmissaoInForm {
       if (!response.ok) {
         throw new Error("Erro ao adicionar paciente");
       }
-
-      // nao sei que isso, pode apagar
-      //const data = await response.json();
 
       //vai para tela de login assim que registra
       window.location.href = "../../../pages/login.html";
@@ -73,7 +63,6 @@ class SubmissaoInForm {
       // Cria-se um obj com as infos extra de Médico
       const formData = new FormData(event.target);
 
-      // formDataObject não existia!! pode apagar esse comentario aqui
       const formDataObject = {}
 
       formData.forEach((value, key) => formDataObject[key] = value);
