@@ -1,11 +1,12 @@
 .lado-form {
     background: var(--branco);
-    justify-content: space-between;
+    justify-content: space-around;
+    gap: 1em;
 }
 
 .lado-form > img {
-    width: 20%;
-    min-width: 100px;
+    width: 13%;
+    min-width: 50px;
     max-width: 300px;
 }
 
@@ -22,4 +23,6 @@
 
 .lado-form > p a {
     font-weight: bold;
+    margin-top: .5em;
+    display: block;
 }
