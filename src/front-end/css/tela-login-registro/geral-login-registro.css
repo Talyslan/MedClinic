@@ -15,6 +15,10 @@ main {
   text-align: center;
 }
 
+.lado-form {
+  max-width: 700px;
+}
+
 /* spanActive */
 form .inputs > label span.spanActive {
   transform: translateY(-1.5em);

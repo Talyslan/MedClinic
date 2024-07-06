@@ -1,39 +1,44 @@
 export const sections = {
   selecione_departamento: `
       <div class="wrapper" id="selecione-departamento">
-          <section class="lado-esquerdo">
-              <div class="title">
-                  <h2>Selecione o departamento</h2>
-              </div>
-              
-              <div class="inputs">
-                  <div class="bolinhas">
-                      <div class="line"></div>
-                      <span>1</span>
-                      <span>2</span>
-                  </div>
-                  <form id="selecione-departamento-form">
-                      <label for="especializacao">
-                          <span>Selecionar departamento</span>
-                          <select autofocus name="especializacao" id="especializacao" class="inputVerify">
-                              <option value="" selected>Escolha sua especialização</option>
-                          </select>
-                      </label>
-                      <label for="profissional">
-                          <span>Selecionar profissional</span>
-                          <input type="text" id="profissional" name="profissional" disabled placeholder="Selecione o profissional" class="inputVerify"></input>
-                      </label>
-                      
-                      <button class="btn" type="submit" disabled>Continuar</button>
-                  </form>
-              </div>
-          </section>
-  
-  
-          <section class="lado-direito">
-              <div class="boxProfissionais" id="boxProfissionais"></div>
-          </section>
-      </div>`,
+            <section class="lado-esquerdo">
+                <div class="title">
+                    <h2>Selecione o departamento</h2>
+                </div>
+                
+                <div class="inputs">
+                    <div class="bolinhas">
+                        <div class="line"></div>
+                        <span>1</span>
+                        <span>2</span>
+                    </div>
+                    <form id="selecione-departamento-form">
+                        <label for="especializacao">
+                            <span>Selecionar departamento</span>
+                            <select autofocus name="especializacao" id="especializacao" class="inputVerify">
+                                <option value="" selected>Escolha sua especialização</option>
+                            </select>
+                        </label>
+                        <label for="profissional">
+                            <span>Selecionar profissional</span>
+                            <select name="profissional" id="profissional" class="inputVerify" disabled >
+                                <option value="" selected>Selecione o profissional</option>
+                            </select>
+                            
+                        </label>
+                        
+                        <button class="btn selecionarDep" disabled>Continuar</button>
+                    </form>
+                </div>
+            </section>
+
+
+            <section class="lado-direito">
+                <div class="boxProfissionais" id="boxProfissionais">
+                    Aguardando a seleção do departamento...
+                </div>
+            </section>
+        </div>`,
 
   selecione_datahora: function ({
     imagem,
@@ -45,8 +50,8 @@ export const sections = {
     const horariosButtons = horasDisponiveis
       .map((hora) => `<button class="horaItem" disabled>${hora}</button>`)
       .join(" ");
-    
-      const horariosOptions = horasDisponiveis
+
+    const horariosOptions = horasDisponiveis
       .map((hora) => `<option value="${hora}">${hora}</option>`)
       .join(" ");
 
@@ -54,7 +59,7 @@ export const sections = {
       <div class="wrapper" id="selecione-datahora"> 
             <section class="lado-esquerdo">
                 <div class="title">
-                    <button class="voltar">voltar</button>
+                    <!-- <button class="voltar" id="volta">voltar</button> -->
                     <h2>Informe a data e a hora</h2>
                 </div>
                 
@@ -128,7 +133,7 @@ export const sections = {
       <div class="wrapper" id="confirmar-dados">
             <section class="lado-esquerdo">
                 <div class="title">
-                    <button class="voltar">voltar</button>
+                    <!-- <button class="voltar">voltar</button> -->
                     <h2>Confirme seus dados</h2>
                 </div>
                 

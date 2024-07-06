@@ -17,18 +17,18 @@ function msg_erro_validade_email() {
   if (!emailValidation(inputEmail.value)){
     inputEmail.parentElement.children[3].innerHTML = "Email inválido!"
   }
-  if (emailValidation(inputEmail.value)){
-    inputEmail.parentElement.children[3].innerHTML = " "
+  else {
+    inputEmail.parentElement.children[3].innerHTML = ""
   }
   
 }
 
 // Função para mostrar mensagem de erro de senha
 function msg_erro_validade_password() {
-  if (!emailValidation(inputPassword.value)){
-    inputPassword.parentElement.children[3].innerHTML = "No mínimo 12 caracteres; uma letra maiúscula; um caractere especial; um número"
+  if (!passwordValidation(inputPassword.value)){
+    inputPassword.parentElement.children[3].innerHTML = '12+ caracteres, 1 maiúscula, 1 especial, 1 número'
   }
-  if (emailValidation(inputPassword.value)){
-    inputPassword.parentElement.children[3].innerHTML = " "
+  else {
+    inputPassword.parentElement.children[3].innerHTML = ""
   }
 }

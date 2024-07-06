@@ -23,7 +23,8 @@ export const passwordValidation = (password) => {
     */
 
     // TODO: Explicar essas condições aqui nos comentários em linguagem normal
-    let padrao = /^(?=.*[A-Z])(?=.*[!@#$%^&*(),.?":{}|<>])(?=.*\d)[A-Za-z\d!@#$%^&*(),.?":{}|<>]{12,}$/
+    // let padrao = /^(?=.*[A-Z])(?=.*[!@#$%^&*(),.?":{}|<>])(?=.*\d)[A-Za-z\d!@#$%^&*(),.?":{}|<>]{12,}$/
+    let padrao = new RegExp('^(?=.*[A-Z])(?=.*[!@#$%^&*(),.?":{}|<>])(?=.*\\d)[A-Za-z\\d!@#$%^&*(),.?":{}|<>]{12,}$');
 
     return padrao.test(password)
 };

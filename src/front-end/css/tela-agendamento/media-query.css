@@ -4,13 +4,17 @@
     align-items: center;
   }
 
-  .wrapper .lado-esquerdo,
-  .wrapper .lado-direito {
-    width: 70%;
+  #confirmar-dados .lado-esquerdo,
+  #confirmar-dados {
+    width: 100%;
   }
 
   .wrapper .lado-esquerdo {
     border: 1px solid var(--cinza-200);
   }
-  
+
+  #confirmar-dados .boxInformacoes {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
 }

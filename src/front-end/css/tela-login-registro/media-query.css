@@ -5,10 +5,12 @@
 
   .lado-form {
     max-width: 100%;
+    gap: .5em;
   }
 
   .lado-form form {
     gap: 1em;
+    /* height: 40%; */
   }
 
   .lado-form form .inputs .input-lembrar,

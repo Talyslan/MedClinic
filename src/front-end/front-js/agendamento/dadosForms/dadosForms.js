@@ -1,98 +1,98 @@
 import { alterarElementos } from "../../funções-auxiliares/funcoesAuxiliares.js";
 import { sections } from "./codigoPaginas.js";
 
-// Pegando os dados e passando para um objeto
-let DATAformSelecionaDep = {};
-
-// Handle para o formulário de seleção de data, hora e pagamento
-const formSelecionaDataHoraPagamento = (event) => {
-
-  const cancelarClicked = () => window.location.href = '../index.html';
-
-  const confirmarClicked = () => {
-    // taca na api
+class ManipuladorForm {
+  constructor() {
+    this._data = {};
+    this.inicializarEventListeners();
   }
 
-  event.preventDefault();
-
-  const formSelecionaDataHora = new FormData(event.target);
-
-  // Adicionando os dados ao objeto
-  formSelecionaDataHora.forEach((value, key) => (DATAformSelecionaDep[key] = value));
-
-  console.log('dois: ', DATAformSelecionaDep);
-  
-  const selecione_datahora = document.querySelector("#selecione-datahora");
-  const main = document.querySelector("main");
-
-  alterarElementos(
-    selecione_datahora,
-    main,
-    sections["confirmar_dados"](DATAformSelecionaDep)
-  );
-
-  // selector
-  const btnConfirmar = document.querySelector("#confirmar");
-  const btnCancelar = document.querySelector("#cancelar");
-
-  // event
-  btnConfirmar.addEventListener("click", confirmarClicked)
-  btnCancelar.addEventListener("click", cancelarClicked)
-};
-
-// Handle para o formulário de seleção de departamento
-const formSelecionaDep = (event) => {
-  // Previne o evento de submissão padrão
-  event.preventDefault();
-
-  // Coloca os dados do formulário em um objeto
-  const formSelecionaDep = new FormData(event.target);
-
-  // Adicionando os dados ao objeto
-  formSelecionaDep.forEach((value, key) => (DATAformSelecionaDep[key] = value));
-  
-  console.log('um: ', DATAformSelecionaDep);
-
-  // Section selecione-departamento
-  const selecione_departamento = document.querySelector("#selecione-departamento");
-  const main = document.querySelector("main");
-  
-  // Pegar o médico selecionado no banco
-  const medicoSelecionado = {
-    nome: "Dra. Maria Silva",
-    especialidade: "Cardiologia",
-    imagem: "../public/main-page/background-hero.jpg",
-    valorConsulta: "300,00",
-    horasDisponiveis: ["10:00", "13:00", "15:00"],
-  };
-
-  DATAformSelecionaDep.valorConsulta = medicoSelecionado.valorConsulta;
-
-  // selecione_departamento desaparece e no main coloco a nova section
-  alterarElementos(
-    selecione_departamento,
-    main,
-    sections["selecione_datahora"](medicoSelecionado)
-  );
-
-  // Adiciona o evento de submissão para o próximo formulário
-  const formSelecionaDataHoraHTML = document.querySelector("form");
-  formSelecionaDataHoraHTML.addEventListener("submit", formSelecionaDataHoraPagamento);
-};
-
-// Handle para clique no main
-const mainClick = ({ target }) => {
-  const formSelecionaDepHTML = document.querySelector("form");
-  
-  if (target.closest(".btn.selecionarDep")) {
-    formSelecionaDepHTML.addEventListener("submit", formSelecionaDep);
+  // set
+  setAtributoData(prop, valor) {
+    this._data[prop] = valor;
   }
-};
 
-// Select
-const main = document.querySelector("main");
+  inicializarEventListeners() {
+    const main = document.querySelector("main");
+    main.addEventListener("click", this.handleMainClick.bind(this));
+  }
 
-// Event
-// Colocando evento no main pois é o único elemento que não altera dentro do HTML
-// Delegação de eventos
-main.addEventListener("click", mainClick);
+  handleMainClick({ target }) {
+    // delegação de eventos
+    if (target.closest(".btn.selecionarDep")) {
+      const form = document.querySelector("form");
+      form.addEventListener("submit", this.handleFormSelecionaDep.bind(this));
+    }
+  }
+
+  handleFormSelecionaDep(event) {
+    event.preventDefault();
+
+    // formData para pegar todos os dados do forms
+    const formData = new FormData(event.target);
+    // adicionando dados
+    formData.forEach((value, key) => this.setAtributoData(key, value));
+
+    console.log("um: ", this._data);
+
+    const medicoSelecionado = this.getMedicoSelecionado();
+    this.setAtributoData('valorConsulta', medicoSelecionado.valorConsulta)
+
+    this.updateSection("#selecione-departamento", sections["selecione_datahora"](medicoSelecionado));
+
+    // form do selecionar data, hora e forma de pagamento
+    const form = document.querySelector("form");
+    form.addEventListener(
+      "submit",
+      this.handleFormSelecionaDataHoraPagamento.bind(this)
+    );
+  }
+
+  handleFormSelecionaDataHoraPagamento(event) {
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+    formData.forEach((value, key) => this.setAtributoData(key, value));
+    console.log("dois: ", this._data);
+
+    this.updateSection("#selecione-datahora", sections["confirmar_dados"](this._data));
+
+    this.inicializeConfirmationButtons();
+  }
+
+  getMedicoSelecionado() {
+    return {
+      nome: "Dra. Maria Silva",
+      especialidade: "Cardiologia",
+      imagem: "../public/main-page/background-hero.jpg",
+      valorConsulta: "300,00",
+      horasDisponiveis: ["10:00", "13:00", "15:00"],
+    };
+  }
+
+  updateSection(selector, newContent) {
+    const section = document.querySelector(selector);
+
+    const main = document.querySelector("main");
+    alterarElementos(section, main, newContent);
+  }
+
+  inicializeConfirmationButtons() {
+    const btnConfirmar = document.querySelector("#confirmar");
+    const btnCancelar = document.querySelector("#cancelar");
+
+    btnConfirmar.addEventListener("click", this.confirmarClicked.bind(this));
+    btnCancelar.addEventListener("click", this.cancelarClicked.bind(this));
+  }
+
+  cancelarClicked() {
+    window.location.href = "../index.html";
+  }
+
+  confirmarClicked() {
+    // chamada da API para inserir agendamento
+  }
+}
+
+// iniciar o manipulador
+new ManipuladorForm();
