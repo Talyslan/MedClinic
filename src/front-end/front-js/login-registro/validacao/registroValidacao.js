@@ -42,25 +42,25 @@ inputCRM.addEventListener("input", msg_erro_validade_crm)
 inputPasswordAdmin.addEventListener("input", msg_erro_validade_password_admin)
 
 // apenas para testes
-passwordAdmin = "ABC1234"
+let passwordAdmin = "ABC1234"
 
 // Função para mostrar mensagem de erro de nome
 function msg_erro_validade_nome() {
   if (!nameValidation(inputNome.value)) {
-    inputNome.parentElement.children[3].innerHTML = "Nome inválido!";
+    inputNome.parentElement.children[2].innerHTML = "Nome inválido!";
   }
   else {
-    inputNome.parentElement.children[3].innerHTML = " ";
+    inputNome.parentElement.children[2].innerHTML = " ";
   }
 }
 
 // Função para mostrar mensagem de erro de CPF
 function msg_erro_validade_cpf() {
   if (!cpfValidation(inputCPF.value)) {
-    inputCPF.parentElement.children[3].innerHTML = "CPF inválido!";
+    inputCPF.parentElement.children[2].innerHTML = "CPF inválido!";
   }
   else {
-    inputCPF.parentElement.children[3].innerHTML = " ";
+    inputCPF.parentElement.children[2].innerHTML = " ";
   }
 }
 
@@ -98,23 +98,23 @@ function msg_erro_validade_password_confirm() {
 
 // Função para mostrar mensagem de erro da data de nascimento
 function msg_erro_validade_data() {
-  if (!dateValidation(inputDate.value)) {
-    inputPassword.parentElement.children[3].innerHTML =
+  if (!dateValidation(inputDate.valueAsNumber)) {
+    inputPassword.parentElement.children[2].innerHTML =
       "Necessita ter no mínimo 18 anos para criar uma conta!";
   }
   else {
-    inputPassword.parentElement.children[3].innerHTML = " ";
+    inputPassword.parentElement.children[2].innerHTML = " ";
   }
 }
 
 // Função para mostrar mensagem de erro do telefone
 function msg_erro_validade_tel() {
   if (!telValidation(inputTel.value)) {
-    inputTel.parentElement.children[3].innerHTML =
+    inputTel.parentElement.children[2].innerHTML =
       "Digite um número de telefone válido!";
   }
   else{
-    inputTel.parentElement.children[3].innerHTML = " ";
+    inputTel.parentElement.children[2].innerHTML = " ";
   }
 }
 
@@ -122,18 +122,18 @@ function msg_erro_validade_tel() {
 
 function msg_erro_validade_crm() { 
   if (!crmValidation(inputCRM.value)) { 
-    inputCRM.parentElement.children[3].innerHTML = 
+    inputCRM.parentElement.children[2].innerHTML =
       "Digite um número CRM válido!";
   }
   else { 
-    inputCRM.parentElement.children[3].innerHTML = " "; 
+    inputCRM.parentElement.children[2].innerHTML = " "; 
   }
 }
 
 // Função para mostrar mensagem de erro da senha do Admin
 
 function msg_erro_validade_password_admin() {
-  if (passwordConfirmValidation(inputPasswordAdmin, passwordAdmin)) { 
+  if (passwordConfirmValidation(inputPasswordAdmin.value, passwordAdmin)) { 
     inputPasswordAdmin.parentElement.children[3].innerHTML = 
       "Digite a senha do administrador correta!";
   }

@@ -125,19 +125,16 @@ export const telValidation = (tel) => {
 
 export const dateValidation = (date) => {
     // transforma a data recebida num objeto data
-    const date_obj = new Date(date);
-    
-    // calcula o date de 18 anos no passado
-    const past18Years = new Date();
-    past18Years.setFullYear(today.getFullYear() - 18);
-    
-    // returna true se a data é no mínimo 18 anos no passado
-    if (date_obj >= past18Years){
+
+    let agora = Date.now()
+
+    if ((agora - date) >= 568025136000) { 
         return true
-    }
+    } 
     else { 
-        return false 
+        return false
     }
+    
 
 }
 
