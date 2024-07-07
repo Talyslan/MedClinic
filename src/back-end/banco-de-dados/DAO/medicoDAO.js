@@ -7,7 +7,8 @@ export class MedicoDAO extends PessoaDAO {
     id INT NOT NULL PRIMARY KEY,
     especializacao VARCHAR(255) NOT NULL,
     crm VARCHAR(255) NOT NULL,
-    FOREIGN KEY (id) REFERENCES pessoa(id)`;
+    valorConsulta INT NOT NULL,
+	  FOREIGN KEY (id) REFERENCES pessoa(id)`;
   
   // sql para consultas
   static sql_SelectAll = `

@@ -6,10 +6,9 @@ export class LembreteDAO extends tableDAO {
   static sql_especificacoesTabela = `
     id_lembrete INT AUTO_INCREMENT PRIMARY KEY,
     data_envio DATETIME,
-    mensagem VARCHAR(100),
-    meio_comunicado VARCHAR(40),
+    titulo VARCHAR(100),
+    mensagem VARCHAR(255),
     id_paciente INT,
-    
     FOREIGN KEY (id_paciente) REFERENCES paciente(id)`;
 
   // variaveis sql para consultas

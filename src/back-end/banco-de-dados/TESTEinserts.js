@@ -24,6 +24,7 @@ export const medicos = [
     email: "carlos.pereira@example.com",
     especializacao: "Cardiologia",
     crm: "CRM12345",
+    valorConsulta: "250"
   },
   {
     nome: "Ana Oliveira",
@@ -33,6 +34,7 @@ export const medicos = [
     email: "ana.oliveira@example.com",
     especializacao: "Pediatria",
     crm: "CRM54321",
+    valorConsulta: "300"
   },
 ];
 
