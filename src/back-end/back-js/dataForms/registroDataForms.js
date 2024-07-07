@@ -10,7 +10,8 @@ class SubmissaoInForm {
     let idElement = document.getElementById(idElmt);
     if (idElement) {
       idElement.style.display = "none";
-    } else {
+    } 
+    else {
       console.error(`Elemento com id '${idElmt}' não encontrado.`);
     }
   }
@@ -19,7 +20,8 @@ class SubmissaoInForm {
     let idElement = document.getElementById(idElmt);
     if (idElement) {
       idElement.style.display = "flex";
-    } else {
+    } 
+    else {
       console.error(`Elemento com id '${idElmt}' não encontrado.`);
     }
   }
@@ -28,7 +30,8 @@ class SubmissaoInForm {
     let idElement = document.getElementById(idElmt);
     if (idElement) {
       idElement.classList.add("blur");
-    } else {
+    } 
+    else {
       console.error(`Element with id '${idElmt}' not found.`);
     }
   }
@@ -37,7 +40,8 @@ class SubmissaoInForm {
     let idElement = document.getElementById(idElmt);
     if (idElement) {
       idElement.classList.remove("blur");
-    } else {
+    } 
+    else {
       console.error(`Element with id '${idElmt}' not found.`);
     }
   }
@@ -53,7 +57,7 @@ class SubmissaoInForm {
       const response = await fetch(urlAPI_paciente, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(PacienteCriado.getData()) //aqui chama PacienteCriadoJSON
+        body: JSON.stringify(PacienteCriado.getData())
       });
 
       if (!response.ok) {
@@ -70,13 +74,9 @@ class SubmissaoInForm {
 
   // Este método cria o obj Médico
   async medClicado(obj) {
-    // Cria-se um objeto Médico
-
-    // métodos
-
     this.abrirAba('finalizar-conta-med')
-
-    // retirei senha confirm
+    
+    // Cria-se um objeto Médico
     const MedicoCriado = new Medico(obj.nome, obj.senha, obj["data-nascimento"], obj.cpf, obj.email);
 
     // assiste o forms do medico (colocar crm e especializacao)
@@ -87,30 +87,26 @@ class SubmissaoInForm {
 
       // Cria-se um obj com as infos extra de Médico
       const formData = new FormData(event.target);
-
       const formDataObject = {}
-
       formData.forEach((value, key) => formDataObject[key] = value);
 
       // Adiciona-se o crm e a especialização do obj formDataObject dentro de Médico
       MedicoCriado.setEspecializacao(formDataObject.especializacao)
       MedicoCriado.setCrm(formDataObject.crm);
 
+      // requisição para a api
       const urlAPI_medico = "http://localhost:3000/adicionarMedico";
 
       try {
         const response = await fetch(urlAPI_medico, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(MedicoCriado.getData()) //pegando os dados para inserir na api
+          body: JSON.stringify(MedicoCriado.getData())
         });
 
         if (!response.ok) {
           throw new Error("Erro ao adicionar medico");
         }
-
-        // nao sei que isso, pode apagar
-        //const data = await response.json();
 
         // vai para o login 
         window.location.href = '../../../pages/login.html';
@@ -120,7 +116,6 @@ class SubmissaoInForm {
       }
     });
   }
-
 
   // Esse Método salva os dados do primeiro formulário
   submitPrimario(event) {
@@ -135,11 +130,8 @@ class SubmissaoInForm {
     const qualUser = document.getElementById("qual-user");
     qualUser.style.display = "flex";
 
-    const lado_design = document.getElementById("lado-design");
-    const lado_form = document.getElementById("lado-form");
     this.addBlur('lado-design');
     this.addBlur('lado-form');
-
 
     // assiste se clicou em paciente
     const userPac = document.getElementById("userPac");
@@ -162,8 +154,11 @@ const subimissaoInFormObject = new SubmissaoInForm();
 
 const formPrimario = document.getElementById("formPrimario");
 // assiste o form que preenche a tabela pessoa
-formPrimario.addEventListener("submit", (event) => subimissaoInFormObject.submitPrimario(event));
+formPrimario.addEventListener("submit", (event) => {
+  subimissaoInFormObject.submitPrimario(event)
+});
 
+// assiste os closers para fechar as abas
 const close = document.getElementById('close');
 close.addEventListener('click', () => {
   subimissaoInFormObject.fecharAba('qual-user');
@@ -177,4 +172,3 @@ close2.addEventListener('click', () => {
   subimissaoInFormObject.removeBlur('lado-design');
   subimissaoInFormObject.removeBlur('lado-form');
 });
-

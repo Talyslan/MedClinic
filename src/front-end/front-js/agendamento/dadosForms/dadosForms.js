@@ -4,6 +4,7 @@ import { sections } from "./codigoPaginas.js";
 class ManipuladorForm {
   constructor() {
     this._data = {};
+    
     this.inicializarEventListeners();
   }
 

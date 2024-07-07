@@ -34,7 +34,7 @@ export const loginValidation = async (req, res) => {
     }
   } 
   catch (err) {
-    res.status(500).send("Erro ao acessar a senha!");
+    res.status(500).send("Erro ao acessar o email ou a senha! | ", err.stack);
   } 
   finally {
     await fabricaConexoes.end();
