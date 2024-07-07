@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+header {
+    background: var(--verde-escuro);
+    position: fixed;
+    top: 0;
+}
+
+header nav>img {
+    width: 2.5em;
+    cursor: pointer;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: var(--preto);
+    border: 80%;
+    text-align: center;
+    margin: 1em 0 0.5em 0;
+    text-transform: uppercase;
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+}
+
+.barra-lateral {
+    padding-top: 96px;
+    background-color: var(--verde);
+    /* height: 89.49vh; */
+    height: 100vh;
+    width: 20vw;
+    display: flex;
+    justify-content: center;
+}
+
+.barra-lateral ul {
+    padding-top: 105px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza horizontalmente */
+    gap: 10px;
+    width: 100%;
+    list-style: none; /* Remove os marcadores da lista */
+}
+
+.barra-lateral ul li, .go-to {
+    transition: 0.1s;
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    font-size: 13px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    color: var(--branco);
+    width: 100%;
+    height: 80px;
+    box-sizing: border-box; /* Inclui padding e border no tamanho total */
+}
+
+.barra-lateral ul .pag-ativa {
+    background-color: var(--branco);
+    color: var(--verde);
+}
+
+.barra-lateral ul li:hover{
+    transition: 0.1s;
+    background-color: var(--branco);
+    color: var(--verde);
+}
+
+.box-consultas{
+    padding-top: 96px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.bem-vindo{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.bem-vindo h2{
+    padding-left: 50px;
+    font-family: 'Poppins';
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 170%;
+    color: var(--preto);
+}
+
+.bem-vindo hr {
+    background-color: var(--cinza-escurao);
+    width: 92.5%;
+    height: 2px;
+    border: none;
+    margin: 0 auto;
+}
+
+.box-consulta-item{
+    margin-left: 50px;
+    margin-right: 50px;
+    height: 40%;
+    background: linear-gradient(to right, #0C393F, var(--verde));
+    padding: 30px;
+    display: flex;
+    flex-direction: row;
+}
+
+.legenda{
+    color: var(--branco);
+    font-family: 'Poppins';
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.titulo{
+    color: var(--branco);
+    font-family: 'Poppins';
+    font-size: 25px;
+    font-weight: 900;
+}
+
+.modify-consulta{
+    width: 200px;
+    height: 30px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background-color: #0C393F;
+    color: var(--branco);
+    font-family: 'Poppins';
+    font-weight: 700;
+}
+
+.botoes-view{
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.view-consultas{
+    transition: 0.1s;
+    background-color: var(--verde);
+    color: var(--branco);
+    width: 20%;
+    height: 25px;
+    border-radius: 20px;
+    margin-left: 25px;
+    margin-right: 25px;
+    font-size:17px;
+    font-weight: 700;
+}
+
+.view-consultas:hover{
+    transition: 0.1s;
+    background-color: var(--branco);
+    color: var(--verde);
+    width: 20%;
+    height: 25px;
+    border-radius: 20px;
+    border-color: var(--verde);
+    border: solid, 2px;
+}

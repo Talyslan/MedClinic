@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../public/favicon.ico" type="image/x-icon">
+
+    <!-- CSS Links - Base -->
+    <link rel="stylesheet" href="../src/front-end/css/reset.css">
+    <link rel="stylesheet" href="../src/front-end/css/global.css">
+    <!-- CSS Links - Header -->
+    <link rel="stylesheet" href="../src/front-end/css/header/header.css">
+
+    <!-- CSS Links - painel -->
+    <link rel="stylesheet" href="../src/front-end/css/tela-painel-med/painel-med.css">
+
+    <!-- CSS Links - tela de carregamento -->
+    <link rel="stylesheet" href="../src/front-end/css/tela-carregamento.css">
+
+    <title>MedClinic - Painel do Paciente</title>
+</head>
+
+<body>
+    <div id="tela-carregamento" class="tela-carregamento">
+        <img src="../public/logos/logo-c-nome-baixo.svg" alt="">
+        <div class="down">
+            <div class="spinner"></div>
+            <p>Aguarde, o site está carregando...</p>
+        </div>
+    </div>
+
+    <header>
+        <a href="../index.html">
+            <img src="../public/logos/logo-c-nome-lado.svg" alt="Logo MedClinic">
+        </a>
+        <nav class="">
+            <div class="lado-esquerdo">
+                <ul>
+                    <li><a href="../index.html#hero" class="link">home</a></li>
+                    <li><a href="../index.html#planos" class="link">planos</a></li>
+                    <li><a href="../index.html#sobre-nos" class="link">sobre nós</a></li>
+                    <li><a href="#" class="link">agendamentos</a></li>
+                </ul>
+            </div>
+
+            <img src="../public/agendamento/user-illustration.png" alt="">
+        </nav>
+        <span class="close-nav">&#10005;</span>
+        <span class="open-nav">&#9776;</span>
+    </header>
+
+    <main>
+        <div class="barra-lateral" id="barra-lateral">
+            <ul>
+                <li class="pag-ativa">CONSULTAS</li>
+                <a href="./painel-med-notific.html" class="go-to"><li>NOTIFICAÇÕES</li></a>
+                <a href="./painel-med-disponib.html" class="go-to"><li>DISPONIBILIDADE</li></a>
+            </ul>
+        </div>
+
+        <div class="box-consultas">
+            <div class="bem-vindo">
+                <h2>Bem vindo de volta, Name!</h2>
+                <hr>
+            </div>
+            <div class="botoes-view">
+                <button class="view-consultas">Marcadas</button>
+                <button class="view-consultas">Concluídas</button>
+                <button class="view-consultas">Todas</button>
+            </div>
+            <div class="box-consulta-item">
+                <div style="margin-right: 30px;">
+                    <p class="legenda">CONSULTA COM</p>
+                    <p class="titulo">Name</p>
+
+                    <p class="legenda">MARCADA PARA O DIA</p>
+                    <p class="titulo">00-00-0000 às 00:00</p>
+
+                    <p class="legenda">NO VALOR DE</p>
+                    <p class="titulo">R$00,00</p>
+                </div>
+                <div style="display: flex; flex-direction: row;">
+                    <hr style="margin-right: 10px;">
+                    <span>imagem aquiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</span>
+                    <hr style="margin-left: 10px;">    
+                </div>
+                <div style="display: flex; flex-direction: column; padding-left: 30px;">
+                    <p class="legenda">LOCALIZAÇÃO</p>
+                    <p class="legenda" style="margin-bottom: 30px;">Localização</p>
+                    <button class="modify-consulta">Entrar em Contato</button>
+                    <button class="modify-consulta">Marcar como Concluído</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="../src/front-end/front-js/tela-principal/nav.js"></script>
+    <script src="../src/front-end/front-js/tela-carregamento.js"></script>
+    <script src="../src/front-end/front-js/inserirHtml/form/especializacao.js" type="module"></script>
+</body>
+
+</html>
