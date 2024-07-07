@@ -1,11 +1,13 @@
 import mysql from "mysql2/promise";
 
+
 export class FabricaConexoes {
+
   constructor() {
     this._config = {
-      host: "localhost",
-      user: "root",
-      password: "root",
+      host: process.env.DB_HOST,
+      user: process.env.DB_USER,
+      password: process.env.DB_PASS,
       database: "",
     };
     this._conexao = undefined;

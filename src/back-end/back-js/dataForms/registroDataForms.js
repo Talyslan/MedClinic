@@ -69,6 +69,7 @@ class SubmissaoInForm {
     }
     catch (error) {
       console.error("Erro:", error);
+      location.reload();
     }
   }
 

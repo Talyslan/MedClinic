@@ -14,6 +14,7 @@ export class PessoaDAO extends tableDAO {
   // variaveis sql para consultas
   static sql_SelectAll = `SELECT * FROM pessoa;`;
 
+  static sql_CreateTable
   static sql_SelectEmail = `SELECT email FROM pessoa WHERE email = ?`;
   static sql_SelectSenha = `SELECT senha FROM pessoa WHERE email = ?`;
 
