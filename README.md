@@ -33,6 +33,15 @@ or
 npm i
 ```
 
+Crie um arquivo .env e coloque as variáveis de ambiente
+```javascript
+PORT=value
+DB_HOST=value
+DB_USER=value
+DB_PASS=value
+```
+
+
 Instale o banco local.
 ```javascript
 npm run database
