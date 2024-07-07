@@ -33,7 +33,7 @@ or
 npm i
 ```
 
-Crie um arquivo .env e coloque as variáveis de ambiente
+Crie um arquivo .env e coloque as variáveis de ambiente (1)
 ```javascript
 PORT=value
 DB_HOST=value
@@ -91,3 +91,33 @@ Clique Aqui
 - Matheus Ferreira da Silva Barros.
 - Rafael Silva Amorim.
 - Talyslan Cauan Pimentel Canabarro.
+
+## Atualizações
+
+- (Código de Atualização: 'Inicial da Pessoa' 1.0. + 'Próximo número')
+
+### Exemplo:
+- cod1.0.1 -
+### Adições:
+- add1
+- add2
+### Remoções:
+- rmv1
+- rmv2
+### Bugs:
+- bug1
+- bug2
+<p>
+|==============================|
+|     Atualização: mat1.0.1    |
+|==============================|
+</p>
+
+### Adições:
+- src/api/autentificacao/jwt.js - Objeto jwt que cria, verifica e apaga tokens
+- .env para variáveis de ambiente (ver '1')
+### Remoções:
+- Nenhuma
+### Bugs:
+- É preciso adaptar a API para receber e verificar tokens
+- Não foi aplicado 100% as funções de token devido o problema acima 
