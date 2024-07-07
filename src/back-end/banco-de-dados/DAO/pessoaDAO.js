@@ -37,17 +37,15 @@ export class PessoaDAO extends tableDAO {
   }
 
   // funçao auxiliar para inserir na tabela medico
-  async _inserirMedico(pessoaId, especializacao, crm) {
-    const sql_insertMedico = `INSERT INTO medico (id, especializacao, crm) VALUES (?, ?, ?)`;
-    await this._conexao.execute(sql_insertMedico, [pessoaId, especializacao, crm]);
-    console.log(`Médico adicionado na tabela com sucesso com ID: ${pessoaId}!`);
+  async _inserirMedico(objMedicoMais) {
+    super.insertInto(objMedicoMais)
+    console.log(`Médico adicionado na tabela com sucesso com ID: ${objMedicoMais.id}!`);
   }
 
   // funçao auxiliar para inserir na tabela paciente
   async _inserirPaciente(pessoaId) {
-    const sql_insertPaciente = `INSERT INTO paciente (id) VALUES (?)`;
-    await this._conexao.execute(sql_insertPaciente, [pessoaId]);
-    console.log(`Paciente adicionado na tabela com sucesso com ID: ${pessoaId}!`);
+    super.insertInto(pessoaId)
+    console.log(`Paciente adicionado na tabela com sucesso com ID: ${pessoaId.id}!`);
   }
 
   async createTable() {
@@ -60,35 +58,27 @@ export class PessoaDAO extends tableDAO {
 // inserir uma pessoa e, dependendo dos dados recebidos, inserir em medico ou paciente
   async insertInto(obj) {
     // desestruturo o obj para pegar apenas os valores de pessoa
-    const { especializacao, crm, ...pessoaDados } = obj;
+    const { especializacao, crm, valorConsulta, ...pessoaDados } = obj;
     
     // pega o obj e estrutura sua string para o InsertInto
-    const propriedades = Object.keys(pessoaDados).join(", ");
-    const valores = Object.keys(pessoaDados).map(chave => pessoaDados[chave]);
-    const qntdDeInterrogacao = Array(valores.length).fill('?').join(", ");
-
-    const sql_insertInto = `
-    INSERT INTO ${PessoaDAO.sql_nomeTabela} (${propriedades}) 
-    VALUES (${qntdDeInterrogacao});`;
-
     try {
       // Inserindo dados na tabela pessoa
-      console.log('to no try')
-      console.log(sql_insertInto)
-      console.log(valores)
-      const [resultPessoa] = await this._conexao.execute(sql_insertInto, valores);
-      const pessoaId = resultPessoa.insertId;
+      console.log('to no try de PessoaDAO')
+      
+      const id = await super.insertInto(pessoaDados, PessoaDAO.sql_nomeTabela);
+      const objMedicoMais = { id, especializacao, crm, valorConsulta };
+      // console.log(objMedicoMais)
 
       // verifica se tem crm e especializacao
-      if (crm && especializacao) {
-        await this._inserirMedico(pessoaId, especializacao, crm);
+      if (crm && especializacao && valorConsulta) {
+        await this._inserirMedico(objMedicoMais);
       } 
       else {
-        await this._inserirPaciente(pessoaId);
+        await this._inserirPaciente({ id });
       }
     } 
     catch (err) {
-      console.error(`Erro ao inserir dados! | ${err.stack}`);
+      console.error(`Erro ao inserir dados pac ou med (pessoa)! | ${err.stack}`);
       throw err;
     }
   }

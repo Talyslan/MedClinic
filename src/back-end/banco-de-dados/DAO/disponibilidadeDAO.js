@@ -14,10 +14,10 @@ export class DisponibilidadeDAO extends tableDAO {
   // variaveis sql para consultas
   static sql_SelectAll = `SELECT * FROM disponibilidade;`;
 
-  static sql_SelectOne = `
-    SELECT * 
-    FROM disponibilidade
-    WHERE disponibilidade.id_disponibilidade = ?;`;
+  // static sql_SelectOne = `
+  //   SELECT * 
+  //   FROM disponibilidade
+  //   WHERE disponibilidade.id = ?;`;
 
   constructor(conexaoExistente) {
     super(conexaoExistente);

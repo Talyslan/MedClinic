@@ -27,23 +27,24 @@ export class tableDAO {
     }
   }
 
-  async insertInto(obj) {
+  async insertInto(obj, tableName = this.constructor.sql_nomeTabela) {
     const propriedades = Object.keys(obj).join(", ");
-    const valores = Object.keys(obj).map(chave => obj[chave]);
+    const valores = Object.values(obj);
     const qntdDeInterrogacao = Array(valores.length).fill('?').join(", ");
 
     const sql_insertInto = `
-      INSERT INTO ${this.constructor.sql_nomeTabela} (${propriedades}) 
+      INSERT INTO ${tableName} (${propriedades}) 
       VALUES (${qntdDeInterrogacao});`;
 
-      console.log(sql_insertInto, valores)
+      // console.log(sql_insertInto, valores)
 
     try {
-      await this._conexao.execute(sql_insertInto, valores);
-      console.log(`Dados inseridos na tabela ${this.constructor.sql_nomeTabela}!`);
+      const [result] = await this._conexao.execute(sql_insertInto, valores);
+      console.log(`Dados inseridos na tabela ${tableName}!`);
+      return result.insertId;
     }
     catch (err) {
-      console.error(`Erro ao inserir dados na tabela ${this.constructor.sql_nomeTabela}! | ${err.stack}`);
+      console.error(`Erro ao inserir dados na tabela ${tableName}! | ${err.stack}`);
       throw err;
     }
   }
