@@ -2,7 +2,7 @@ import { PessoaDAO } from "./pessoaDAO.js";
 
 export class PacienteDAO extends PessoaDAO {
   // sql para criação da tabela
-  static sql_nomeTabela = `paciente`
+  static sql_nomeTabela = `paciente`;
   static sql_especificacoesTabela = `
     id INT NOT NULL PRIMARY KEY,
     FOREIGN KEY (id) REFERENCES pessoa(id)`;
@@ -23,5 +23,3 @@ export class PacienteDAO extends PessoaDAO {
     super(conexaoExistente);
   }
 }
-
-
