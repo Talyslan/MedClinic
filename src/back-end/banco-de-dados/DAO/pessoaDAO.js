@@ -14,15 +14,16 @@ export class PessoaDAO extends tableDAO {
   // variaveis sql para consultas
   static sql_SelectAll = `SELECT * FROM pessoa;`;
 
-  static sql_CreateTable
   static sql_SelectEmail = `SELECT email FROM pessoa WHERE email = ?`;
   static sql_SelectSenha = `SELECT senha FROM pessoa WHERE email = ?`;
+  static sql_SelectId = `SELECT id FROM pessoa WHERE email = ?`
 
   static sql_SelectOne = `
       SELECT * 
       FROM medico, pessoa
       WHERE medico.id = pessoa.id 
       and medico.id = ?;`;
+
 
   constructor(conexaoExistente) {
     super(conexaoExistente);
@@ -86,8 +87,17 @@ export class PessoaDAO extends tableDAO {
   // metodos de consulta
   async getEmail(email) {
     try {
-      const [result] = await this._conexao.execute(PessoaDAO.sql_SelectEmail, [email]);
-      return result;
+      const [rows] = await this._conexao.execute(PessoaDAO.sql_SelectEmail, [email]);
+
+      console.log(rows[0].email)
+
+      if (rows.length > 0) {
+        return rows[0].email;
+      }
+      else {
+        throw new Error(`Nenhum id encontrado para o email: ${email}`);
+      }
+
     }
     catch (err) {
       console.log("Erro ao procurar email no banco! | ", err.stack)
@@ -99,10 +109,10 @@ export class PessoaDAO extends tableDAO {
     try {
       const [rows] = await this._conexao.execute(PessoaDAO.sql_SelectId, [email]);
 
-      console.log(rows)
+      console.log(rows[0].id)
 
       if (rows.length > 0) {
-        return rows[0].id; // Retorna a senha como uma string
+        return rows[0].id;
       }
       else {
         throw new Error(`Nenhum id encontrado para o email: ${email}`);
@@ -118,10 +128,10 @@ export class PessoaDAO extends tableDAO {
     try {
       const [rows] = await this._conexao.execute(PessoaDAO.sql_SelectSenha, [email]);
 
-      console.log(rows)
+      console.log(rows[0].senha)
 
       if (rows.length > 0) {
-        return rows[0].senha; // Retorna a senha como uma string
+        return rows[0].senha;
       }
       else {
         throw new Error(`Nenhuma senha encontrada para o email: ${email}`);

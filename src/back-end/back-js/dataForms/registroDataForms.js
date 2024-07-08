@@ -51,7 +51,7 @@ class SubmissaoInForm {
     // pega apenas as propriedades necessarias que vem do obj e insere em paciente (removi senhaconfirm, isso vai ser verificado no front)
     const PacienteCriado = new Paciente(obj.nome, obj.senha, obj["data-nascimento"], obj.cpf, obj.email);
     
-    const urlAPI_paciente = "http://localhost:3000/adicionarPaciente";
+    const urlAPI_paciente = `http://localhost:3000/adicionarPaciente`;
 
     try {
       const response = await fetch(urlAPI_paciente, {

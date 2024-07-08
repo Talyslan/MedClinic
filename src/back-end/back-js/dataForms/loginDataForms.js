@@ -9,7 +9,7 @@ class SubmissaoInFormLogin {
             formDataObject[key] = value;
         }
 
-        console.log(formDataObject);
+        // console.log(formDataObject);
 
         return formDataObject;
     }
@@ -19,9 +19,9 @@ class SubmissaoInFormLogin {
 
         try {
             const formDataObject = this.submitLogin(event);
-            console.log(formDataObject);
+            // console.log(formDataObject);
 
-            const urlLogin = `http://localhost:3000/login`;
+            const urlLogin = `http://localhost:3000/auth/login`;
 
             const response = await fetch(urlLogin, {
                 method: "POST",
@@ -34,9 +34,14 @@ class SubmissaoInFormLogin {
             }
 
             const data = await response.json();
-            console.log("Resposta do servidor:", data);
+            console.log("Resposta do servidor: ", data);
 
-            window.location.href = "../index.html";
+            // Cria o token e armazena no localStorage
+            const token = data.token; // Supondo que o servidor envia o token na resposta
+            console.log(token)
+            localStorage.setItem('token', token);
+
+            window.location.href = "./painel-pac-consultas.html";
         }
         catch (error) {
             console.error("Erro ao buscar senha: ", error);

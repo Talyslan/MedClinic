@@ -14,7 +14,8 @@
     <link rel="stylesheet" href="../src/front-end/css/header/header.css">
 
     <!-- CSS Links - painel -->
-    <link rel="stylesheet" href="../src/front-end/css/tela-painel-med/painel-med.css">
+    <link rel="stylesheet" href="../src/front-end/css/tela-painel/tela-painel-geral.css">
+    <link rel="stylesheet" href="../src/front-end/css/tela-painel/tela-painel-med/painel-med.css">
 
     <!-- CSS Links - tela de carregamento -->
     <link rel="stylesheet" href="../src/front-end/css/tela-carregamento.css">
@@ -31,6 +32,7 @@
         </div>
     </div>
 
+    <!-- header logado -->
     <header>
         <a href="../index.html">
             <img src="../public/logos/logo-c-nome-lado.svg" alt="Logo MedClinic">
@@ -45,7 +47,13 @@
                 </ul>
             </div>
 
-            <img src="../public/agendamento/user-illustration.png" alt="">
+            <div class="dropdown">
+                <img src="../public/agendamento/user-illustration.png" alt="">
+                <div class="dropdown-content">
+                    <button>Minhas consultas</button>
+                    <button>Sair</button>
+                </div>
+            </div>
         </nav>
         <span class="close-nav">&#10005;</span>
         <span class="open-nav">&#9776;</span>

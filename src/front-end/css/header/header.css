@@ -21,6 +21,15 @@ header {
   gap: 1em;
 }
 
+header nav .dropdown > img {
+  width: 2.5em;
+  cursor: pointer;
+}
+
+header nav .dropdown > .dropdown-content {
+  display: none;
+}
+
 header > a {
   display: block;
   width: 25%;

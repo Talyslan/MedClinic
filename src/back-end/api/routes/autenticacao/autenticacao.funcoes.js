@@ -20,6 +20,7 @@ export const loginValidation = async (req, res) => {
 
     // Se não houver resultados para o email
     if (!emailNoBanco) {
+      console.log("Email não encontrado: ", email);
       res.status(404).send("Email não existe!");
       return;
     }
@@ -28,20 +29,22 @@ export const loginValidation = async (req, res) => {
     const id = await tablePessoa.getId(email);
 
     if (emailNoBanco === email && senhaNoBanco === senha) {
-      res.status(201).send({ message: "Login bem-sucedido", data: result });
-      //Criação do token
-      const token = JsonWebToken.createJWT(id, res)
-      localStorage.setItem('token', token)
+      const token = JsonWebToken.createJWT(id, res);
+      console.log("Token gerado: ", token);
+
+      res.status(200).send({ message: "Login bem-sucedido", auth: true, token: token });
       return;
     } 
     else {
+      console.log("Senha incorreta para o email: ", email);
       res.status(401).send("Senha errada!");
       return;
     }
 
   } 
   catch (err) {
-    res.status(500).send("Erro ao acessar o email ou a senha! | ", err.stack);
+    console.error("Erro ao acessar o email ou a senha! | ", err.stack);
+    res.status(500).send("Erro ao acessar o email ou a senha!");
   } 
   finally {
     await fabricaConexoes.end();
