@@ -20,10 +20,13 @@
 -
 
 #### 3. Descrição da experiência:
--
+- Não foi algo legal de se fazer, por ter tido pouco tempo. Não tive nenhuma dificuldade na minha parte do trabalho, contudo não tenho um Pc ou notebook em casa, isso limitou muito meu acesso ao cod e conseguir fazer o que inicialmente foi combinado (Maria Izabel)
+
+- A realização foi ligeiramente complicada pelo fato de que o site acabou necessitando de tecnologias que estavam fora do meu escopo de conhecimento, então não consegui contribuir tanto o quanto eu queria para o desenvolvimento do sistema. Entretanto, consegui ajudar em outras partes, como validação de inserção dos dados, utilizando na prática a tecnologia de REGEX (REGular EXpressions) e integração com o banco de dados. (Rafael Amorim)
+
 
 #### 4. Dificuldades encontradas:
--
+- 
 
 ### 🔗 Referências:
 - <a href="https://www.w3schools.com/js/js_function_bind.asp" target="_blank">
@@ -48,7 +51,7 @@ FormData() - Classe do javascript para tratar formulários.
 
 ## 👨‍🎓 Integrantes:
 
-- Maria Izabel dos Santos Oliveira (tarefa desempenhada).
+- Maria Izabel dos Santos Oliveira (responsavel pela animação e o readme).
 - Matheus Ferreira da Silva Barros (tarefa desempenhada).
-- Rafael Silva Amorim (tarefa desempenhada).
+- Rafael Silva Amorim (validação de entrada dos formulários do front-end/backend, correção de bugs com Matheus).
 - Talyslan Cauan Pimentel Canabarro (tarefa desempenhada).
