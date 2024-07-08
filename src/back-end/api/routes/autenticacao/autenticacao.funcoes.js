@@ -17,21 +17,21 @@ export const loginValidation = async (req, res) => {
 
   try {
     await databaseMedClinic.useDatabase();
-    const result = await tablePessoa.getEmail(email);
+    const emailNoBanco = await tablePessoa.getEmail(email);
 
     // Se não houver resultados para o email
-    if (!result) {
+    if (!emailNoBanco) {
       res.status(404).send("Email não existe!");
       return;
     }
 
     const senhaNoBanco = await tablePessoa.getSenha(email);
+    const id = await tablePessoa.getId(email);
 
-    if (senhaNoBanco === senha) {
+    if (emailNoBanco === email && senhaNoBanco === senha) {
       res.status(201).send({ message: "Login bem-sucedido", data: result });
       //Criação do token
       const token = JsonWebToken.createJWT(id, res)
-      //Atenção aqui (apagar dps)
       localStorage.setItem('token', token)
       return;
     } 
