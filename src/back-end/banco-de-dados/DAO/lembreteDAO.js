@@ -20,7 +20,7 @@ export class LembreteDAO extends tableDAO {
     WHERE lembrete.id_lembrete = ?;`;
 
   static sql_SelectOnePac = `
-    SELECT * 
+    SELECT data_envio, titulo, mensagem
     FROM lembrete
     WHERE lembrete.id_paciente = ?;`;
 
@@ -51,10 +51,10 @@ export class LembreteDAO extends tableDAO {
     try {
       const [rows] = await this._conexao.execute(LembreteDAO.sql_SelectOnePac, [idPac]);
 
-      console.log(rows[0].idPac)
+      // console.log(rows[0].idPac)
 
       if (rows.length > 0) {
-        return rows[0];
+        return rows;
       }
       else {
         throw new Error(`Nenhum id encontrado para o lembrete: ${idPac}`);

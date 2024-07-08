@@ -7,7 +7,7 @@ import {
 // exportação
 export const pacienteRotas = express.Router();
 
-pacienteRotas.get("/lembretesByPac", getAllLembretesFromPac);
+pacienteRotas.get("/lembretes/:idPac", getAllLembretesFromPac);
 pacienteRotas.post()
 
 
