@@ -1,13 +1,9 @@
 // imports
 import express from "express";
-import {
-    getAllLembretesFromPac
-} from "./lembrete.funcoes.js";
+import { getAllLembretesFromPac } from "./lembrete.funcoes.js";
 
 // exportação
-export const pacienteRotas = express.Router();
+export const lembreteRotas = express.Router();
 
-pacienteRotas.get("/lembretes/:idPac", getAllLembretesFromPac);
-pacienteRotas.post()
-
+lembreteRotas.get("/lembretes/:idPac", getAllLembretesFromPac);
 

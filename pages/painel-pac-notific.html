@@ -67,7 +67,9 @@
                 <a href="./agendamento.html" class="go-to">
                     <li>AGENDAR CONSULTA</li>
                 </a>
-                <a href="./painel-pac-consultas.html" class="go-to"><li>CONSULTAS</li></a>
+                <a href="./painel-pac-consultas.html" class="go-to">
+                    <li>CONSULTAS</li>
+                </a>
                 <li class="pag-ativa">NOTIFICAÇÕES</li>
 
             </ul>
@@ -80,12 +82,19 @@
             </div>
             <div class="boxNotificacao" id="boxNotificacao">
                 <div class="notificacaoItem">
-                    <label for="notificacao">
-                        <input type="checkbox" name="notificacao" id="notificacao">
-                        <span>Título</span>
-                    </label>
-                    <span>00/00</span>
-                    <span>▼</span>
+                    <div class="notificacaoItemUp">
+                        <label for="notificacao">
+                            <input type="checkbox" name="notificacao" id="notificacao">
+                            <span class="title">Título</span>
+                        </label>
+                        <div>
+                            <span>00/00</span>
+                            <span class="down" id="down">▼</span>
+                        </div>
+                    </div>
+                    <div class="conteudoMensagem" id="conteudoMensagem">
+                        <p id="mensagem"></p>
+                    </div>
                     <hr>
                 </div>
             </div>
@@ -96,6 +105,7 @@
     <script src="../src/front-end/front-js/tela-principal/nav.js"></script>
     <script src="../src/front-end/front-js/tela-carregamento.js"></script>
     <script src="../src/front-end/front-js/inserirHtml/form/especializacao.js" type="module"></script>
+    <script src="../src/front-end/front-js/inserirHtml/notificacoes/notificacoes-pac.js" type="module"></script>
 </body>
 
 </html>
