@@ -8,7 +8,7 @@ export class DisponibilidadeDAO extends tableDAO {
     id_medico INT,
     hora_inicio TIME NOT NULL,
     status ENUM('disponível', 'indisponível') NOT NULL,
-    FOREIGN KEY (id_medico) REFERENCES medico(id_medico),
+    FOREIGN KEY (id_medico) REFERENCES medico(id),
     UNIQUE (id_medico, hora_inicio)`;
 
   // variaveis sql para consultas

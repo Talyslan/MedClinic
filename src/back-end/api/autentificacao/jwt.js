@@ -1,5 +1,5 @@
 // require('dotenv-safe').config();
-import { jwt } from 'jsonwebtoken'
+import jwt from 'jsonwebtoken'
 export const SECRET = 'teste';  // Usando a variável de ambiente
 
 export class JsonWebTokenFunc {

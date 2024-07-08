@@ -2,8 +2,7 @@
 import { FabricaConexoes } from "../../../banco-de-dados/FabricaConexoes.js";
 import { MedClinicDAO } from "../../../banco-de-dados/DAO/databaseMedClinicDAO.js";
 import { PessoaDAO } from "../../../banco-de-dados/DAO/pessoaDAO.js";
-import { JsonWebTokenFunc, JsonWebTokenFunc, SECRET } from "../../autentificacao/jwt.js";
-import { SECRET } from "../../autentificacao/jwt.js"
+import { JsonWebTokenFunc, SECRET } from "../../autentificacao/jwt.js";
 
 const fabricaConexoes = new FabricaConexoes();
 
