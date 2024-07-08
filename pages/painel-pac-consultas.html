@@ -43,7 +43,6 @@
                     <li><a href="../index.html#hero" class="link">home</a></li>
                     <li><a href="../index.html#planos" class="link">planos</a></li>
                     <li><a href="../index.html#sobre-nos" class="link">sobre nós</a></li>
-                    <li><a href="#" class="link">agendamentos</a></li>
                 </ul>
             </div>
 
@@ -63,13 +62,17 @@
     <main>
         <div class="barra-lateral" id="barra-lateral">
             <ul>
-                <a href="./agendamento.html" class="go-to"><li>AGENDAR CONSULTA</li></a>
+                <a href="./agendamento.html" class="go-to">
+                    <li>AGENDAR CONSULTA</li>
+                </a>
                 <li class="pag-ativa">CONSULTAS</li>
-                <a href="./painel-pac-notific.html" class="go-to"><li>NOTIFICAÇÕES</li></a>
+                <a href="./painel-pac-notific.html" class="go-to">
+                    <li>NOTIFICAÇÕES</li>
+                </a>
             </ul>
         </div>
 
-        <div class="box-consultas">
+        <div class="box-central">
             <div class="bem-vindo">
                 <h2>Bem vindo de volta, Name!</h2>
                 <hr>
@@ -79,27 +82,31 @@
                 <button class="view-consultas">Concluídas</button>
                 <button class="view-consultas">Todas</button>
             </div>
-            <div class="box-consulta-item">
-                <div style="margin-right: 30px;">
-                    <p class="legenda">CONSULTA COM</p>
-                    <p class="titulo">Dr. Name</p>
+            <div class="box-consultas">
+                <div class="box-consulta-item">
+                    <div style="margin-right: 30px;">
+                        <p class="legenda">CONSULTA COM</p>
+                        <p class="titulo">Dr. Name</p>
 
-                    <p class="legenda">MARCADA PARA O DIA</p>
-                    <p class="titulo">00-00-0000 às 00:00</p>
+                        <p class="legenda">MARCADA PARA O DIA</p>
+                        <p class="titulo">00-00-0000 às 00:00</p>
 
-                    <p class="legenda">NO VALOR DE</p>
-                    <p class="titulo">R$00,00</p>
-                </div>
-                <div style="display: flex; flex-direction: row;">
+                        <p class="legenda">NO VALOR DE</p>
+                        <p class="titulo">R$00,00</p>
+                    </div>
+
                     <hr style="margin-right: 10px;">
-                    <span>imagem aquiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii</span>
-                    <hr style="margin-left: 10px;">    
-                </div>
-                <div style="display: flex; flex-direction: column; padding-left: 30px;">
-                    <p class="legenda">LOCALIZAÇÃO</p>
-                    <p class="legenda" style="margin-bottom: 30px;">Localização</p>
-                    <button class="modify-consulta">Entrar em Contato</button>
-                    <button class="modify-consulta">Remarcar ou Cancelar</button>
+                    <div class="especialidade-box">
+                        <img src="../public/testes img/img.png" alt="">
+                    </div>
+                    <hr style="margin-left: 10px;">
+
+                    <div style="display: flex; flex-direction: column; padding-left: 30px;">
+                        <p class="legenda">LOCALIZAÇÃO</p>
+                        <p class="legenda" style="margin-bottom: 30px;">Localização</p>
+                        <button class="modify-consulta">Entrar em Contato</button>
+                        <button class="modify-consulta">Remarcar ou Cancelar</button>
+                    </div>
                 </div>
             </div>
         </div>

@@ -19,7 +19,49 @@ export class LembreteDAO extends tableDAO {
     FROM lembrete
     WHERE lembrete.id_lembrete = ?;`;
 
+  static sql_SelectOnePac = `
+    SELECT * 
+    FROM lembrete
+    WHERE lembrete.id_paciente = ?;`;
+
   constructor(conexaoExistente) {
     super(conexaoExistente);
+  }
+
+  //Get lembrete
+  async getLembrete(id) {
+    try {
+      const [rows] = await this._conexao.execute(LembreteDAO.sql_SelectOne, [id]);
+
+      console.log(rows[0].id)
+
+      if (rows.length > 0) {
+        return rows[0];
+      }
+      else {
+        throw new Error(`Nenhum id encontrado para o lembrete: ${id}`);
+      }
+    } catch (err) {
+      console.error("Erro ao procurar lembrete no banco! | ", err.stack)
+    }
+
+  }
+
+  async getAllLembretesFromPacDAO(idPac) {
+    try {
+      const [rows] = await this._conexao.execute(LembreteDAO.sql_SelectOnePac, [idPac]);
+
+      console.log(rows[0].idPac)
+
+      if (rows.length > 0) {
+        return rows[0];
+      }
+      else {
+        throw new Error(`Nenhum id encontrado para o lembrete: ${idPac}`);
+      }
+    } catch (err) {
+      console.error("Erro ao procurar lembrete no banco! | ", err.stack)
+    }
+
   }
 }
