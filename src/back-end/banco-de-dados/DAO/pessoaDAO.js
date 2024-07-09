@@ -84,6 +84,8 @@ export class PessoaDAO extends tableDAO {
     }
   }
 
+  // TODO: Fazer uma função que atualize os dados de pessoa, e se tiver os dados de médico, atualize o resto do médico
+
   // metodos de consulta
   async getEmail(email) {
     try {

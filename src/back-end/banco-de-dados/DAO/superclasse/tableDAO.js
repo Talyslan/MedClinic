@@ -75,18 +75,16 @@ export class tableDAO {
   }
 
   // em desenvolvimento
-  /*
+
   async updateOneOnDB(id, novosDados) {
     const camposAtualizacao = Object.keys(novosDados).map(chave => `${chave} = ?`).join(", ");
     const valoresAtualizacao = Object.values(novosDados);
 
     // criação do update
     const sql_update = `
-      UPDATE ${this.constructor.sql_nomeTabela} 
+      UPDATE ${this.constructor.sql_nomeTabela}
       SET ${camposAtualizacao} 
-      WHERE id = ?;`;
-
-    valoresAtualizacao.push(id);
+      WHERE id = ${id};`;
 
     try {
       const result = await this._conexao.execute(sql_update, valoresAtualizacao);
@@ -99,6 +97,5 @@ export class tableDAO {
     }
   }
 
-  async deleteOneFromDB(id) {}
-  */
+  // async deleteOneFromDB(id) {}
 }
