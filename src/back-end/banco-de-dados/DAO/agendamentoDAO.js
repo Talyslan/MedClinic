@@ -19,7 +19,7 @@ export class AgendamentoDAO extends tableDAO {
   static sql_SelectOne = `
     SELECT * 
     FROM agendamento
-    WHERE agendamento.id_agendamento = ?;`;
+    WHERE agendamento.id_paciente = ?;`;
 
   constructor(conexaoExistente) {
     super(conexaoExistente);
