@@ -82,9 +82,7 @@ export class PessoaDAO extends tableDAO {
       console.error(`Erro ao inserir dados pac ou med (pessoa)! | ${err.stack}`);
       throw err;
     }
-  }
-
-  // TODO: Fazer uma função que atualize os dados de pessoa, e se tiver os dados de médico, atualize o resto do médico
+  }  
 
   // metodos de consulta
   async getEmail(email) {
