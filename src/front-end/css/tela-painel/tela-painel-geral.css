@@ -83,7 +83,7 @@ main{
 
 .bem-vindo hr {
     background-color: var(--cinza-escurao);
-    width: 92.5%;
+    width: 100%;
     height: 2px;
     border: none;
     margin: 0 auto;

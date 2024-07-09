@@ -47,12 +47,11 @@ export class LembreteDAO extends tableDAO {
 
   }
 
-  async getAllLembretesFromPacDAO(idPac) {
+  async getAllLembretesFromPacDAOOnDB(idPac) {
     try {
       const [rows] = await this._conexao.execute(LembreteDAO.sql_SelectOnePac, [idPac]);
 
-      // console.log(rows[0].idPac)
-
+      console.log(rows)
       if (rows.length > 0) {
         return rows;
       }
@@ -63,5 +62,21 @@ export class LembreteDAO extends tableDAO {
       console.error("Erro ao procurar lembrete no banco! | ", err.stack)
     }
 
+  }
+
+  async getAllLembretesOnDB() {
+    try {
+      const [rows] = await this._conexao.query(LembreteDAO.sql_SelectAll);
+
+      console.log(rows)
+      if (rows.length > 0) {
+        return rows;
+      }
+      else {
+        throw new Error(`Nenhum lembrete`);
+      }
+    } catch (err) {
+      console.error("Erro ao procurar lembrete no banco! | ", err.stack)
+    }
   }
 }

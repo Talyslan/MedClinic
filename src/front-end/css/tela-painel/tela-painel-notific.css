@@ -1,35 +1,53 @@
-.boxnotificacao{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.boxPerguntas,
+.perguntaItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.perguntaItem {
     width: 100%;
-    height: 100%;
 }
 
-.notificacaoItem{
+.perguntaItem .pergunta,
+.perguntaItem.showResposta .resposta {
+    gap: 2em;
+    padding: 1em;
+    border-radius: .2em;
+}
+
+.perguntaItem .pergunta {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
     align-items: center;
-    height: 70px;
-}
-
-.notificacaoItem .notificacaoItemUp{
-    padding-left: 5%;
-    padding-right: 5%;
-    display: flex;
-    flex-direction: row;
     justify-content: space-between;
-    align-items: center;
-    width: 98%;
-    height: 100%;
+    transition: 0.3s;
 }
 
-.notificacaoItem div{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.perguntaItem .pergunta:hover {
+    background: var(--cinza);
+    cursor: pointer;
 }
+
+.perguntaItem .pergunta img {
+    width: 14px;
+    transition: 0.3s;
+}
+
+.perguntaItem .pergunta:hover img {
+    transform: scale(1.1);
+}
+
+.perguntaItem .resposta {
+    overflow: hidden;
+    height: 0;
+    transition: all 0.3s ease;
+}
+
+.perguntaItem.showResposta .resposta {
+    background: var(--cinza);
+    display: block;
+    height: auto;
+}
+
 
 span{
     font-weight: 700;
@@ -50,7 +68,7 @@ span{
 
 hr{
     background-color: var(--cinza-escurao);
-    width: 92.5%;
+    width: 100%;
     height: 2px;
     border: none;
     margin: 0 auto;

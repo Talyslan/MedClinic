@@ -1,24 +1,52 @@
-function notificacaoHtml(mensagem) {
-    return `
-        <p id="mensagem">
-            ${mensagem}
-        </p>
-    `;
-}
+// variaveis
+const path = "../public/main-page/icons/";
+const icons = {
+  plus: "plus.svg",
+  minus: "minus.svg",
+};
+const { plus, minus } = icons;
 
-function downCima() {
-    return `
-       <span class="down" id="down">▲</span>
-    `;
-}
+// handlers
+const insertPergunta = ({ titulo, data_envio, mensagem}) => {
+  return `
+    <div class="perguntaItem">
+        <label for="notificacao" class="pergunta">
+            <div>
+                <input type="checkbox" name="notificacao" id="notificacao">
+                <span class="title">${titulo}</span>
+            </div>
+            <div>
+                <span>${data_envio}</span>
+                <img src="${path + plus}" alt=""></img>
+            </div>
+        </label>
+        <p class="resposta">${mensagem}</p>
+        <hr>
+    </div>
+  `;
+};
 
-const mensagem = document.getElementById('mensagem');
-const down = document.getElementById('down');
+const handlerMostrarResposta = ({ target }) => {
+  const perguntaItem = target.closest(".perguntaItem");
 
-down.addEventListener('click', function () {
-    if (mensagem.innerHTML.trim()) {
-        mensagem.innerHTML = '';
-    } else {
-        mensagem.innerHTML = notificacaoHtml('Esta é uma mensagem de notificação.');
-    }
+  if (!perguntaItem) return;
+
+  perguntaItem.classList.toggle("showResposta");
+
+  const icon = perguntaItem.querySelector("img");
+  if (icon) {
+    const currentIcon = icon.getAttribute("src");
+    icon.src = currentIcon === path + plus ? path + minus : path + plus;
+  }
+};
+
+// Selectors
+const boxPerguntas = document.querySelector("#boxPerguntas");
+
+// Insert perguntas
+listaPerguntas.forEach((pergunta) => {
+  boxPerguntas.innerHTML += insertPergunta(pergunta);
 });
+
+// Event Listener
+boxPerguntas.addEventListener("click", handlerMostrarResposta);
