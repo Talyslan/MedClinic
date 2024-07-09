@@ -62,7 +62,7 @@ export class tableDAO {
     }
   }
 
-  async getOneOnDB({ id }) {
+  async getOneOnDB(id) {
     try {
       const [result] = await this._conexao.execute(this.constructor.sql_SelectOne, [id]);
       console.log(`Sucesso ao buscar um ${this.constructor.sql_nomeTabela}!`);
