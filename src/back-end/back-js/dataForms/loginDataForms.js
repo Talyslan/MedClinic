@@ -39,9 +39,9 @@ class SubmissaoInFormLogin {
             // Cria o token e armazena no localStorage
             const token = data.token; // Supondo que o servidor envia o token na resposta
             console.log(token)
-            localStorage.setItem('token', token);
+            // localStorage.setItem('token', token);
 
-            window.location.href = "./painel-pac-consultas.html";
+            window.location.href = "../logado.html";
         }
         catch (error) {
             console.error("Erro ao buscar senha: ", error);

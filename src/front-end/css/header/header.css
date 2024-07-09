@@ -48,11 +48,17 @@ header nav .dropdown > .dropdown-content {
   z-index: 1;
 }
 
-header nav .dropdown > .dropdown-content button {
+header nav .dropdown > .dropdown-content a {
   background: none;
   width: 100%;
   border-radius: 0 0 .5em .5em;
 }
+ 
+/* header nav .dropdown > .dropdown-content button {
+  background: none;
+  width: 100%;
+  border-radius: 0 0 .5em .5em;
+} */
 
 header nav .dropdown > .dropdown-content a {
   border-radius: .5em .5em 0 0;

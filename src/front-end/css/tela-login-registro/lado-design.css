@@ -15,7 +15,7 @@
 
 .lado-design img {
     width: 100%;
-    max-width: 800px;
+    max-width: 450px;
     animation: float 3s ease-in-out infinite;
 }
 

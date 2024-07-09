@@ -1,82 +1,86 @@
-// data
-import { profissionais } from "../TESTmedicos.js";
-import { 
-    addDisabled,
-    removeActive,
-    removeDisabled 
-} from "../funções-auxiliares/funcoesAuxiliares.js";
+import { addDisabled, removeActive, removeDisabled } from "../funções-auxiliares/funcoesAuxiliares.js";
 
-// primeira  section Informaçoes sobre departamento e profissional
-export const mostreProfissionaisDisponiveis = (especializacaoSelected) => {
-    // selectors
+let profissionais = [];
+
+async function fetchProfissionais() {
+    try {
+        const response = await fetch('http://localhost:3000/medicos');
+        if (!response.ok) {
+            throw new Error('Erro ao buscar profissionais');
+        }
+        profissionais = await response.json();
+    } catch (err) {
+        console.error("Erro ao buscar profissionais:", err);
+    }
+}
+
+export const mostreProfissionaisDisponiveis = async (especializacaoSelected) => {
+    // Ensure professionals data is fetched before proceeding
+    if (profissionais.length === 0) {
+        await fetchProfissionais();
+    }
+    console.log(profissionais);
+
+    // Selectors
     const boxProfissionais = document.querySelector("#boxProfissionais");
     const selectProfissional = document.querySelector("#profissional");
-
-    const profissionalSelect = document.querySelector("#profissional");
-    // pega todos os profissionais e recebe um array
     const itensProfissional = document.querySelectorAll(".itemProfissional");
 
-    // adicionando e removendo a propriedade disabled
+    // Adicionando e removendo a propriedade disabled
     if (especializacaoSelected) {
-        removeDisabled(profissionalSelect);
-    }
-    else {
-        removeActive(profissionalSelect);
-        itensProfissional.forEach((item) => removeActive(item));
-        boxProfissionais.innerHTML = 'Aguardando a seleção do departamento...'
-        profissionalSelect.value = ''
-        addDisabled(profissionalSelect);
+        removeDisabled(selectProfissional);
+    } else {
+        removeActive(selectProfissional);
+        itensProfissional.forEach((item) => item.classList.remove('active'));
+        boxProfissionais.innerHTML = 'Aguardando a seleção do departamento...';
+        selectProfissional.value = '';
+        addDisabled(selectProfissional);
         return;
     }
 
-    // handler
-    // insere o card dos profissionais no boxProfissionais
-    const inserirProfissionais = ({ nome, especialidade, imagem, valorConsulta }) => {
-        // verifica se a especialidade escolhida é igual a do medico consultado e retorna
-        if (especialidade === especializacaoSelected) {
+    // Handler para inserir profissionais no box e no select
+    const inserirProfissionais = ({ nome, especializacao, valorConsulta }) => {
+        console.log(especializacao, especializacaoSelected)
+
+        if (especializacao === especializacaoSelected) {
             return `
-              <div class="itemProfissional" id="">
-                  <img src="${imagem}" alt="">
-                  <div class="content">
-                      <div class="up">
-                          <h3>${nome}</h3>
-                          <span>${especialidade}</span>
-                      </div>
-                      <div class="down">
-                          <span>Valor da consulta:</span>
-                          <span>R$<strong> ${valorConsulta}</strong></span>
-                      </div>
-                  </div>
-              </div>
-            `;      
+                <div class="itemProfissional">
+                    <img src="../public/main-page/background-hero.jpg" alt="">
+                    <div class="content">
+                        <div class="up">
+                            <h3>${nome}</h3>
+                            <span>${especializacao}</span>
+                        </div>
+                        <div class="down">
+                            <span>Valor da consulta:</span>
+                            <span>R$<strong> ${valorConsulta}</strong></span>
+                        </div>
+                    </div>
+                </div>
+            `;
         }
-        else {
-            return '';
-        }
+        return '';
     };
 
-    // insere as opt dos profissionais no Select
-    const inserirProfissionaisNoSelect = ({ nome, especialidade }) => {
-        // verifica se a especialidade escolhida é igual a do medico consultado e retorna
-        if (especialidade === especializacaoSelected) {
-            return `<option value="${nome}">${nome}</option>`;      
+    const inserirProfissionaisNoSelect = ({ nome, especializacao }) => {
+        if (especializacao === especializacaoSelected) {
+            return `<option value="${nome}">${nome}</option>`;
         }
-        else return '';
+        return '';
     };
 
-    // limpar o select antes de adicionar as novas opções
-    // incluir a opção padrão
+    // Limpar o select antes de adicionar as novas opções e incluir a opção padrão
     selectProfissional.innerHTML = '<option value="" selected>Selecione o profissional</option>';
 
-    // inserir
-    if (boxProfissionais) {
-        let profissionaisHTML = '';
+    // Inserir os profissionais no box e no select
+    let profissionaisHTML = '';
+    profissionais.forEach(profissional => {
+        profissionaisHTML += inserirProfissionais(profissional);
+        selectProfissional.innerHTML += inserirProfissionaisNoSelect(profissional);
+    });
 
-        profissionais.forEach(profissional => {
-            profissionaisHTML += inserirProfissionais(profissional);
-            selectProfissional.innerHTML += inserirProfissionaisNoSelect(profissional);
-        });
-
-        boxProfissionais.innerHTML = profissionaisHTML;
-    }
+    boxProfissionais.innerHTML = profissionaisHTML;
 };
+
+// Inicializa a busca de profissionais
+fetchProfissionais();

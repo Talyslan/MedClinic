@@ -36,7 +36,7 @@ export class tableDAO {
       INSERT INTO ${tableName} (${propriedades}) 
       VALUES (${qntdDeInterrogacao});`;
 
-      // console.log(sql_insertInto, valores)
+      console.log(sql_insertInto, valores)
 
     try {
       const [result] = await this._conexao.execute(sql_insertInto, valores);
