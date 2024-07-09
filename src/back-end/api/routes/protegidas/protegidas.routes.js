@@ -1,16 +1,14 @@
 import express from "express";
-import { JsonWebTokenFunc } from "../../autentificacao/jwt.js";
+import { fileURLToPath } from "url";
+import path from "path";
+
+// Get the directory name of the current module file
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export const rotasProtegidas = express.Router();
 
-const JsonWebToken = new JsonWebTokenFunc();
-
-const msg = (req, res) => res.status(200).send("Esta rota está protegida")
-
-// nao estao protegendo nada
-rotasProtegidas.get('/agendamento.html', JsonWebToken.verifyJWT, msg);
-rotasProtegidas.get('/painel-med-consultas.html', JsonWebToken.verifyJWT, msg);
-rotasProtegidas.get('/painel-med-disponib.html', JsonWebToken.verifyJWT, msg);
-rotasProtegidas.get('/painel-med-notific.html', JsonWebToken.verifyJWT, msg);
-rotasProtegidas.get('/painel-pac-consultas.html', JsonWebToken.verifyJWT, msg);
-rotasProtegidas.get('/painel-pac-notific.html', JsonWebToken.verifyJWT, msg);
+rotasProtegidas.get('/registro', (req, res) => {
+    // Construct the path to registro.html using __dirname
+    const filePath = path.join(__dirname, '..', '..', '..', '..', '..', 'pages', 'registro.html');
+    res.sendFile(filePath);
+});

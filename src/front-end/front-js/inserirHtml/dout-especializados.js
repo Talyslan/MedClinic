@@ -11,7 +11,7 @@ const inserirDados = ({ title, description }) => {
     `;
 };
 
-const inserirImg = (img) => `<img src="./public/main-page/galeria-grid/${img}" alt="">`;
+const inserirImg = (img) => `<img src="../main-page/galeria-grid/${img}" alt="">`;
 
 // selectors
 const boxDados = document.querySelector("#boxDados");

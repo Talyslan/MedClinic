@@ -1,0 +1,85 @@
+footer {
+    background: var(--verde-escuro);
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    padding: 17em 4em 2em 4em;
+}
+
+footer span {
+    color: var(--branco);
+}
+
+footer a,
+footer p {
+    font-size: 1rem;
+    color: var(--cinza-400);
+    transition: 0.2s;
+}
+
+footer a:hover {
+    color: var(--cinza);
+}
+
+footer a {
+    text-decoration: underline;
+}
+
+/* up */
+footer .up {
+    display: flex;
+    align-items: flex-start;
+}
+
+footer .up > a img {
+    width: 60%;
+}
+
+footer .up .dir {
+    display: flex;
+    justify-content: center;
+    gap: 3em;
+}
+
+footer .up .dir .info {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+}
+
+footer .up .dir .info p {
+    width: 20ch;
+}
+
+footer .up .dir .info span {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+/* down */
+footer .down {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+
+footer .down span {
+    color: var(--cinza-400);
+    font-size: .9rem;
+}
+
+footer .down .redes-sociais {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+footer .down .redes-sociais a img {
+    width: 1.5em;
+    transition: 0.2s;
+}
+
+footer .down .redes-sociais a:hover img {
+    transform: scale(1.05);
+}

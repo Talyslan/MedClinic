@@ -1,0 +1,41 @@
+@media (max-width: 800px) {
+  .lado-design {
+    display: none;
+  }
+
+  .lado-form {
+    max-width: 100%;
+    gap: .5em;
+  }
+
+  .lado-form form {
+    gap: 1em;
+    /* height: 40%; */
+  }
+
+  .lado-form form .inputs .input-lembrar,
+  .lado-form form .inputs > label,
+  .lado-form form > button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .qual-user,
+  .finalizar-conta-med {
+    width: 100%;
+    height: 100%;
+  }
+
+  .qual-user h2,
+  .finalizar-conta-med h2 {
+    font-size: 2rem;
+    text-align: center;
+  }
+}
+
+@media (max-width: 350px) {
+  .qual-user .boxUsers {
+    flex-direction: column;
+  }
+}

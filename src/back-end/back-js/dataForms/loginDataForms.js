@@ -36,12 +36,12 @@ class SubmissaoInFormLogin {
             const data = await response.json();
             console.log("Resposta do servidor: ", data);
 
-            // Cria o token e armazena no localStorage
-            const token = data.token; // Supondo que o servidor envia o token na resposta
+            // Cria o token e armazena no sessionStorage
+            const token = data.token; 
             console.log(token)
-            // localStorage.setItem('token', token);
+            sessionStorage.setItem('token', token);
 
-            window.location.href = "../logado.html";
+            window.location.href = "./logado.html";
         }
         catch (error) {
             console.error("Erro ao buscar senha: ", error);

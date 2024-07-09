@@ -1,0 +1,74 @@
+@font-face {
+  font-family: "League Spartan";
+  src: url("../../../font/LeagueSpartan-VF.ttf");
+}
+
+:root {
+  /* Cores */
+  --azul: #5b24a6;
+  --verde: #24a68e;
+  --verde-escuro-opacity: #00392fad;
+  --verde-escuro: #0C393F;
+  --vermelho: #ac3c3c;
+  --text-azul: #60e2fe;
+  /* Cores Neutras */
+  --preto: #292929;
+  --branco: #ebf1f3;
+  --cinza: #e3ebed;
+  --cinza-200: #c3c3c3;
+  --cinza-400: #868686;
+  --cinza-escurao: #838383;
+  /* Borda */
+  --arredondamento: 1em;
+  /* line manual*/
+  --borderTop: var(--verde) 3px solid;
+  --borderTop-active: var(--verde-escuro) 3px solid;
+}
+
+body,
+button,
+input,
+span,
+select {
+  font-family: "League Spartan";
+  font-weight: normal;
+}
+
+body {
+  background: var(--branco);
+}
+
+a {
+  color: var(--branco);
+}
+
+h2 {
+  font-size: 2.5rem;
+  text-transform: capitalize;
+  font-weight: 700;
+}
+
+p {
+  font-size: 1rem;
+}
+
+a,
+span {
+  font-size: 1rem;
+}
+
+/* Classes Globais */
+.btn {
+  padding: 0.7em 1em;
+  border-radius: 1.5em 0 1.5em 0;
+  color: var(--branco);
+  background: var(--verde-escuro-opacity);
+  text-transform: capitalize;
+  font-weight: bold;
+  font-size: 1.2rem;
+  transition: 0.5s ease;
+}
+
+.btn:hover {
+  background: var(--verde-escuro);
+}

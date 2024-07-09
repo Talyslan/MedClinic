@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+
+    <!-- CSS Links - Base -->
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <!-- CSS Links - Login -->
+    <link rel="stylesheet" href="../css/tela-login-registro/geral-login-registro.css">
+    <link rel="stylesheet" href="../css/tela-login-registro/lado-design.css">
+    <link rel="stylesheet" href="../css/tela-login-registro/form/form-inpunts.css">
+    <link rel="stylesheet" href="../css/tela-login-registro/form/form.css">
+    <link rel="stylesheet" href="../css/tela-login-registro/lado-form.css">
+    
+    <!-- CSS Links - tela de carregamento -->
+    <link rel="stylesheet" href="../css/tela-carregamento.css">
+
+    <!-- CSS Links - Library AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <link rel="stylesheet" href="../css/tela-login-registro/media-query.css">
+
+
+    <title>MedClinic - Login</title>
+</head>
+<body>
+    <div id="tela-carregamento" class="tela-carregamento">
+        <img src="../logos/logo-c-nome-baixo.svg" alt="">
+        <div class="down">
+            <div class="spinner"></div>
+            <p>Aguarde, o site está carregando...</p>
+        </div>
+    </div>
+    
+    <main>
+        <div class="lado-design">
+            <h1 data-aos="fade-up" data-aos-delay="100">Bem vindo de volta!</h1>
+            <p data-aos="fade-up" data-aos-delay="100">Que bom que veio cuidar da sua saúde!</p>
+            <img src="../login-registro-page/medica-1.png" alt="Médica Ilustração" data-aos="fade-up" data-aos-delay="100">
+        </div>
+        <div class="lado-form">
+            <img src="../logos/logo-c-nome-baixo-colorida.svg" alt="Logo MedClinic">
+            
+            <form id="formLogin">
+                <h1>login</h1>
+                <div class="inputs">
+                    <label for="email">
+                        <input type="email" class="inputsVerificar" maxlength="40" name="email" id="email" required autofocus>
+                        <span class="spanActive">email</span>
+                        <img src="../login-registro-page/form-icon/aroba.png" alt="Arroba do Email">
+                        <p class="erro"></p>
+                    </label>
+                    <label for="senha">
+                        <input type="password" class="inputsVerificar" 
+                       maxlength="40" name="senha" id="senha" required>
+                        <span>senha</span>
+                        <img src="../login-registro-page/form-icon/cadeado-fechado.png" alt="Cadeado da senha">
+                        <p class="erro"></p>
+                    </label>
+
+                    <div class="input-lembrar">
+                        <label for="lembrar">
+                            <input type="checkbox" name="lembrar" id="lembrar">
+                            <span>lembre-se de mim</span>
+                        </label>
+                        <a href="">esqueceu sua senha?</a>
+                    </div>
+                </div>
+
+                <button type="submit">entrar</button>
+            </form>
+
+            <p>
+                Não tem uma conta? <br>
+                <a href="./registro.html">Cadastre-se aqui.</a>
+            </p>
+        </div>
+    </main>
+
+    <script src="../../src/front-end/front-js/tela-carregamento.js"></script>
+    <script src="../../src/front-end/front-js/login-registro/inputFocus.js"></script>
+    <script src="../../src/front-end/front-js/login-registro/inputVisibilidadeSenha.js"></script>
+    <script src="../../src/front-end/front-js/login-registro/validacao/loginValidacao.js" type="module"></script>
+    <!-- Script Links - Library AOS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>AOS.init();</script>
+    <!-- Validação Login -->
+     <script src="../../src/back-end/back-js/dataForms/loginDataForms.js" type="module"></script>
+</body>
+</html>

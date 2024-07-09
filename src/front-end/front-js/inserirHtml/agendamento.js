@@ -45,7 +45,7 @@ export const mostreProfissionaisDisponiveis = async (especializacaoSelected) => 
         if (especializacao === especializacaoSelected) {
             return `
                 <div class="itemProfissional">
-                    <img src="../public/main-page/background-hero.jpg" alt="">
+                    <img src="../main-page/background-hero.jpg" alt="">
                     <div class="content">
                         <div class="up">
                             <h3>${nome}</h3>

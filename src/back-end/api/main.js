@@ -11,7 +11,7 @@ export const app = express();
 
 app.use(cors());
 app.use(express.json());
-app.use("pages", rotasProtegidas)
+app.use(rotasProtegidas)
 app.use("/auth", autenticacaoRota)
 app.use(lembreteRotas);
 app.use(medicoRotas);

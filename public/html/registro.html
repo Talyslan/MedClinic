@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    
+    <!-- CSS Links - Base -->
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <!-- CSS Links - Registro -->
+    <link rel="stylesheet" href="../css/tela-login-registro/geral-login-registro.css">
+    <link rel="stylesheet" href="../css/tela-login-registro/lado-design.css">
+    <link rel="stylesheet" href="../css/tela-login-registro/form/form-inpunts.css">
+    <link rel="stylesheet" href="../css/tela-login-registro/form/form.css">
+    <link rel="stylesheet" href="../css/tela-login-registro/lado-form.css">
+    <!-- CSS Links - Qual User e Finalizar Conta Med -->
+    <link rel="stylesheet" href="../css/tela-login-registro/qual-user/qual-user.css">
+    <link rel="stylesheet" href="../css/tela-login-registro/finalizar-conta-med/finalizar-conta-med.css">
+
+    <!-- CSS Links - tela de carregamento -->
+    <link rel="stylesheet" href="../css/tela-carregamento.css">
+
+    <link rel="stylesheet" href="../css/tela-login-registro/media-query.css">
+
+    <!-- CSS Links - Library AOS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+    <title>MedClinic - Registro</title>
+</head>
+<body>
+    <div id="tela-carregamento" class="tela-carregamento">
+        <img src="../logos/logo-c-nome-baixo.svg" alt="">
+        <div class="down">
+            <div class="spinner"></div>
+            <p>Aguarde, o site está carregando...</p>
+        </div>
+    </div>
+
+    <main>
+        <div class="lado-form" id="lado-form">
+            <img src="../logos/logo-c-nome-baixo-colorida.svg" alt="Logo MedClinic">
+            
+            <form id="formPrimario">
+                <h1>crie sua conta</h1>
+
+                <div class="inputs">
+                    <label for="nome">
+                        <input autofocus type="text" class="inputsVerificar" name="nome" id="nome" required>
+                        <span class="spanActive">nome completo</span>
+                        <p class="erro"></p>
+                    </label>
+                    <label for="cpf">
+                        <input type="text" class="inputsVerificar" name="cpf" id="cpf" required>
+                        <span>cpf</span>
+                        <p class="erro"></p>
+                    </label>
+                    <label for="email">
+                        <input type="email" class="inputsVerificar" name="email" id="email" required>
+                        <span>email</span>
+                        <img src="../login-registro-page/form-icon/aroba.png" alt="Arroba do email">
+                        <p class="erro"></p>
+                    </label>
+                    <label for="senha">
+                        <input type="password" class="inputsVerificar" name="senha" id="senha" required>
+                        <span>senha</span>
+                        <img src="../login-registro-page/form-icon/cadeado-fechado.png" alt="Cadeado da Senha">
+                        <p class="erro"></p>
+                    </label>
+                    
+                    <label for="senha-confirmar">
+                        <input type="password" class="inputsVerificar" name="senha-confirmar" id="senha-confirmar" required>
+                        <span>confirmar senha</span>
+                        <img src="../login-registro-page/form-icon/cadeado-fechado.png" alt="Cadeado da Senha">
+                        <p class="erro"></p>
+                    </label>
+                    <label for="data-nascimento">
+                        <input type="date" class="inputsVerificar" name="data-nascimento" id="data-nascimento" required>
+                        <span></span>
+                        <p class="erro"></p>
+                    </label>
+                    <label for="telefone">
+                        <input type="tel" class="inputsVerificar" name="telefone" id="telefone" required>
+                        <span>telefone</span>
+                        <p class="erro"></p>
+                    </label>
+                </div>
+
+                <button type="submit">criar</button>
+            </form>
+
+            <p>
+                Já tem uma conta? <br>
+                <a href="./login.html">Entre com sua conta aqui.</a>
+            </p>
+        </div>
+
+        <div class="lado-design" id="lado-design">
+            <h1 data-aos="fade-up" data-aos-delay="100">Seja bem vindo ao nosso site!</h1>
+            <p data-aos="fade-up" data-aos-delay="100">Juntos pela sua saúde, sempre na MedClinic!</p>
+            <img src="../login-registro-page/medica-2.png" alt="Médica Ilustração" data-aos="fade-up" data-aos-delay="100">
+        </div>
+
+       <!-- Após ter clicado para entrar -->
+       <div class="qual-user" id="qual-user">
+           <span class="close" id="close">&#10005;</span>
+
+            <img src="../logos/logo-c-nome-baixo-colorida.svg" alt="">
+            <h2>Para finalizar sua conta, <br> Eu sou:</h2>
+
+            <div class="boxUsers">
+                <div class="userItem" id="userPac">
+                    <img src="../login-registro-page/paciente.png" alt="">
+                    <span>Paciente</span>
+                </div>
+                <div class="userItem" id="userMed">
+                    <img src="../login-registro-page/medico.png" alt="">
+                    <span>Médico</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="finalizar-conta-med" id="finalizar-conta-med">
+            <span class="close" id="close2">&#10005;</span>
+
+            <form id="formMed">
+                <h2>Para concluir sua conta Médica:</h2>
+    
+                <div class="inputs">
+                    <label for="especializacao">
+                        <select name="especializacao" id="especializacao" required>
+                            <option value="" selected>Escolha sua especialização</option>
+                        </select>  
+                        <p class="erro"> </p>  
+                    </label>
+    
+                    <label for="crm">
+                        <input type="text" class="inputsVerificarMed" name="crm" id="crm" required>
+                        <span>crm</span>
+                        <p class="erro"> </p>
+                    </label>
+                    
+                    <label for="senhaAdmin">
+                        <input type="password" class="inputsVerificarMed" name="senhaAdmin" id="senhaAdmin" required>
+                        <span>senhaAdmin</span>
+                        <img src="../login-registro-page/form-icon/cadeado-fechado.png" alt="Cadeado da senha">
+                        <p class="erro"> </p>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn" id="btnMed">Concluir</button>
+            </form>
+        </div>
+    </main>
+
+    <script src="../../src/front-end/front-js/tela-carregamento.js"></script>
+    <script src="../../src/front-end/front-js/login-registro/inputFocus.js"></script>
+    <script src="../../src/front-end/front-js/login-registro/inputVisibilidadeSenha.js"></script>
+    <script src="../../src/front-end/front-js/inserirHtml/form/especializacao.js" type="module"></script>
+    <!-- validações dos dados (inputs) -->
+    <script type="module" src="../../src/front-end/front-js/login-registro/validacao/registroValidacao.js"></script>
+    <!-- Script Links - Library AOS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>AOS.init();</script>
+    <!-- Inserção de dados em objeto -->
+    <script src="../../src/back-end/back-js/dataForms/registroDataForms.js" type="module"></script>
+</body>
+</html>

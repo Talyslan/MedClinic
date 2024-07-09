@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+
+    <!-- CSS Links - Base -->
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <!-- CSS Links - Header -->
+    <link rel="stylesheet" href="../css/header/header.css">
+
+    <!-- CSS Links - painel -->
+    <link rel="stylesheet" href="../css/tela-painel/tela-painel-geral.css">
+    <link rel="stylesheet" href="../css/tela-painel/tela-painel-med/painel-med.css">
+
+    <!-- CSS Links - tela de carregamento -->
+    <link rel="stylesheet" href="../css/tela-carregamento.css">
+
+    <title>MedClinic - Painel do Médico</title>
+</head>
+
+<body>
+    <div id="tela-carregamento" class="tela-carregamento">
+        <img src="../logos/logo-c-nome-baixo.svg" alt="">
+        <div class="down">
+            <div class="spinner"></div>
+            <p>Aguarde, o site está carregando...</p>
+        </div>
+    </div>
+
+    <!-- header logado -->
+    <header>
+        <a href="./index.html">
+            <img src="../logos/logo-c-nome-lado.svg" alt="Logo MedClinic">
+        </a>
+        <nav class="">
+            <div class="lado-esquerdo">
+                <ul>
+                    <li><a href="./index.html#hero" class="link">home</a></li>
+                    <li><a href="./index.html#planos" class="link">planos</a></li>
+                    <li><a href="./index.html#sobre-nos" class="link">sobre nós</a></li>
+                    <li><a href="./painel-pac-consultas.html" class="link">Meu painel</a></li>
+                </ul>
+            </div>
+
+            <div class="dropdown">
+                <img src="../agendamento/user-illustration.png" alt="">
+                <div class="dropdown-content">
+                    <a href="./painel-pac-consultas.html">Minhas consultas</a>
+                    <a href="./index.html">Sair</a>
+                </div>
+            </div>
+        </nav>
+        <span class="close-nav">&#10005;</span>
+        <span class="open-nav">&#9776;</span>
+    </header>
+
+
+    <main>
+        <div class="barra-lateral" id="barra-lateral">
+            <ul>
+                <a href="./painel-med-consultas.html" class="go-to"><li>CONSULTAS</li></a>
+                <li class="pag-ativa">NOTIFICAÇÕES</li>
+                <a href="./painel-med-disponib.html" class="go-to"><li>DISPONIBILIDADE</li></a>
+            </ul>
+        </div>
+
+        <div class="box-central">
+            <div class="bem-vindo">
+                <h2>Bem vindo de volta, Name!</h2>
+                <hr>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="../../src/front-end/front-js/tela-principal/nav.js"></script>
+    <script src="../../src/front-end/front-js/tela-carregamento.js"></script>
+    <script src="../../src/front-end/front-js/inserirHtml/form/especializacao.js" type="module"></script>
+</body>
+
+</html>

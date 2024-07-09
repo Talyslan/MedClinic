@@ -65,7 +65,7 @@ class ManipuladorForm {
     return {
       nome: "Dra. Maria Silva",
       especialidade: "Cardiologia",
-      imagem: "../public/main-page/background-hero.jpg",
+      imagem: "../main-page/background-hero.jpg",
       valorConsulta: "300,00",
       horasDisponiveis: ["10:00", "13:00", "15:00"],
     };
@@ -87,7 +87,7 @@ class ManipuladorForm {
   }
 
   cancelarClicked() {
-    window.location.href = "../index.html";
+    window.location.href = "./index.html";
   }
 
   confirmarClicked() {

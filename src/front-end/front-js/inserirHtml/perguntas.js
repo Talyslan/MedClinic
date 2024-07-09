@@ -2,7 +2,7 @@
 import { listaPerguntas } from "../data/DATAperguntas.js";
 
 // variaveis
-const path = "./public/main-page/icons/";
+const path = "../main-page/icons/";
 const icons = {
   plus: "plus.svg",
   minus: "minus.svg",

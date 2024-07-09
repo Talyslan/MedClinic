@@ -65,7 +65,7 @@ class SubmissaoInForm {
       }
 
       //vai para tela de login assim que registra
-      window.location.href = "../../../pages/login.html";
+      window.location.href = "./login.html";
     }
     catch (error) {
       console.error("Erro:", error);
@@ -110,7 +110,7 @@ class SubmissaoInForm {
         }
 
         // vai para o login 
-        window.location.href = '../../../pages/login.html';
+        window.location.href = './login.html';
       }
       catch (error) {
         console.error("Erro: ", error.stack);

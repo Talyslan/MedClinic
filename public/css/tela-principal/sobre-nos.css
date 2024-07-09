@@ -1,0 +1,43 @@
+.sobre-nos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 4em;
+    color: var(--branco);
+    margin-bottom: -13em;
+}
+
+.sobre-nos .content {
+    background: var(--verde-escuro);
+    background: linear-gradient(90deg, var(--verde-escuro) 0%, var(--verde) 100%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px ;
+}
+
+.sobre-nos .content img {
+    width: 40%;
+}
+
+.sobre-nos .content .text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 2em;
+    padding: 2em;
+}
+
+.sobre-nos .content .text h2 {
+    font-size: 2rem;
+}
+
+.sobre-nos .content .text p {
+    font-size: 1rem;
+    max-width: 40ch;
+}
+
+.sobre-nos .content .text .btn {
+    background: var(--verde);
+}
