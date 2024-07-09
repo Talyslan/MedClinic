@@ -75,8 +75,8 @@ export class tableDAO {
   }
 
   // em desenvolvimento
-  /*
-  async updateOneOnDB(id, novosDados) {
+
+  /* async updateOneOnDB(id, novosDados) {
     const camposAtualizacao = Object.keys(novosDados).map(chave => `${chave} = ?`).join(", ");
     const valoresAtualizacao = Object.values(novosDados);
 
@@ -99,6 +99,5 @@ export class tableDAO {
     }
   }
 
-  async deleteOneFromDB(id) {}
-  */
+  async deleteOneFromDB(id) {} */
 }

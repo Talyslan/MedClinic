@@ -48,9 +48,11 @@ export const adicionarMedico = async (req, res) => {
   const databaseMedClinic = new MedClinicDAO(conexao);
   const tableMedico = new MedicoDAO(conexao);
 
+  const dados = req.body
+
   try {
     await databaseMedClinic.useDatabase();
-    const idAdicionado = await tableMedico.insertInto(req.body);
+    const idAdicionado = await tableMedico.insertInto(dados);
     res.status(201).send({ id: idAdicionado });
   } 
   catch (err) {
