@@ -74,8 +74,6 @@ export class tableDAO {
     }
   }
 
-  // em desenvolvimento
-
   async updateOneOnDB(id, novosDados) {
     const camposAtualizacao = Object.keys(novosDados).map(chave => `${chave} = ?`).join(", ");
     const valoresAtualizacao = Object.values(novosDados);
@@ -97,5 +95,19 @@ export class tableDAO {
     }
   }
 
-  // async deleteOneFromDB(id) {}
+  async deleteOneFromDB(id) {
+    const sql_delete = `
+    DELETE FROM ${this.constructor.sql_nomeTabela}
+    WHERE id = ${id}`;
+
+    try { 
+      const result = await this._conexao.execute(sql_delete, {id});
+      console.log(`${this.constructor.sql_nomeTabela} com ID ${id} deletado com sucesso!`);
+      return result;
+    }
+    catch (err) { 
+      console.error(`Erro ao deletar item com ID ${id} da tabela ${this.constructor.sql_nomeTabela} | ${err.stack}`);
+      throw err;
+    }
+  }
 }

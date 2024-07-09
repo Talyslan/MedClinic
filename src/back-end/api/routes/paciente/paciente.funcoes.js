@@ -2,6 +2,7 @@
 import { FabricaConexoes } from "../../../banco-de-dados/FabricaConexoes.js";
 import { MedClinicDAO } from "../../../banco-de-dados/DAO/databaseMedClinicDAO.js";
 import { PacienteDAO } from "../../../banco-de-dados/DAO/pacienteDAO.js";
+import { PessoaDAO } from "../../../banco-de-dados/DAO/pessoaDAO.js";
 
 const fabricaConexoes = new FabricaConexoes();
 
@@ -67,14 +68,14 @@ export const adicionarPaciente = async (req, res) => {
 export const atualizarPaciente = async (req, res) => {
   const conexao = await fabricaConexoes.open();
   const databaseMedClinic = new MedClinicDAO(conexao);
-  const tablePaciente = new PacienteDAO(conexao);
+  const tablePessoa = new PessoaDAO(conexao);
 
   const { id } = req.params;
   const novosDados = req.body;
 
   try {
     await databaseMedClinic.useDatabase();
-    const resultado = await tablePaciente.updateOneOnDB(id, novosDados);
+    const resultado = await tablePessoa.updateOneOnDB(id, novosDados);
 
     if (resultado) {
       res.status(200).send("Paciente atualizado com sucesso!");

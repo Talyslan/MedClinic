@@ -12,6 +12,7 @@ export class FabricaConexoes {
       user: process.env.DB_USER,
       password: process.env.DB_PASS,
       database: "",
+      namedPlaceholders: true
     };
     this._conexao = undefined;
   }

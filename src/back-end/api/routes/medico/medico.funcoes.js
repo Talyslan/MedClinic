@@ -1,6 +1,7 @@
 import { FabricaConexoes } from "../../../banco-de-dados/FabricaConexoes.js";
 import { MedClinicDAO } from "../../../banco-de-dados/DAO/databaseMedClinicDAO.js";
 import { MedicoDAO } from "../../../banco-de-dados/DAO/medicoDAO.js";
+import { PessoaDAO } from "../../../banco-de-dados/DAO/pessoaDAO.js";
 
 const fabricaConexoes = new FabricaConexoes();
 
@@ -67,17 +68,30 @@ export const atualizarMedico = async (req, res) => {
   const conexao = await fabricaConexoes.open();
   const databaseMedClinic = new MedClinicDAO(conexao);
   const tableMedico = new MedicoDAO(conexao);
+  const tablePessoa = new PessoaDAO(conexao);
 
   const { id } = req.params;
-  const novosDados = req.body;
+  const {especializacao, crm, valorConsulta, ...pessoaDados} = req.body;
+
+  const medicoDados = {especializacao, crm, valorConsulta}
+
+  console.log(medicoDados)
+  console.log(pessoaDados)
 
   try {
     await databaseMedClinic.useDatabase();
-    const resultado = await tableMedico.updateOneOnDB(id, novosDados);
+    const resultado_pessoa = await tablePessoa.updateOneOnDB(id, pessoaDados);
+    const resultado_med = await tableMedico.updateOneOnDB(id, medicoDados);
 
-    if (resultado) {
+    if (resultado_pessoa && resultado_med) {
       res.status(200).send("Médico atualizado com sucesso!");
     } 
+    else if (resultado_pessoa){
+      res.status(500).send("Dados pessoais do médico funcionando! Dados próprios... não.")
+    }
+    else if (resultado_med) { 
+      res.status(500).send("Dados do médico funcionando! Dados pessoais... nem tanto.")
+    }
     else {
       res.status(404).send("Médico não encontrado!");
     }

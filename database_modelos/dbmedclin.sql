@@ -13,7 +13,7 @@ CREATE TABLE pessoa (
 
 CREATE TABLE paciente (
 	id INT NOT NULL PRIMARY KEY,
-    FOREIGN KEY (id) REFERENCES pessoa(id)
+    FOREIGN KEY (id) REFERENCES pessoa(id) ON DELETE CASCADE
 );
 
 CREATE TABLE medico (
@@ -21,14 +21,14 @@ CREATE TABLE medico (
     especializacao VARCHAR(255) NOT NULL,
     crm VARCHAR(255) NOT NULL,
     valorConsulta INT NOT NULL,
-	FOREIGN KEY (id) REFERENCES pessoa(id)
+	FOREIGN KEY (id) REFERENCES pessoa(id) ON DELETE CASCADE
 );
 
 CREATE TABLE telefone (
     id INT NOT NULL,
     telefone VARCHAR(20) NOT NULL,
     PRIMARY KEY (id, telefone),
-    FOREIGN KEY (id) REFERENCES pessoa(id)
+    FOREIGN KEY (id) REFERENCES pessoa(id) ON DELETE CASCADE
 );
 
 CREATE TABLE disponibilidade (
@@ -36,7 +36,7 @@ CREATE TABLE disponibilidade (
     id_medico INT,
     hora_inicio TIME NOT NULL,
     status ENUM('disponível', 'indisponível') NOT NULL,
-    FOREIGN KEY (id_medico) REFERENCES medico(id_medico),
+    FOREIGN KEY (id_medico) REFERENCES medico(id_medico) ON DELETE CASCADE,
     UNIQUE (id_medico, hora_inicio)
 );
 
@@ -47,8 +47,8 @@ CREATE TABLE agendamento (
     hora TIME NOT NULL,
     id_medico INT NOT NULL,
     id_paciente INT NOT NULL,
-    FOREIGN KEY (id_medico) REFERENCES medico(id),
-    FOREIGN KEY (id_paciente) REFERENCES paciente(id)
+    FOREIGN KEY (id_medico) REFERENCES medico(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_paciente) REFERENCES paciente(id) ON DELETE CASCADE
 );
 
 CREATE TABLE pagamento (
@@ -61,8 +61,8 @@ CREATE TABLE pagamento (
     banco VARCHAR(20) NOT NULL,
     id_agendamento INT NOT NULL,
     id_paciente INT NOT NULL,
-    FOREIGN KEY (id_agendamento) REFERENCES agendamento(id),
-    FOREIGN KEY (id_paciente) REFERENCES paciente(id)
+    FOREIGN KEY (id_agendamento) REFERENCES agendamento(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_paciente) REFERENCES paciente(id) ON DELETE CASCADE
 );
 
 CREATE TABLE lembrete (
@@ -71,7 +71,7 @@ CREATE TABLE lembrete (
     titulo VARCHAR(100),
     mensagem VARCHAR(255),
     id_paciente INT,
-    FOREIGN KEY (id_paciente) REFERENCES paciente(id)
+    FOREIGN KEY (id_paciente) REFERENCES paciente(id) ON DELETE CASCADE
 );
 
 INSERT INTO pessoa (nome, senha, data_nasc, cpf, email) VALUES
