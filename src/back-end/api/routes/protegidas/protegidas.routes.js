@@ -2,13 +2,13 @@ import express from "express";
 import { fileURLToPath } from "url";
 import path from "path";
 
-// Get the directory name of the current module file
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export const rotasProtegidas = express.Router();
+export const publicPath = path.join(__dirname, '..', '..', '..', '..', '..', 'public');
+// export const backendPath = path.join(__dirname, '..', '..', '..', '..', '..', 'src');
 
 rotasProtegidas.get('/registro', (req, res) => {
-    // Construct the path to registro.html using __dirname
-    const filePath = path.join(__dirname, '..', '..', '..', '..', '..', 'pages', 'registro.html');
+    const filePath = path.join(__dirname, '..', '..', '..', '..', '..', 'public', 'html', 'registro.html');
     res.sendFile(filePath);
 });
