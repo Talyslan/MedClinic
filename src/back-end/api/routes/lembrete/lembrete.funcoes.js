@@ -21,9 +21,28 @@ export const getAllLembretesFromPac = async (req, res) => {
     }
     
     await fabricaConexoes.end();
-  };
+};
+
+export const getAllLembretesFromMed = async (req, res) => {
+    const conexao = await fabricaConexoes.open();
+    const databaseMedClinic = new MedClinicDAO(conexao);
+    const tableLembrete = new LembreteDAO(conexao);
+    
+    const { idMed } = req.params;
   
-  export const getAllLembretes = async (req, res) => {
+    try {
+      await databaseMedClinic.useDatabase();
+      const result = await tableLembrete.getAllLembretesFromMedDAOOnDB(idMed)
+      res.status(201).send(result);
+    } 
+    catch (err) {
+      res.status(500).send("Erro ao acessar os Lembretes pelo médico!");
+    }
+    
+    await fabricaConexoes.end();
+};
+  
+export const getAllLembretes = async (req, res) => {
   const conexao = await fabricaConexoes.open();
   const databaseMedClinic = new MedClinicDAO(conexao);
   const tableLembrete = new LembreteDAO(conexao);

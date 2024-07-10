@@ -16,7 +16,7 @@ async function fetchLembretes(id) {
 
 
 // variaveis
-const path = "../public/main-page/icons/";
+const path = "../main-page/icons/";
 const icons = { plus: "plus.svg", minus: "minus.svg" };
 const { plus, minus } = icons;
 
@@ -24,16 +24,16 @@ const { plus, minus } = icons;
 const insertPergunta = ({ titulo, data_envio, mensagem}) => {
   return `
     <div class="perguntaItem">
-        <label for="notificacao" class="pergunta">
+        <div class="pergunta">
             <div>
                 <input type="checkbox" name="notificacao" id="notificacao">
                 <span class="title">${titulo}</span>
             </div>
-            <div>
+            <div class="abrir">
                 <span>${data_envio}</span>
                 <img src="${path + plus}" alt=""></img>
             </div>
-        </label>
+        </div>
         <p class="resposta">${mensagem}</p>
         <hr>
     </div>

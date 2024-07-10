@@ -11,7 +11,7 @@ h1 {
     text-transform: uppercase;
 }
 
-main{
+main {
     display: flex;
     flex-direction: row;
 }
@@ -19,8 +19,7 @@ main{
 .barra-lateral {
     padding-top: 96px;
     background-color: var(--verde);
-    /* height: 89.49vh; */
-    height: 100vh;
+    min-height: 100vh;
     width: 20vw;
     display: flex;
     justify-content: center;

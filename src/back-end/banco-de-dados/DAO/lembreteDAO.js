@@ -9,7 +9,9 @@ export class LembreteDAO extends tableDAO {
     titulo VARCHAR(100),
     mensagem VARCHAR(255),
     id_paciente INT,
-    FOREIGN KEY (id_paciente) REFERENCES paciente(id)`;
+    id_medico INT,
+    FOREIGN KEY (id_paciente) REFERENCES paciente(id),
+    FOREIGN KEY (id_medico) REFERENCES medico(id)`;
 
   // variaveis sql para consultas
   static sql_SelectAll = `SELECT * FROM lembrete;`;
@@ -23,6 +25,11 @@ export class LembreteDAO extends tableDAO {
     SELECT data_envio, titulo, mensagem
     FROM lembrete
     WHERE lembrete.id_paciente = ?;`;
+  
+    static sql_SelectOneMed = `
+    SELECT data_envio, titulo, mensagem, id_paciente
+    FROM lembrete
+    WHERE lembrete.id_medico = ?;`;
 
   constructor(conexaoExistente) {
     super(conexaoExistente);
@@ -61,7 +68,22 @@ export class LembreteDAO extends tableDAO {
     } catch (err) {
       console.error("Erro ao procurar lembrete no banco! | ", err.stack)
     }
+  }
 
+  async getAllLembretesFromMedDAOOnDB(idMed) {
+    try {
+      const [rows] = await this._conexao.execute(LembreteDAO.sql_SelectOneMed, [idMed]);
+
+      console.log(rows)
+      if (rows.length > 0) {
+        return rows;
+      }
+      else {
+        throw new Error(`Nenhum id encontrado para o lembrete: ${idMed}`);
+      }
+    } catch (err) {
+      console.error("Erro ao procurar lembrete no banco! | ", err.stack)
+    }
   }
 
   async getAllLembretesOnDB() {

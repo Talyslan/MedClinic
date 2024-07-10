@@ -186,72 +186,84 @@ export const lembretes = [
     titulo: "Consulta amanhã",
     mensagem: "Lembrete: você tem uma consulta agendada para amanhã às 09:00.",
     id_paciente: 1,
+    id_medico: 5
   },
   {
     data_envio: "2024-07-04 12:00:00",
     titulo: "Consulta concluída",
     mensagem: "Sua consulta foi concluída.",
     id_paciente: 2,
+    id_medico: 6
   },
   {
     data_envio: "2024-07-10 12:00:00",
     titulo: "Consulta amanhã",
     mensagem: "Lembrete: você tem uma consulta agendada para amanhã às 08:00.",
     id_paciente: 3,
+    id_medico: 5
   },
   {
     data_envio: "2024-07-05 12:00:00",
     titulo: "Consulta concluída",
     mensagem: "Sua consulta foi concluída.",
     id_paciente: 4,
+    id_medico: 6,
   },
   {
     data_envio: "2024-07-08 12:00:00",
     titulo: "Consulta confirmada",
     mensagem: "Sua consulta está confirmada para o dia 10 de julho às 10:00.",
     id_paciente: 1,
+    id_medico: 5
   },
   {
     data_envio: "2024-07-06 12:00:00",
     titulo: "Exame de sangue",
     mensagem: "Lembrete: você tem um exame de sangue agendado para amanhã às 07:30.",
     id_paciente: 2,
+    id_medico: 7
   },
   {
     data_envio: "2024-07-11 12:00:00",
     titulo: "Retorno de consulta",
     mensagem: "Lembrete: você tem um retorno de consulta agendado para amanhã às 11:00.",
     id_paciente: 3,
+    id_medico: 8
   },
   {
     data_envio: "2024-07-07 12:00:00",
     titulo: "Consulta marcada",
     mensagem: "Sua consulta foi marcada para o dia 12 de julho às 14:00.",
     id_paciente: 4,
+    id_medico: 5
   },
   {
     data_envio: "2024-07-03 12:00:00",
     titulo: "Lembrete de consulta",
     mensagem: "Lembrete: você tem uma consulta agendada para o dia 9 de julho às 09:00.",
     id_paciente: 1,
+    id_medico: 7
   },
   {
     data_envio: "2024-07-05 12:00:00",
     titulo: "Exame de rotina",
     mensagem: "Lembrete: seu exame de rotina está agendado para amanhã às 08:30.",
     id_paciente: 2,
+    id_medico: 8
   },
   {
     data_envio: "2024-07-12 12:00:00",
     titulo: "Consulta de retorno",
     mensagem: "Lembrete: você tem uma consulta de retorno agendada para amanhã às 15:00.",
     id_paciente: 3,
+    id_medico: 6
   },
   {
     data_envio: "2024-07-06 12:00:00",
     titulo: "Procedimento marcado",
     mensagem: "Lembrete: seu procedimento está marcado para o dia 10 de julho às 09:00.",
     id_paciente: 4,
-  },
+    id_medico: 5
+  }
 ];
 

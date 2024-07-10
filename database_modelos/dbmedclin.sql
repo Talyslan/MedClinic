@@ -71,7 +71,9 @@ CREATE TABLE lembrete (
     titulo VARCHAR(100),
     mensagem VARCHAR(255),
     id_paciente INT,
+    id_medico INT,
     FOREIGN KEY (id_paciente) REFERENCES paciente(id) ON DELETE CASCADE
+    FOREIGN KEY (id_medico) REFERENCES medico(id) ON DELETE CASCADE
 );
 
 INSERT INTO pessoa (nome, senha, data_nasc, cpf, email) VALUES
@@ -129,10 +131,10 @@ INSERT INTO pagamento (status, forma, data_hora_realizado, data_vencimento, valo
 ('pendente', 'dinheiro', '2024-07-11 08:30:00', '2024-07-21', 250.00, 'Banco Bradesco', 5, 5);
 
 INSERT INTO lembrete (data_envio, titulo, mensagem, id_paciente) VALUES
-('2024-07-09 12:00:00', 'Consulta amanhã', 'Lembrete: você tem uma consulta agendada para amanhã às 09:00.', 1),
-('2024-07-04 12:00:00', 'Consulta concluída', 'Sua consulta foi concluída.', 2),
-('2024-07-10 12:00:00', 'Consulta amanhã', 'Lembrete: você tem uma consulta agendada para amanhã às 08:00.', 5),
-('2024-07-05 12:00:00', 'Consulta concluída', 'Sua consulta foi concluída.', 6);
+('2024-07-09 12:00:00', 'Consulta amanhã', 'Lembrete: você tem uma consulta agendada para amanhã às 09:00.', 1, 5),
+('2024-07-04 12:00:00', 'Consulta concluída', 'Sua consulta foi concluída.', 2, 6),
+('2024-07-10 12:00:00', 'Consulta amanhã', 'Lembrete: você tem uma consulta agendada para amanhã às 08:00.', 5, 7),
+('2024-07-05 12:00:00', 'Consulta concluída', 'Sua consulta foi concluída.', 6, 5);
 
 -- Selecionando dados da tabela pessoa
 SELECT * FROM pessoa;
