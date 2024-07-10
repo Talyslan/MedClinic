@@ -42,7 +42,7 @@ CREATE TABLE disponibilidade (
 
 CREATE TABLE agendamento (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    status ENUM('concluido', 'agendado', 'cancelado') NOT NULL,
+    status ENUM('concluido', 'agendado', 'cancelado') NOT NULL DEFAULT 'agendado',
     dataAgendamento DATE NOT NULL,
     hora TIME NOT NULL,
     id_medico INT NOT NULL,

@@ -1,5 +1,5 @@
-import { Paciente } from "../classes/paciente.js";
-import { Medico } from "../classes/medico.js";
+import { Paciente } from "../src/back-end/back-js/classes/paciente.js";
+import { Medico } from "../src/back-end/back-js/classes/medico.js";
 
 class SubmissaoInForm {
   constructor() {

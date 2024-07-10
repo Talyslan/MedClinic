@@ -15,7 +15,7 @@ export const getAllAgendamentos = async (req, res) => {
       res.status(201).send(result);
     } 
     catch (err) {
-      res.status(500).send("Erro ao acessar os Agendamentos pelo paciente!");
+      res.status(500).send("Erro ao acessar os Agendamentos!");
     }
     
     await fabricaConexoes.end();
@@ -49,12 +49,32 @@ export const getMedicoOfAgendamento = async (req, res) => {
 
   try {
     await databaseMedClinic.useDatabase();
-    const result = await tableAgendamento.getOneOnDB(idPac)
+    const result = await tableAgendamento.getMedicoOfAgendamentoOnDB(idPac)
     res.status(201).send(result);
   } 
   catch (err) {
     res.status(500).send("Erro ao acessar os Agendamentos!");
   }
   
+  await fabricaConexoes.end();
+};
+
+// adiciona um agendamento
+export const adicionarAgendamento = async (req, res) => {
+  const conexao = await fabricaConexoes.open();
+  const databaseMedClinic = new MedClinicDAO(conexao);
+  const tableAgendamento = new AgendamentoDAO(conexao);
+
+  const dados = req.body
+
+  try {
+    await databaseMedClinic.useDatabase();
+    await tableAgendamento.insertInto(dados);
+    res.status(201).send({ message: "Agendamento inserido!" });
+  } 
+  catch (err) {
+    res.status(500).send("Erro ao adicionar médico!");
+  }
+
   await fabricaConexoes.end();
 };

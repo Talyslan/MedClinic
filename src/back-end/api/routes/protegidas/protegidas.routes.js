@@ -8,7 +8,7 @@ export const rotasProtegidas = express.Router();
 export const publicPath = path.join(__dirname, '..', '..', '..', '..', '..', 'public');
 // export const backendPath = path.join(__dirname, '..', '..', '..', '..', '..', 'src');
 
-rotasProtegidas.get('/registro', (req, res) => {
+rotasProtegidas.get('/registro',(req, res) => {
     const filePath = path.join(__dirname, '..', '..', '..', '..', '..', 'public', 'html', 'registro.html');
     res.sendFile(filePath);
 });
