@@ -27,24 +27,19 @@
 - 
 
 ### 🔗 Referências:
-- <a href="https://www.w3schools.com/js/js_function_bind.asp" target="_blank">
-Bind - Nodejs - Utilizado para capturar métodos emprestados na classe de captura de dados do agendamento.
+- <a href="https://www.w3schools.com/js/js_function_bind.asp" target="_blank"> Bind - Nodejs - Utilizado para capturar métodos emprestados na classe de captura de dados do agendamento.
 </a>
 
-- <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/load_event" target="_blank">
-Load Event - DOM - Evento utilizado para carregamento da tela no JavaScript.
+- <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/load_event" target="_blank">Load Event - DOM - Evento utilizado para carregamento da tela no JavaScript.
 </a>
 
-- <a href="https://javascript.info/event-delegation" target="_blank">
-Delegação de eventos - DOM - Utilizado para delegar eventos com um único manipulador ancestral comum.(utilizado em diversos arquivos js).
+- <a href="https://javascript.info/event-delegation" target="_blank">Delegação de eventos - DOM - Utilizado para delegar eventos com um único manipulador ancestral comum.(utilizado em diversos arquivos js).
 </a>
 
-- <a href="" target="_blank">
-Arquivos sobre DAO e integração com Banco de Dados com MySql2 - POO Classroom.
+- <a href="" target="_blank">Arquivos sobre DAO e integração com Banco de Dados com MySql2 - POO Classroom.
 </a>
 
-- <a href="https://developer.mozilla.org/en-US/docs/Web/API/FormData" target="_blank">
-FormData() - Classe JavaScript utilizada para tratamento de formulários.
+- <a href="https://developer.mozilla.org/en-US/docs/Web/API/FormData" target="_blank">FormData() - Classe JavaScript utilizada para tratamento de formulários.
 </a>
 
 ## 👨‍🎓 Integrantes:
