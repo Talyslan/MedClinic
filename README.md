@@ -56,11 +56,11 @@ npm run dev
 
 ### Banco de Dados
 - Orientadora: Wládia Bessa.
-
-Informações sobre o que foi usado de Banco de Dados no projeto aqui:
+s no projeto aqui:
 <a href="./readmes/BCDD.md">Readme - Programação Orientada a Objetos</a>
 
 ### Programação Orientada a Objetos
+Informações sobre o que foi usado de Banco de Dado
 - Orientador: Ricardo Rubens.
 
 Informações sobre o que foi usado de POO no projeto aqui:
