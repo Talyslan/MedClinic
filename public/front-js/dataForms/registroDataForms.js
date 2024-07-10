@@ -1,5 +1,5 @@
-import { Paciente } from "../src/back-end/back-js/classes/paciente.js";
-import { Medico } from "../src/back-end/back-js/classes/medico.js";
+import { Paciente } from "./paciente.js";
+import { Medico } from "./medico.js";
 
 class SubmissaoInForm {
   constructor() {
@@ -65,7 +65,7 @@ class SubmissaoInForm {
       }
 
       //vai para tela de login assim que registra
-      window.location.href = "./login.html";
+      window.location.href = '/login';
     }
     catch (error) {
       console.error("Erro:", error);

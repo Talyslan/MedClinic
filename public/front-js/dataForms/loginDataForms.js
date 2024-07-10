@@ -21,7 +21,7 @@ class SubmissaoInFormLogin {
             const formDataObject = this.submitLogin(event);
             // console.log(formDataObject);
 
-            const urlLogin = `http://localhost:3000/auth/login`;
+            const urlLogin = `http://localhost:3000/login`;
 
             const response = await fetch(urlLogin, {
                 method: "POST",

@@ -1,6 +1,6 @@
 .hero {
   background: var(--branco)
-    url("../../../../public/main-page/background-hero.jpg") no-repeat scroll
+    url("../../main-page/background-hero.jpg") no-repeat scroll
     center/cover;
   height: 100vh;
   display: flex;
