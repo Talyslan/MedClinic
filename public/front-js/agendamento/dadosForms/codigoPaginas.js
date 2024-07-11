@@ -41,19 +41,17 @@ export const sections = {
         </div>`,
 
   selecione_datahora: function ({
-    imagem,
     nome,
-    especialidade,
+    especializacao,
     valorConsulta,
-    horasDisponiveis,
   }) {
-    const horariosButtons = horasDisponiveis
-      .map((hora) => `<button class="horaItem" disabled>${hora}</button>`)
-      .join(" ");
+    // const horariosButtons = horasDisponiveis
+    //   .map((hora) => `<button class="horaItem" disabled>${hora}</button>`)
+    //   .join(" ");
 
-    const horariosOptions = horasDisponiveis
-      .map((hora) => `<option value="${hora}">${hora}</option>`)
-      .join(" ");
+    // const horariosOptions = horasDisponiveis
+    //   .map((hora) => `<option value="${hora}">${hora}</option>`)
+    //   .join(" ");
 
     return `
       <div class="wrapper" id="selecione-datahora"> 
@@ -79,7 +77,9 @@ export const sections = {
                             <span>Selecione a hora disponível</span>
                             <select name="hora" id="hora" class="inputVerify" disabled >
                                 <option value="" selected>Selecione a hora</option>
-                                ${horariosOptions}
+                                <option value="13:00">13:00</option>
+                                <option value="15:00">15:00</option>
+                                <option value="18:00">18:00</option>
                             </select>
                         </label>
                         <label for="pagamento">
@@ -98,11 +98,11 @@ export const sections = {
 
             <section class="lado-direito">
                 <div class="itemProfissional active" id="0">
-                    <img src="${imagem}" alt="">
+                    <img src="../main-page/background-hero.jpg" alt="">
                     <div class="content">
                         <div class="up">
                             <h3>${nome}</h3>
-                            <span>${especialidade}</span>
+                            <span>${especializacao}</span>
                         </div>
                         <div class="down">
                             <span>Valor da consulta:</span>
@@ -113,7 +113,11 @@ export const sections = {
 
                 <div class="horarios">
                     <h3>Horários disponíveis</h3>
-                    <div class="boxHorarios" id="boxHorarios">${horariosButtons}</div>
+                    <div class="boxHorarios" id="boxHorarios">
+                    <button class="horaItem" disabled>13:00</button>
+                    <button class="horaItem" disabled>15:00</button>
+                    <button class="horaItem" disabled>18:00</button>
+                    </div>
                 </div>
             </section>
         </div>
@@ -165,7 +169,7 @@ export const sections = {
             </section>
 
             <section class="lado-direito">  
-                <img src="../public/agendamento/doctor.svg" alt="img doutor"/>   
+                <img src="..//agendamento/doctor.svg" alt="img doutor"/>   
             </section>
         </div>
       `;

@@ -39,12 +39,12 @@ export const mostreProfissionaisDisponiveis = async (especializacaoSelected) => 
     }
 
     // Handler para inserir profissionais no box e no select
-    const inserirProfissionais = ({ nome, especializacao, valorConsulta }) => {
+    const inserirProfissionais = ({ id, nome, especializacao, valorConsulta }) => {
         console.log(especializacao, especializacaoSelected)
 
         if (especializacao === especializacaoSelected) {
             return `
-                <div class="itemProfissional">
+                <div class="itemProfissional" id="${id}">
                     <img src="../main-page/background-hero.jpg" alt="">
                     <div class="content">
                         <div class="up">

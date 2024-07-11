@@ -65,8 +65,8 @@ export const adicionarAgendamento = async (req, res) => {
   const databaseMedClinic = new MedClinicDAO(conexao);
   const tableAgendamento = new AgendamentoDAO(conexao);
 
-  const dados = req.body
-
+  const { data, hora, id_medico, id_paciente }= req.body
+  const dados = {dataAgendamento: data, hora, id_medico, id_paciente}
   try {
     await databaseMedClinic.useDatabase();
     await tableAgendamento.insertInto(dados);

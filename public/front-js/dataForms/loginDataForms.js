@@ -21,7 +21,7 @@ class SubmissaoInFormLogin {
             const formDataObject = this.submitLogin(event);
             // console.log(formDataObject);
 
-            const urlLogin = `http://localhost:3000/login`;
+            const urlLogin = `http://localhost:3000/auth/login`;
 
             const response = await fetch(urlLogin, {
                 method: "POST",
@@ -41,7 +41,7 @@ class SubmissaoInFormLogin {
             console.log(token)
             sessionStorage.setItem('token', token);
 
-            window.location.href = "./logado.html";
+            window.location.href = "/home-logado";
         }
         catch (error) {
             console.error("Erro ao buscar senha: ", error);
