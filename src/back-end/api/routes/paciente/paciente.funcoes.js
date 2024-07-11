@@ -51,49 +51,70 @@ export const getUmPaciente = async (req, res) => {
   try {
     // executa um 'USE DATABASE' no SQL
     await databaseMedClinic.useDatabase();
+    // executa um 'SELECT *' com cláusula WHERE id = ${id}
     const result = await tablePaciente.getOneOnDB(id)
-    res.status(201).send(result);
+    // caso a consulta tenha êxito, retorna um código 200 - SUCESSO
+    res.status(200).send(result);
   } 
   catch (err) {
+    // caso algum erro seja encontrado, retorna um INTERNAL SERVER ERROR
     res.status(500).send("Erro ao acessar um paciente!");
   }
 
+  // depois de fazer as modificações no banco, fecha a conexão
   await fabricaConexoes.end();
 };
 
-// Adiciona um paciente
+// adiciona um paciente no banco de dados
 export const adicionarPaciente = async (req, res) => {
+  // abre uma conexão com o banco de dados
   const conexao = await fabricaConexoes.open();
+  // instancia uma conexão com a base de dados da clínica
   const databaseMedClinic = new MedClinicDAO(conexao);
+  // instancia uma conexão com a tabela paciente
   const tablePaciente = new PacienteDAO(conexao);
 
+  // recebe e armazena os dados do novo paciente a ser inserido - BODY da requisição
   const dados = req.body;
 
   try {
+    // executa um 'USE DATABASE' no SQL
     await databaseMedClinic.useDatabase();
+    // insere o paciente na tabela e armazena o ID do novo paciente criado
     const idAdicionado = await tablePaciente.insertInto(dados);
+    // caso sucesso, retorna um código 201 - CREATED com o ID do novo paciente
     res.status(201).send({ id: idAdicionado });
   } 
   catch (err) {
+    // caso algum erro seja capturado, retorna um INTERNAL SERVER ERROR
     res.status(500).send("Erro ao adicionar paciente!");
   }
 
+  // depois da utilização, fecha a conexão aberta com o banco
   await fabricaConexoes.end();
 };  
 
-// atualizar um paciente
+// atualizar um paciente no banco de dados
 export const atualizarPaciente = async (req, res) => {
+  // abre uma conexão com o banco de dados
   const conexao = await fabricaConexoes.open();
+  // instancia uma conexão com a base de dados da clínica
   const databaseMedClinic = new MedClinicDAO(conexao);
+  // abre uma conexão com a tabela pessoa
   const tablePessoa = new PessoaDAO(conexao);
 
+  // armazena o ID do paciente a ser atualizado, fornecido nos parâmetros da requisição
   const { id } = req.params;
+  // armazena os novos dados do paciente fornecidos no BODY da requisição
   const novosDados = req.body;
 
   try {
+    // executa um 'USE DATABASE' no SQL
     await databaseMedClinic.useDatabase();
+    // atualiza os dados do paciente selecionado pelo ID
     const resultado = await tablePessoa.updateOneOnDB(id, novosDados);
 
+    // 
     if (resultado) {
       res.status(200).send("Paciente atualizado com sucesso!");
     } 
