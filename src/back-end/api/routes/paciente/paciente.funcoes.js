@@ -114,22 +114,25 @@ export const atualizarPaciente = async (req, res) => {
     // atualiza os dados do paciente selecionado pelo ID
     const resultado = await tablePessoa.updateOneOnDB(id, novosDados);
 
-    // 
     if (resultado) {
+      // caso o PUT seja bem sucedido, retorna um status 200 - SUCESSO
       res.status(200).send("Paciente atualizado com sucesso!");
     } 
     else {
+      // caso o paciente não seja encontrado, retorna um status 404 - NOT FOUND 
       res.status(404).send("Paciente não encontrado!");
     }
   } 
   catch (err) {
+    // caso algum erro seja encontrado, retorna um INTERNAL SERVER ERROR
     res.status(500).send("Erro ao atualizar paciente!");
   }
 
+  // depois da atualização, fecha a conexão com o banco
   await fabricaConexoes.end();
 };
 
-// deletar um paciente
+// deleta um paciente do banco de dados
 export const deletarPaciente = async (req, res) => {
   const conexao = await fabricaConexoes.open();
   const databaseMedClinic = new MedClinicDAO(conexao);

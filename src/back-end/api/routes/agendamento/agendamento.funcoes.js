@@ -20,7 +20,7 @@ export const getAllAgendamentos = async (req, res) => {
     
     await fabricaConexoes.end();
   };
-  
+
 export const getAllAgendamentosById = async (req, res) => {
   const conexao = await fabricaConexoes.open();
   const databaseMedClinic = new MedClinicDAO(conexao);
