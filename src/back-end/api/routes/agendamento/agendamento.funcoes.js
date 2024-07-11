@@ -45,11 +45,11 @@ export const getMedicoOfAgendamento = async (req, res) => {
   const databaseMedClinic = new MedClinicDAO(conexao);
   const tableAgendamento = new AgendamentoDAO(conexao);
 
-  const { idPac } = req.params;
+  const { idPac, idMed } = req.params;
 
   try {
     await databaseMedClinic.useDatabase();
-    const result = await tableAgendamento.getMedicoOfAgendamentoOnDB(idPac)
+    const result = await tableAgendamento.getMedicoOfAgendamentoOnDB(idPac, idMed)
     res.status(201).send(result);
   } 
   catch (err) {

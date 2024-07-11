@@ -12,4 +12,4 @@ export const agendamentoRotas = express.Router();
 agendamentoRotas.post('/adicionarAgendamento', adicionarAgendamento);
 agendamentoRotas.get('/agendamentos', getAllAgendamentos);
 agendamentoRotas.get('/agendamentos/:idPac', getAllAgendamentosById);
-agendamentoRotas.get('/agendamentos/:idPac/medico', getMedicoOfAgendamento)
+agendamentoRotas.get('/agendamentos/:idPac/:idMed', getMedicoOfAgendamento)

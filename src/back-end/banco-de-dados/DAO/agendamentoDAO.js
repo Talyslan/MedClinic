@@ -20,7 +20,8 @@ export class AgendamentoDAO extends tableDAO {
 
   static sql_SelectOne = `
     SELECT id, status, DATE_FORMAT(dataAgendamento, '%Y-%m-%d') as formattedDate, hora, id_medico, id_paciente
-    FROM agendamento.id_paciente = ?;
+    FROM agendamento
+    WHERE agendamento.id_paciente = ?;
 `;
 
     static sql_SelectMedOfAgendamento = `
@@ -31,21 +32,22 @@ export class AgendamentoDAO extends tableDAO {
         agendamento as ag
     WHERE 
         ag.id_paciente = ?
-        and med.id = ag.id_medico
-        and med.id = pes.id`;
+        and med.id = ?
+        and med.id = pes.id
+         LIMIT 1`;
 
   constructor(conexaoExistente) {
     super(conexaoExistente);
   }
 
-  async getMedicoOfAgendamentoOnDB(idPac) {
+  async getMedicoOfAgendamentoOnDB(idPac, idMed) {
     try {
-      const [result] = await this._conexao.execute(this.constructor.sql_SelectMedOfAgendamento, [idPac]);
-      console.log(`Sucesso ao buscar medico do id ${idPac}!`);
-      return result;
+      const [result] = await this._conexao.execute(this.constructor.sql_SelectMedOfAgendamento, [idPac, idMed]);
+      console.log(`Sucesso ao buscar medico do id ${idPac} que tem id ${idMed}!`);
+      return result[0];
     } 
     catch (err) {
-      console.error(`Erro ao buscar medico do id ${idPac}! | ${err.stack}`);
+      console.error(`Erro ao buscar medico do id ${idPac} que tem id ${idMed}! | ${err.stack}`);
       throw err;
     }
   }
